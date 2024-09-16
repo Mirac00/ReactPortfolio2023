@@ -39,10 +39,10 @@ export default function AboutMe() {
       </div>
       {isOpen && (
         <div className="popup">
-          <button className="popup__close" onClick={handleClose}><FaTimes /></button>
           <img src={currentImg} alt="Fullscreen" className="popup__img" />
           <div className="popup__controls">
             <button onClick={nextImage}>Następne zdjęcie</button>
+            <button className="popup__close" onClick={handleClose}><FaTimes /></button>
           </div>
         </div>
       )}

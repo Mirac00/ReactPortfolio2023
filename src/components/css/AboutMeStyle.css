@@ -1,3 +1,4 @@
+
 .aboutme {
   padding: 50px;
   position: relative;
@@ -109,7 +110,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: end;
   z-index: 9999;
 }
 
@@ -119,6 +120,7 @@
     color: white;
     font-size: 2em;
     cursor: pointer;
+    margin-left: 1em;
 }
 
 .popup__img {
