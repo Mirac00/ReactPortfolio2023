@@ -1,12 +1,13 @@
 {
   "files": {
-    "main.css": "/ReactPortfolio2023/static/css/main.7926aa51.css",
-    "main.js": "/ReactPortfolio2023/static/js/main.24880591.js",
+    "main.css": "/ReactPortfolio2023/static/css/main.dc5bafd0.css",
+    "main.js": "/ReactPortfolio2023/static/js/main.af4108f1.js",
+    "static/media/adobe.png": "/ReactPortfolio2023/static/media/adobe.fdc0562c17f5aed7eae3.png",
     "static/media/profilowe.png": "/ReactPortfolio2023/static/media/profilowe.cfc73b003b1a1b7ac551.png",
     "static/media/222.png": "/ReactPortfolio2023/static/media/222.caf5ec80b2347816f2af.png",
-    "static/media/1port.png": "/ReactPortfolio2023/static/media/1port.33a8dda9301d2b62c2a4.png",
+    "static/media/1port.png": "/ReactPortfolio2023/static/media/1port.09aff98b13412d5973b4.png",
     "static/media/p222.png": "/ReactPortfolio2023/static/media/p222.9d6d5f2d7387292eb092.png",
-    "static/media/2port.png": "/ReactPortfolio2023/static/media/2port.84946fa95230a316ec17.png",
+    "static/media/2port.png": "/ReactPortfolio2023/static/media/2port.4c7b707521003561bb91.png",
     "static/media/s222.png": "/ReactPortfolio2023/static/media/s222.909b1cb7280b7f9ee003.png",
     "static/media/img1.png": "/ReactPortfolio2023/static/media/img1.49ce5a2757ba5b45b5ac.png",
     "static/media/111.png": "/ReactPortfolio2023/static/media/111.8c85290d60a01497c5b6.png",
@@ -24,11 +25,11 @@
     "static/media/slick.woff": "/ReactPortfolio2023/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/ReactPortfolio2023/index.html",
     "static/media/getFetch.cjs": "/ReactPortfolio2023/static/media/getFetch.c4cca45e22bc1b2c7d0d.cjs",
-    "main.7926aa51.css.map": "/ReactPortfolio2023/static/css/main.7926aa51.css.map",
-    "main.24880591.js.map": "/ReactPortfolio2023/static/js/main.24880591.js.map"
+    "main.dc5bafd0.css.map": "/ReactPortfolio2023/static/css/main.dc5bafd0.css.map",
+    "main.af4108f1.js.map": "/ReactPortfolio2023/static/js/main.af4108f1.js.map"
   },
   "entrypoints": [
-    "static/css/main.7926aa51.css",
-    "static/js/main.24880591.js"
+    "static/css/main.dc5bafd0.css",
+    "static/js/main.af4108f1.js"
   ]
 }
