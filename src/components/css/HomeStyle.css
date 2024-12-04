@@ -88,7 +88,7 @@
 }
 
 .AboutMeShort h2 {
-    color:#fff;text-align:center;font-size:3em;opacity:0;animation-name:fadeIn;animation-duration:.4s;animation-fill-mode:both;animation-delay:.4s;font-family:'Ysabeau Office',sans-serif;margin-top:.5em
+    color:#fff;text-align:center;font-size:2.5em;opacity:0;animation-name:fadeIn;animation-duration:.4s;animation-fill-mode:both;animation-delay:.4s;font-family:'Ysabeau Office',sans-serif;margin:0 5% 0 5%;margin-top:.5em
 }
 
 .AboutMeShort i {

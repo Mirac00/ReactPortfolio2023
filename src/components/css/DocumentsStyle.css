@@ -1,52 +1,101 @@
-.Documents{
-    position: relative; 
-    z-index: 2; 
+.Documents {
+    position: relative;
+    z-index: 2;
     margin: auto;
     margin-left: 5%;
     margin-right: 5%;
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
-}
-.Documents h1{
-    color: rgb(255, 255, 255);
+    align-items: center;
+  }
+  
+  .Documents h1 {
+    color: #fff;
     background: radial-gradient(circle, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
     box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
     padding: 2%;
-    display: table;
     border-radius: 20px;
-}
-.imageContainer {
-
-    flex-direction: row;
+    text-align: center;
+    font-size: 2em; /* Rozmiar nagłówka */
+  }
+  
+  .imageContainer {
+    display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 2em;
     width: 100%;
-    display: contents;
-}
-
-.imageContainer img {
-    width: 80%;
-    border-radius: 20px;
-}
-
-.imageContainer p {
-    width: 80%;
-    color: rgb(255, 255, 255);
+  }
+  
+  .imageContainer p {
+    width: 50%;
+    color: #fff;
     background: radial-gradient(circle, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
     box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
     padding: 2%;
     border-radius: 20px;
-    margin: 1em 0 1em;
-}
-
-@media screen and (max-width: 600px) {
+    font-size: 1.5em; /* Powiększony tekst dla desktop */
+  }
+  
+  .imageContainer img {
+    width: 25%;
+    margin: 0 15% 0 10%;
+    border-radius: 20px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  
+  .imageContainer img:hover {
+    transform: scale(1.05);
+  }
+  
+  .popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+  
+  .popup__close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 2em;
+    cursor: pointer;
+  }
+  
+  .popup__img {
+    max-width: 90%;
+    max-height: 90%;
+  }
+  
+  /* Mobile styles */
+  @media screen and (max-width: 600px) {
     .imageContainer {
-        flex-direction: column;
+      flex-direction: column;
+      align-items: center;
     }
-
-    .imageContainer img, .imageContainer p {
-        width: 100%;
+  
+    .imageContainer p {
+      width: 100%;
+      margin-bottom: 1em;
+      font-size: 1em; /* Rozmiar tekstu dla mobilnych */
     }
-}
+  
+    .imageContainer img {
+      width: 100%;
+      margin: 0;
+      margin-bottom: 1em;
+    }
+  }
+  
