@@ -12,6 +12,16 @@ function Dropdown({ closeMobileMenu }) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const handleServiceClick = (path) => {
+    // Store the section ID in session storage before navigation
+    const sectionId = path.split('#')[1];
+    if (sectionId) {
+      sessionStorage.setItem('scrollToSection', sectionId);
+    }
+    setClick(false);
+    closeMobileMenu();
+  };
+
   return (
     <>
       <ul
@@ -24,9 +34,13 @@ function Dropdown({ closeMobileMenu }) {
               className="dropdown-link"
               to={item.path}
               onClick={() => {
-                setClick(false);
-                closeMobileMenu();
-                scrollToTop();
+                if (item.path.includes('services#')) {
+                  handleServiceClick(item.path);
+                } else {
+                  setClick(false);
+                  closeMobileMenu();
+                  scrollToTop();
+                }
               }}
             >
               {item.title}

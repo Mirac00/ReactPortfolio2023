@@ -68,6 +68,11 @@
   opacity: 1;
 }
 
+.slick-prev:before,
+.slick-next:before{
+  font-size: 40px !important;
+}
+
 /* Responsywność */
 @media screen and (max-width: 960px) {
   .custom-arrow {

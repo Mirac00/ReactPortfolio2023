@@ -80,7 +80,7 @@
 }
 
 .nav-link:hover {
-  background-color: #1888ff;
+  background-color: #00aae3;
   border-radius: 4px;
   transition: all 0.2s ease-out;
 }

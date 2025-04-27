@@ -2,6 +2,7 @@ import React from 'react';
 import '../../App.css';
 import '../css/InterviewStyle.css';
 
+
 export default function Interview({ profileImage, scrollToAboutMe }) {
   return (
     <div className="interview-container">
@@ -14,13 +15,16 @@ export default function Interview({ profileImage, scrollToAboutMe }) {
       </div>
       <div className="interview-text-container">
         <p className="interview-text">
-          <h1>Sławomir Zając</h1><h2>Fullstack Developer</h2><br/>
-          Cześć! Nazywam się Sławomir Zając. Jestem na ostatnim roku Informatyki Stosowanej i niedawno ukończyłem praktyki. Obecnie jestem gotowy na stałą współpracę przy poważnych projektach. Moją pasją jest frontend, ale mam też doświadczenie w backendzie, co pozwala mi tworzyć spójne i funkcjonalne aplikacje.
-
-Na mojej stronie znajdziesz moje CV oraz szczegóły projektów, nad którymi pracowałem. Zachęcam do zapoznania się z moim portfolio i odkrycia, jak mogę pomóc w realizacji Twoich projektów!
-
-Chcesz dowiedzieć się więcej? Kliknij poniżej, aby zobaczyć moje CV i pełne portfolio!
-          <br/>
+        <h1 className="display-5 fw-bold mb-2">Autorskie strony internetowe<br/>
+E-Commerce CMS<br/>
+Indywidualne projekty dostosowane w 100%</h1>
+<h2 className="h4 text-secondary mb-4">Inż. Sławomir Zając</h2>
+<p className="mb-4">
+  Jestem programistą z branży e-commerce i marketingu, tworzę przyjazne użytkownikowi środowiska – od tego portfolio, przez autorskie systemy CMS, aż po responsywne aplikacje webowe, mobilne i sklepy internetowe.
+</p>
+<p className="mb-4">
+  Sprawdź przykłady moich prac poniżej i przekonaj się, jak mogę pomóc w realizacji Twoich projektów!
+</p>
           <button 
             onClick={scrollToAboutMe} 
             className="interview-button"

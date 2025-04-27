@@ -1,0 +1,253 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital@0;1&family=Ysabeau+Office:wght@100&display=swap');
+
+/* Główne style */
+.Services {
+  width: 100%;
+  background-color: white;
+  padding: 60px 0;
+  min-height: 100vh;
+}
+
+.ServiceSection {
+  width: 100%;
+  padding: 80px 0;
+  background-color: white;
+  border-top: 1px solid #f0f0f0;
+}
+
+.ServiceSection:last-child {
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.ServiceSection-content {
+  display: flex;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.ServiceSection-text {
+  width: 50%;
+  margin-left: 10%;
+  padding-right: 15%;
+}
+
+.service-slider-container {
+  width: 30%;
+  margin-right: 15%;
+  position: relative;
+}
+
+.ServiceSection-title {
+  font-size: 2.8rem;
+  color: #333;
+  margin-bottom: 60px;
+  font-family: 'Kanit', sans-serif;
+  text-align: center;
+  font-weight: 600;
+}
+
+.ServiceSection h2 {
+  font-size: 2rem;
+  color: #222;
+  margin-bottom: 25px;
+  font-family: 'Kanit', sans-serif;
+}
+
+.ServiceSection-description {
+  font-size: 1.1rem;
+  color: #444;
+  line-height: 1.8;
+}
+
+.ServiceSection-description p {
+  margin-bottom: 20px;
+}
+
+.ServiceSection-description ul {
+  margin-bottom: 25px;
+  padding-left: 20px;
+}
+
+.ServiceSection-description li {
+  margin-bottom: 10px;
+  position: relative;
+  list-style-type: none;
+}
+
+.ServiceSection-description li:before {
+  content: "•";
+  color: #00bfff;
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
+
+.button-group {
+  margin-top: 40px;
+}
+
+.github-button-container {
+  margin-bottom: 20px;
+}
+
+.github-button-container h3 {
+  color: #333;
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+  font-family: 'Kanit', sans-serif;
+}
+
+.see-more-button {
+  background-color: #00bfff;
+  color: #fff;
+  border: none;
+  padding: 14px 28px;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Kanit', sans-serif;
+  text-decoration: none;
+  display: inline-block;
+  font-weight: 500;
+}
+
+.see-more-button:hover {
+  background-color: #0088cc;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.ServiceNavigation {
+  position: fixed;
+  right: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  z-index: 1000;
+}
+
+.ServiceNavigation button {
+  padding: 14px 24px;
+  background-color: #00bfff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Kanit', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.ServiceNavigation button:hover {
+  background-color: #0088cc;
+  transform: translateY(-3px);
+}
+
+.contact-nav-button {
+  padding: 14px 24px;
+  background-color: gold;
+  color: black;
+  border: 2px solid black;
+  border-radius: 30px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 20px;
+  display: block;
+  text-decoration: none;
+  font-family: 'Kanit', sans-serif;
+  transition: all 0.3s ease;
+}
+
+.contact-nav-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact-text {
+  display: block;
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+}
+
+.contact-label {
+  display: block;
+  font-size: 1.1rem;
+  color: white;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsywność */
+@media screen and (max-width: 1200px) {
+  .ServiceSection-text {
+    margin-left: 8%;
+    padding-right: 10%;
+  }
+  
+  .service-slider-container {
+    margin-right: 8%;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .ServiceSection-content {
+    flex-direction: column;
+  }
+
+  .ServiceSection-text,
+  .service-slider-container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  .service-slider-container {
+    margin-top: 50px;
+    margin-bottom: 30px;
+  }
+
+  .ServiceNavigation {
+    position: static;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 50px auto 0;
+    max-width: 90%;
+    transform: none;
+  }
+
+  .ServiceNavigation button,
+  .contact-nav-button {
+    margin: 10px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .Services {
+    padding: 40px 0;
+  }
+
+  .ServiceSection {
+    padding: 50px 0;
+  }
+
+  .ServiceSection-text,
+  .service-slider-container {
+    width: 90%;
+  }
+
+  .ServiceSection-title {
+    font-size: 2.2rem;
+    margin-bottom: 40px;
+  }
+
+  .ServiceSection h2 {
+    font-size: 1.8rem;
+  }
+}

@@ -72,10 +72,12 @@ export default function Documents() {
       {/* Popup */}
       {popupImage && (
         <div className="popup" onClick={closePopup}>
+          <div className="popup-content">
           <button className="popup__close" onClick={closePopup}>
             ×
           </button>
           <img className="popup__img" src={popupImage} alt="Powiększony certyfikat" />
+        </div>
         </div>
       )}
     </>

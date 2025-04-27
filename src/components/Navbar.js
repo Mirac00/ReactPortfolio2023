@@ -87,12 +87,11 @@ function Navbar() {
             onMouseEnter={onMouseEnter}
             onMouseLeave={onMouseLeave}
           >
-            <Link
-              to='/projects'
+            <Link to="/services"
               className={`nav-link ${click ? 'drop-nav-link-mobile nav-link-mobile' : ''}`}
               onClick={() => { handleDesktopClick(); closeMobileMenu(); scrollToTop(); }}
             >
-              Projekty
+              Usługi
               {window.innerWidth >= 960 && (
                 <i className='fas fa-caret-down' onClick={handleMobileClick} />
               )}

@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import '../../App.css';
 import '../css/AboutMeStyle.css';
 import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaGithub, FaLinkedin, FaTimes } from 'react-icons/fa';
-import img1 from '../../images/1port.png';
-import img2 from '../../images/2port.png';
+import img1 from '../../images/1port.jpg';
+import img2 from '../../images/2port.jpg';
 
 export default function AboutMe() {
   const [isOpen, setIsOpen] = useState(false);
@@ -39,10 +39,12 @@ export default function AboutMe() {
       </div>
       {isOpen && (
         <div className="popup">
-          <img src={currentImg} alt="Fullscreen" className="popup__img" />
-          <div className="popup__controls">
-            <button onClick={nextImage}>Następne zdjęcie</button>
-            <button className="popup__close" onClick={handleClose}><FaTimes /></button>
+          <div className="popup-content">
+            <img src={currentImg} alt="Fullscreen" className="popup__img" />
+            <div className="popup__controls">
+              <button onClick={nextImage}>Następne zdjęcie</button>
+              <button className="popup__close" onClick={handleClose}><FaTimes /></button>
+            </div>
           </div>
         </div>
       )}
