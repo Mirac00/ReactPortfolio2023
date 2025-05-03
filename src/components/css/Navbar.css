@@ -195,10 +195,11 @@
   }
 
   .navbar-logo {
+    left: 40px;
     position: absolute;
     top: 0;
-    left: 0;
     transform: translate(25%, 50%);
+    width: 1px;
   }
 
   .menu-icon {
