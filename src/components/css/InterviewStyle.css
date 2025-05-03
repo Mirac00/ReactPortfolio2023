@@ -1,44 +1,35 @@
 .Interview {
   height: auto;
   width: 100%;
-  margin: auto;
-  background-image: url('E:\dyskE\Repozytorium GitHUB\Portfolio2025JSReact\ReactPortfolio2023\src\images\BG-interview.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
 }
 
 .interview-container {
   display: flex;
   align-items: center;
-  padding: 1em;
   border-radius: 1em;
   position: relative;
   justify-content: center;
-  height: fit-content;
-  margin-top: 3em;
 }
 
 .profile-image-container {
   left: 3%;
-  width: 40%;
+  width: 50%;
   height: auto;
   border-radius: 10%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
   overflow: hidden;
   z-index: 1;
-  margin: 1em;
 }
 
 .profile-image {
-  width: 150%;
-  height: 150%;
+  width: 750px;
+  height: 750px;
   object-fit: cover;
+  border-radius: 30%;
 }
 
-/* ---- POPRAWIONA SEKCJA TEKSTOWA ---- */
 .interview-text-container {
   padding: 2em;
   margin: 2em;
@@ -69,7 +60,6 @@
   margin-bottom: 1em;
 }
 
-/* Przycisk - bez zmian strukturalnych, tylko delikatna animacja */
 .interview-button {
   margin-top: 1em;
   padding: 0.75em 1.5em;
@@ -106,5 +96,13 @@
     padding: 1em;
     width: 100%;
     margin: 0;
+  }
+}
+@media (max-width: 960px) {
+  .profile-image-container {
+    justify-content: center; /* Wyśrodkowanie dla mobile */
+    left: 0;
+    width: 80%; /* Szerszy kontener na mobile */
+    margin-bottom: 2em; /* Dodatkowy odstęp */
   }
 }

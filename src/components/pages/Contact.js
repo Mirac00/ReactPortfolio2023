@@ -1,33 +1,35 @@
 import React, { useState, useEffect } from 'react';
 import { useForm, ValidationError } from '@formspree/react';
+import { useTranslation } from 'react-i18next';
 import '../../App.css';
 import '../css/ContactStyle.css';
 
 function ContactForm() {
+  const { t } = useTranslation();
   const [state, handleSubmit] = useForm("mwpeqwpb");
   const [feedbackMessage, setFeedbackMessage] = useState(null);
   const [feedbackColor, setFeedbackColor] = useState('');
 
   useEffect(() => {
     if (state.succeeded) {
-      setFeedbackMessage('Wiadomość wysłana');
+      setFeedbackMessage(t('contact.successMessage'));
       setFeedbackColor('green');
     } else if (state.errors && state.errors.length > 0) {
-      setFeedbackMessage('Wystąpił błąd');
+      setFeedbackMessage(t('contact.errorMessage'));
       setFeedbackColor('red');
     }
-  }, [state]);
+  }, [state, t]);
 
   return (
     <section id='contact' className='contact'>
       <div className='contact-form'>
-      <h1 className='contact__title'>Kontakt</h1>
-      <p>Adres e-mail: slawomirzajc@gmail.com <br/> Tel : 575 180 010</p>
+        <h1 className='contact__title'>{t('contact.title')}</h1>
+        <p>{t('contact.email')} <br/> {t('contact.phone')}</p>
         <form onSubmit={handleSubmit} className='contact-form__form'>
           <div className='form-group contact-form__form-group'>
             <div className='form-group-half contact-form__half'>
               <label htmlFor='name' className='contact-form__label'>
-                Imię i nazwisko:
+                {t('contact.nameLabel')}
               </label>
               <input
                 type='text'
@@ -39,7 +41,7 @@ function ContactForm() {
             </div>
             <div className='form-group-half contact-form__half'>
               <label htmlFor='email' className='contact-form__label'>
-                Adres e-mail:
+                {t('contact.emailLabel')}
               </label>
               <input
                 type='email'
@@ -57,7 +59,7 @@ function ContactForm() {
           </div>
           <div className='form-group'>
             <label htmlFor='message' className='contact-form__label'>
-              Wiadomość:
+              {t('contact.messageLabel')}
             </label>
             <textarea
               id='message'
@@ -73,10 +75,10 @@ function ContactForm() {
             />
           </div>
           {feedbackMessage && (
-          <p style={{ color: feedbackColor, marginTop: '20px' }}>{feedbackMessage}</p>
-        )}
+            <p style={{ color: feedbackColor, marginTop: '20px' }}>{feedbackMessage}</p>
+          )}
           <button type='submit' className='contact-form__button' disabled={state.submitting}>
-            Wyślij
+            {t('contact.sendButton')}
           </button>
         </form>
       </div>

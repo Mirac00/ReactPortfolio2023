@@ -4,7 +4,6 @@
 .Services {
   width: 100%;
   background-color: white;
-  padding: 60px 0;
   min-height: 100vh;
 }
 
@@ -22,7 +21,7 @@
 .ServiceSection-content {
   display: flex;
   width: 100%;
-  max-width: 1400px;
+  max-width: 1600px;
   margin: 0 auto;
   align-items: center;
 }

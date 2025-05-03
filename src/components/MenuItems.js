@@ -1,17 +1,17 @@
 export const MenuItems = [
   {
-    title: 'Profesjonalne Strony Internetowe',
+    titleKey: 'dropdown.websites',
     path: '/services#websites',
     cName: 'dropdown-link'
   },
   {
-    title: 'Systemy CMS i E-commerce',
+    titleKey: 'dropdown.cms',
     path: '/services#cms',
     cName: 'dropdown-link'
   },
   {
-    title: 'Kompleksowe Systemy Fullstack',
+    titleKey: 'dropdown.fullstack',
     path: '/services#fullstack',
     cName: 'dropdown-link'
-  },
+  }
 ];

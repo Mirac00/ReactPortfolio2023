@@ -259,3 +259,47 @@
     top: 65px;
   }
 }
+
+/* Language Switcher Styles */
+.language-switcher {
+  margin-left: 10px;
+  margin-right: 20px;
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+  height: 100%; /* Dodaj to, aby kontener zajmował całą wysokość navbara */
+}
+
+.language-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  transition: transform 0.2s;
+  display: flex; /* Dodaj to */
+  align-items: center; /* Dodaj to, aby wyśrodkować flagę pionowo */
+  height: 100%; /* Dodaj to */
+}
+
+.language-button:hover {
+  transform: scale(1.1);
+}
+
+.language-flag {
+  width: 30px;
+  height: auto; /* Zmień ze stałej wysokości na auto */
+  object-fit: cover;
+  border-radius: 3px;
+}
+
+/* Dla wersji mobilnej */
+@media screen and (max-width: 960px) {
+  .language-switcher {
+    margin-right: 15px;
+  }
+  
+  .language-flag {
+    width: 25px;
+    height: auto; /* Zmień ze stałej wysokości na auto */
+  }
+}

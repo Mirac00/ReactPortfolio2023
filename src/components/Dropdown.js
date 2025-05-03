@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import { MenuItems } from './MenuItems';
 import './/css/Dropdown.css';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 function Dropdown({ closeMobileMenu }) {
   const [click, setClick] = useState(false);
+  const { t } = useTranslation();
 
   const handleClick = () => setClick(!click);
 
@@ -13,7 +15,6 @@ function Dropdown({ closeMobileMenu }) {
   };
 
   const handleServiceClick = (path) => {
-    // Store the section ID in session storage before navigation
     const sectionId = path.split('#')[1];
     if (sectionId) {
       sessionStorage.setItem('scrollToSection', sectionId);
@@ -43,7 +44,7 @@ function Dropdown({ closeMobileMenu }) {
                 }
               }}
             >
-              {item.title}
+              {t(item.titleKey)}
             </Link>
           </li>
         ))}

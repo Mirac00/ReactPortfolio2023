@@ -1,53 +1,60 @@
+// AboutMe.js
 import React, { useState } from 'react';
 import '../../App.css';
 import '../css/AboutMeStyle.css';
-import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaGithub, FaLinkedin, FaTimes } from 'react-icons/fa';
+import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaGithub, FaLinkedin } from 'react-icons/fa';
+import { useTranslation } from 'react-i18next';
 import img1 from '../../images/1port.jpg';
 import img2 from '../../images/2port.jpg';
+import Popup from '../Popup';
 
 export default function AboutMe() {
+  const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
-  const [currentImg, setCurrentImg] = useState(null);
+  const [currentImgIndex, setCurrentImgIndex] = useState(0);
+  const images = [img1, img2];
 
-  const handleImgClick = (img) => {
-    setCurrentImg(img);
+  const handleImgClick = (index) => {
+    setCurrentImgIndex(index);
     setIsOpen(true);
   };
 
   const handleClose = () => {
     setIsOpen(false);
-    setCurrentImg(null);
   };
 
   const nextImage = () => {
-    setCurrentImg(currentImg === img1 ? img2 : img1);
+    setCurrentImgIndex((prevIndex) => (prevIndex + 1) % images.length);
+  };
+
+  const prevImage = () => {
+    setCurrentImgIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
   };
 
   return (
     <section id='aboutme' className='aboutme'>
-      <h1 className='aboutme__title'>O mnie</h1>
+      <h1 className='aboutme__title'>{t('aboutme.title')}</h1>
       <div className='aboutme__card'>
         <div className="aboutme__images">
-          <img src={img1} alt="Port 1" onClick={() => handleImgClick(img1)} />
-          <img src={img2} alt="Port 2" onClick={() => handleImgClick(img2)} />
+          <img src={img1} alt="Port 1" onClick={() => handleImgClick(0)} />
+          <img src={img2} alt="Port 2" onClick={() => handleImgClick(1)} />
         </div>
         <div className='aboutme__links'>
-          <strong>Linki:</strong>
+          <strong>{t('aboutme.links')}</strong>
           <p><FaGithub className='icon' /> <a href="https://github.com/Mirac00?tab=repositories" target="_blank" rel="noopener noreferrer">GitHub</a></p>
           <p><FaLinkedin className='icon' /> <a href="https://www.linkedin.com/in/s%C5%82awomir-zajac-69ba94259/" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
         </div>
       </div>
-      {isOpen && (
-        <div className="popup">
-          <div className="popup-content">
-            <img src={currentImg} alt="Fullscreen" className="popup__img" />
-            <div className="popup__controls">
-              <button onClick={nextImage}>Następne zdjęcie</button>
-              <button className="popup__close" onClick={handleClose}><FaTimes /></button>
-            </div>
-          </div>
-        </div>
-      )}
+
+      <Popup 
+        isOpen={isOpen} 
+        onClose={handleClose}
+        onNext={nextImage}
+        onPrev={prevImage}
+        showNavigation={true}
+      >
+        <img src={images[currentImgIndex]} alt="Fullscreen" className="popup-img" />
+      </Popup>
     </section>
   );
 }

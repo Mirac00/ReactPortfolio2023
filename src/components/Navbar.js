@@ -5,12 +5,15 @@ import Dropdown from './Dropdown';
 import { HashLink as Links } from 'react-router-hash-link';
 import { Link as ScrollLink } from 'react-scroll';
 import logo123 from '../images/logo123.png';
+import LanguageSwitcher from './LangueSwitcher';
+import { useTranslation } from 'react-i18next';
 
 function Navbar() {
   const [click, setClick] = useState(false);
   const [dropdown, setDropdown] = useState(false);
   const [mobileDropdown, setMobileDropdown] = useState(false);
   const history = useHistory();
+  const { t } = useTranslation();
 
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
@@ -65,21 +68,22 @@ function Navbar() {
         <Link to='/' className='navbar-logo' onClick={scrollToTop}>
           <div className="logo-container">
             <img src={logo123} alt="logo" className="logo-img" />
-            <span className="navbar-logo-text">Sławomir Zając</span>
+            <span className="navbar-logo-text">{t('navbar.name')}</span>
           </div>
         </Link>
+        <LanguageSwitcher />
         <div className='menu-icon' onClick={handleClick}>
           <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
         </div>
         <ul className={click ? 'nav-menu active' : 'nav-menu'}>
           <li className='nav-item'>
             <Link to='/' className={`nav-link ${click ? 'nav-link-mobile' : ''}`} onClick={() => { closeMobileMenu(); scrollToTop(); }}>
-              Start
+              {t('navbar.start')}
             </Link>
           </li>
           <li className='nav-item'>
             <Links smooth to="/#aboutme" className={`nav-link ${click ? 'nav-link-mobile' : ''}`} onClick={closeMobileMenu}>
-              O mnie
+              {t('navbar.aboutMe')}
             </Links>
           </li>
           <li
@@ -91,7 +95,7 @@ function Navbar() {
               className={`nav-link ${click ? 'drop-nav-link-mobile nav-link-mobile' : ''}`}
               onClick={() => { handleDesktopClick(); closeMobileMenu(); scrollToTop(); }}
             >
-              Usługi
+              {t('navbar.services')}
               {window.innerWidth >= 960 && (
                 <i className='fas fa-caret-down' onClick={handleMobileClick} />
               )}
@@ -104,7 +108,7 @@ function Navbar() {
           {window.innerWidth < 960 && (dropdown || (click && mobileDropdown)) && <Dropdown closeMobileMenu={closeMobileMenu} />}
           <li className='nav-item'>
             <Link to='/Documents' className={`nav-link ${click ? 'nav-link-mobile' : ''}`} onClick={() => { closeMobileMenu(); scrollToTop(); }}>
-              Certyfikaty
+              {t('navbar.certificates')}
             </Link>
           </li>
           <li className='nav-item'>
@@ -116,7 +120,7 @@ function Navbar() {
               className={`nav-link ${click ? 'nav-link-mobile' : ''}`}
               onClick={closeMobileMenu}
             >
-              Kontakt
+              {t('navbar.contact')}
             </ScrollLink>
           </li>
         </ul>

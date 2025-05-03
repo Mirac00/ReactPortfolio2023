@@ -1,16 +1,23 @@
 import React, { useEffect } from 'react';
-import '../css/ServicesStyle.css';
+import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
+import '../css/ServicesStyle.css';
 import GitHubButton from '../GitHubButton';
 import Slider from '../slider';
-import image1 from '../../images/N111.png';
-import image2 from '../../images/p222.png';
-import image3 from '../../images/s111.png';
+import image1 from '../../images/imgwebpages.jpg';
+import image2 from '../../images/imgportfolio.png';
+import image3 from '../../images/imgmobileportfolio.png';
+import image4 from '../../images/imgCMS.jpg';
+import image5 from '../../images/imgcmssklep.jpg';
+import image6 from '../../images/imgcmsinterfejs.png';
+import image7 from '../../images/imgfrontbackdatabase.png';
+import image8 from '../../images/imgdopasowanie.png';
+import image9 from '../../images/imgcustom.jpg';
 
 const servicesImages = {
-  websites: [image2, image3, image1],
-  cms: [image1, image2, image3],
-  fullstack: [image3, image2, image1]
+  websites: [image1, image2, image3],
+  cms: [image4, image5, image6],
+  fullstack: [image7, image8, image9]
 };
 
 const scrollToSection = (sectionId) => {
@@ -24,35 +31,34 @@ const scrollToSection = (sectionId) => {
 };
 
 export default function Services() {
+  const { t } = useTranslation();
+
   useEffect(() => {
-    // Check if there's a section to scroll to after page load
     const sectionId = sessionStorage.getItem('scrollToSection');
     if (sectionId) {
       scrollToSection(sectionId);
-      // Clear the stored section ID
       sessionStorage.removeItem('scrollToSection');
     }
   }, []);
+
   return (
     <div className='Services'>
-      <h1 className='ServiceSection-title'>Moje Usługi</h1>
+      <h1 className='ServiceSection-title'>{t('servicesPage.title')}</h1>
 
       <div className='ServiceSection' id='websites'>
         <div className='ServiceSection-content'>
           <div className='ServiceSection-text'>
-            <h2>Profesjonalne Strony Internetowe</h2>
+            <h2>{t('servicesPage.professionalWebsites.title')}</h2>
             <div className='ServiceSection-description'>
-              <p>Specjalizuję się w projektowaniu i implementacji:</p>
+              <p>{t('servicesPage.professionalWebsites.description')}</p>
               <ul>
-                <li>Stron wizytówek i landing pages</li>
-                <li>Portfolio dla profesjonalistów</li>
-                <li>Stron firmowych i instytucjonalnych</li>
-                <li>One-page applications</li>
+                {t('servicesPage.professionalWebsites.features', { returnObjects: true }).map((feature, index) => (
+                  <li key={index}>{feature}</li>
+                ))}
               </ul>
             </div>
             <div className="button-group">
               <GitHubButton link="https://github.com/Mirac00/ReactPortfolio2023.git" />
-              <Link to='/Fronttech' className='see-more-button'>Zobacz przykłady</Link>
             </div>
           </div>
           <div className='service-slider-container'>
@@ -64,19 +70,17 @@ export default function Services() {
       <div className='ServiceSection' id='cms'>
         <div className='ServiceSection-content'>
           <div className='ServiceSection-text'>
-            <h2>Systemy CMS i E-commerce</h2>
+            <h2>{t('servicesPage.cmsSystems.title')}</h2>
             <div className='ServiceSection-description'>
-              <p>Oferuję kompleksowe systemy:</p>
+              <p>{t('servicesPage.cmsSystems.description')}</p>
               <ul>
-                <li>Sklepy internetowe</li>
-                <li>Systemy zarządzania treścią (CMS)</li>
-                <li>Platformy sprzedażowe</li>
-                <li>Systemy zarządzania produktami</li>
+                {t('servicesPage.cmsSystems.features', { returnObjects: true }).map((feature, index) => (
+                  <li key={index}>{feature}</li>
+                ))}
               </ul>
             </div>
             <div className="button-group">
               <GitHubButton link="https://github.com/Mirac00/Notes.API.git" />
-              <Link to='/Netapi' className='see-more-button'>Zobacz możliwości</Link>
             </div>
           </div>
           <div className='service-slider-container'>
@@ -88,26 +92,24 @@ export default function Services() {
       <div className='ServiceSection' id='fullstack'>
         <div className='ServiceSection-content'>
           <div className='ServiceSection-text'>
-            <h2>Kompleksowe Systemy Fullstack</h2>
+            <h2>{t('servicesPage.fullstackSolutions.title')}</h2>
             <div className='ServiceSection-description'>
-              <p>Tworzę dedykowane systemy łączące:</p>
+              <p>{t('servicesPage.fullstackSolutions.description')}</p>
               <ul>
-                <li>Zaawansowane interfejsy użytkownika</li>
-                <li>Wydajne API i logikę biznesową</li>
-                <li>Integrację z bazami danych</li>
-                <li>Rozwiązania marketingowe i analityczne</li>
+                {t('servicesPage.fullstackSolutions.features', { returnObjects: true }).map((feature, index) => (
+                  <li key={index}>{feature}</li>
+                ))}
               </ul>
             </div>
             <div className="button-group">
               <div className="github-button-container">
-                <h3>FrontEnd</h3>
+                <h3>{t('servicesPage.professionalWebsites.githubButton')}</h3>
                 <GitHubButton link="https://github.com/Mirac00/SM-Trend-Frontend.git" />
               </div>
               <div className="github-button-container">
-                <h3>BackEnd</h3>
+                <h3>{t('servicesPage.professionalWebsites.githubButton2')}</h3>
                 <GitHubButton link="https://github.com/Mirac00/SM-Trend-Backend.git" />
               </div>
-              <Link to='/SMTrend' className='see-more-button'>Zobacz case study</Link>
             </div>
           </div>
           <div className='service-slider-container'>
@@ -117,12 +119,18 @@ export default function Services() {
       </div>
 
       <div className='ServiceNavigation'>
-        <button onClick={() => scrollToSection('websites')}>Strony WWW</button>
-        <button onClick={() => scrollToSection('cms')}>Systemy CMS</button>
-        <button onClick={() => scrollToSection('fullstack')}>Rozwiązania Fullstack</button>
+        <button onClick={() => scrollToSection('websites')}>
+          {t('servicesPage.navigation.websites')}
+        </button>
+        <button onClick={() => scrollToSection('cms')}>
+          {t('servicesPage.navigation.cms')}
+        </button>
+        <button onClick={() => scrollToSection('fullstack')}>
+          {t('servicesPage.navigation.fullstack')}
+        </button>
         <Link to='/contact' className='contact-nav-button'>
-          <span className='contact-text'>Jesteś zainteresowany?</span>
-          <span className='contact-label'>KONTAKT</span>
+          <span className='contact-text'>{t('servicesPage.navigation.contactText')}</span>
+          <span className='contact-label'>{t('servicesPage.navigation.contactLabel')}</span>
         </Link>
       </div>
     </div>

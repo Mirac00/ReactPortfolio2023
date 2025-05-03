@@ -1,37 +1,43 @@
 import React from 'react';
 import '../../App.css';
 import '../css/InterviewStyle.css';
-
+import { useTranslation } from 'react-i18next';
 
 export default function Interview({ profileImage, scrollToAboutMe }) {
+  const { t } = useTranslation();
+  
   return (
-    <div className="interview-container">
-      <div className="profile-image-container">
-        <img
-          src={profileImage}
-          alt="Profil"
-          className="profile-image"
-        />
-      </div>
-      <div className="interview-text-container">
-        <p className="interview-text">
-        <h1 className="display-5 fw-bold mb-2">Autorskie strony internetowe<br/>
-E-Commerce CMS<br/>
-Indywidualne projekty dostosowane w 100%</h1>
-<h2 className="h4 text-secondary mb-4">Inż. Sławomir Zając</h2>
-<p className="mb-4">
-  Jestem programistą z branży e-commerce i marketingu, tworzę przyjazne użytkownikowi środowiska – od tego portfolio, przez autorskie systemy CMS, aż po responsywne aplikacje webowe, mobilne i sklepy internetowe.
-</p>
-<p className="mb-4">
-  Sprawdź przykłady moich prac poniżej i przekonaj się, jak mogę pomóc w realizacji Twoich projektów!
-</p>
+    <div className="Interview">
+      <div className="interview-container">
+        <div className="profile-image-container">
+          <img
+            src={profileImage}
+            alt={t('interview.profileImageAlt')}
+            className="profile-image"
+          />
+        </div>
+        <div className="interview-text-container">
+          <h1 className="display-5 fw-bold mb-2">
+            {t('interview.titleLine1')}<br/>
+            {t('interview.titleLine2')}<br/>
+            {t('interview.titleLine3')}
+          </h1>
+          <h2 className="h4 text-secondary mb-4">
+            {t('interview.subtitle')}
+          </h2>
+          <p className="mb-4">
+            {t('interview.description1')}
+          </p>
+          <p className="mb-4">
+            {t('interview.description2')}
+          </p>
           <button 
             onClick={scrollToAboutMe} 
             className="interview-button"
           >
-            Dowiedz się o mnie więcej
+            {t('interview.buttonText')}
           </button>
-        </p>
+        </div>
       </div>
     </div>
   );

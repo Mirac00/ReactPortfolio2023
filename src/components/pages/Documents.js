@@ -1,85 +1,82 @@
+// Documents.js
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import '../css/DocumentsStyle.css';
 import image1 from '../../images/dataimg.png';
 import image2 from '../../images/netsec.png';
 import image3 from '../../images/adobe.png';
+import Popup from '../Popup';
 
 export default function Documents() {
-  const [popupImage, setPopupImage] = useState(null);
+  const { t } = useTranslation();
+  const [isOpen, setIsOpen] = useState(false);
+  const [currentImgIndex, setCurrentImgIndex] = useState(0);
+  const images = [image1, image2, image3];
 
-  const openPopup = (image) => {
-    setPopupImage(image);
+  const openPopup = (index) => {
+    setCurrentImgIndex(index);
+    setIsOpen(true);
   };
 
   const closePopup = () => {
-    setPopupImage(null);
+    setIsOpen(false);
+  };
+
+  const nextImage = () => {
+    setCurrentImgIndex((prevIndex) => (prevIndex + 1) % images.length);
+  };
+
+  const prevImage = () => {
+    setCurrentImgIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
   };
 
   return (
     <>
-      <div className="Documents">
-        <h1 className="Documents">Certyfikaty</h1>
+      <div className="documents-box">
+        <div className="documents-container">
+          <h1 className="documents-title">{t('certificatesPage.title')}</h1>
 
-        {/* Certyfikat 1 */}
-        <div className="imageContainer">
-          <p>
-            Certyfikat 98-364: MTA Database Fundamentals - Ten certyfikat
-            potwierdza podstawową wiedzę i umiejętności związane z bazami danych,
-            w tym z relacyjnymi bazami danych, takimi jak Microsoft SQL Server.
-            Certyfikat ten potwierdza znajomość podstawowych koncepcji bazy
-            danych, manipulowania danymi oraz administrowania bazą danych.
-          </p>
-          <img
-            src={image1}
-            alt="Certyfikat 98-364: MTA Database fundamentals"
-            onClick={() => openPopup(image1)}
-          />
-        </div>
+          <div className="document-article">
+            <div className="document-image" onClick={() => openPopup(0)}>
+              <img src={image1} alt={t('certificatesPage.certificate1.title')} />
+            </div>
+            <div className="document-text">
+              <h2>{t('certificatesPage.certificate1.title')}</h2>
+              <p>{t('certificatesPage.certificate1.description')}</p>
+            </div>
+          </div>
 
-        {/* Certyfikat 2 */}
-        <div className="imageContainer">
-          <p>
-            Certiport Network Security - Ten certyfikat wykazuje podstawową
-            wiedzę i umiejętności z zakresu bezpieczeństwa, w tym zrozumienie
-            zasad bezpieczeństwa, bezpieczeństwa systemów operacyjnych, sieci i
-            urządzeń. Posiadacz tego certyfikatu wykazuje zaangażowanie w ochronę
-            danych i rozwój w dziedzinie bezpieczeństwa IT.
-          </p>
-          <img
-            src={image2}
-            alt="Certyfikat Certiport Network Security"
-            onClick={() => openPopup(image2)}
-          />
-        </div>
+          <div className="document-article">
+            <div className="document-image" onClick={() => openPopup(1)}>
+              <img src={image2} alt={t('certificatesPage.certificate2.title')} />
+            </div>
+            <div className="document-text">
+              <h2>{t('certificatesPage.certificate2.title')}</h2>
+              <p>{t('certificatesPage.certificate2.description')}</p>
+            </div>
+          </div>
 
-        {/* Certyfikat 3 */}
-        <div className="imageContainer">
-          <p>
-            Certyfikat Adobe Illustrator - Potwierdza ukończenie kursu grafiki
-            komputerowej w programie Adobe Illustrator, obejmującego projektowanie
-            graficzne, edycję grafiki komputerowej oraz przygotowanie do druku.
-            Ten certyfikat potwierdza umiejętności niezbędne do pracy w zakresie
-            projektowania graficznego i obróbki wizualnej.
-          </p>
-          <img
-            src={image3}
-            alt="Certyfikat Adobe Illustrator"
-            onClick={() => openPopup(image3)}
-          />
+          <div className="document-article">
+            <div className="document-image" onClick={() => openPopup(2)}>
+              <img src={image3} alt={t('certificatesPage.certificate3.title')} />
+            </div>
+            <div className="document-text">
+              <h2>{t('certificatesPage.certificate3.title')}</h2>
+              <p>{t('certificatesPage.certificate3.description')}</p>
+            </div>
+          </div>
         </div>
       </div>
 
-      {/* Popup */}
-      {popupImage && (
-        <div className="popup" onClick={closePopup}>
-          <div className="popup-content">
-          <button className="popup__close" onClick={closePopup}>
-            ×
-          </button>
-          <img className="popup__img" src={popupImage} alt="Powiększony certyfikat" />
-        </div>
-        </div>
-      )}
+      <Popup 
+        isOpen={isOpen} 
+        onClose={closePopup}
+        onNext={nextImage}
+        onPrev={prevImage}
+        showNavigation={true}
+      >
+        <img src={images[currentImgIndex]} alt="Certificate" className="popup-img" />
+      </Popup>
     </>
   );
 }

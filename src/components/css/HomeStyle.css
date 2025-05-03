@@ -1,14 +1,34 @@
 @import url('https://fonts.googleapis.com/css2?family=Kanit:ital@0;1&family=Ysabeau+Office:wght@100&display=swap');
+.home {
+  position: relative;
+  padding-top: 100px;
+  z-index: 0; /* Dodaj to, aby ustalić kontekst stosowania */
+}
 
+.home::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1000px;
+  background-image: url('../../images/BG-interview.png');
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  z-index: -1; /* Upewnij się, że tło jest pod wszystkimi elementami */
+}
 /* Główne style */
-
+.container-box {
+  background-color: #fff;
+}
 
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 1em;
-  width: 100%;
+  max-width: 1920px; /* Maksymalna szerokość dla bardzo dużych ekranów */
+  margin: 0 auto; /* Wyśrodkowanie kontenera */
   background-color: #fff;
   padding: 100px;
 }
@@ -180,7 +200,6 @@
   align-items: center;
   margin-left: auto;
   margin-right: auto;
-  padding: 2rem 0;
 }
 
 /* Animacje */
@@ -315,12 +334,58 @@
   color: #5e35b1;
 }
 
-/* Interview section */
-.Interview {
-  height: auto;
-  padding: 2rem 0;
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  margin: 2rem auto;
-  max-width: 1200px;
+/* Ekrany 2K i większe (2560px i więcej) */
+@media (min-width: 2560px) {
+  .container {
+    padding: 80px 15%; /* Większe paddingi dla większej przestrzeni */
+    max-width: 2560px;
+  }
+}
+
+/* Full HD (1920px) */
+@media (min-width: 1920px) and (max-width: 2559px) {
+  .container {
+    padding: 70px 10%;
+  }
+}
+
+/* Laptopy (1440px) */
+@media (min-width: 1440px) and (max-width: 1919px) {
+  .container {
+    padding: 60px 8%;
+  }
+}
+
+/* Mniejsze laptopy i tablety poziome (1024px) */
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .container {
+    padding: 50px 6%;
+  }
+}
+
+/* Tablety pionowe (768px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .container {
+    padding: 40px 5%;
+  }
+}
+
+/* Smartfony poziome (568px) */
+@media (min-width: 568px) and (max-width: 767px) {
+  .container {
+    padding: 30px 4%;
+  }
+}
+
+/* Smartfony pionowe (do 567px) */
+@media (max-width: 567px) {
+  .container {
+    padding: 20px 3%;
+  }
+}
+
+@media (max-width: 960px) {
+  .home::before {
+    height: 1500px; /* Zwiększona wysokość dla mobile */
+  }
 }

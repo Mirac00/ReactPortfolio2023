@@ -1,7 +1,6 @@
 .App{
-  background-color: rgb(49, 49, 49);
+  background-color: #313131;
   min-height: 100vh;
-  padding-top: 80px; /* wysokość Navbaru */
 }
 
 * {
@@ -13,23 +12,19 @@
 h1{
   color: white;
 }
-.home,
-.Projects,
-.Netapi,
 .Documents,
-.Fronttech {
+.Services
+ {
   align-items: center;
   justify-content: center;
-
+  padding-top: 100px;
 }
 .home,
-.Projects,
-.Netapi,
-.Fronttech,
+.Services
 .Documents,
 .aboutme,
-.contact,
-.SMTrend {
+.contact
+ {
   position: relative; 
   z-index: 1; 
 }
