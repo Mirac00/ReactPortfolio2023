@@ -1,8 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Kanit:ital@0;1&family=Ysabeau+Office:wght@100&display=swap');
 
+/* Główne style */
 .Services {
   width: 100%;
   background-color: white;
+
   min-height: 100vh;
 }
 
@@ -20,7 +22,7 @@
 .ServiceSection-content {
   display: flex;
   width: 100%;
-  max-width: 1600px;
+  max-width: 1400px;
   margin: 0 auto;
   align-items: center;
 }
@@ -85,6 +87,17 @@
 
 .button-group {
   margin-top: 40px;
+}
+
+.github-button-container {
+  margin-bottom: 20px;
+}
+
+.github-button-container h3 {
+  color: #333;
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+  font-family: 'Kanit', sans-serif;
 }
 
 .see-more-button {
@@ -157,6 +170,19 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+.contact-text {
+  display: block;
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+}
+
+.contact-label {
+  display: block;
+  font-size: 1.1rem;
+  color: white;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+}
+
 /* Responsywność */
 @media screen and (max-width: 1200px) {
   .ServiceSection-text {
@@ -203,9 +229,6 @@
 }
 
 @media screen and (max-width: 576px) {
-  .Services {
-    padding: 40px 0;
-  }
 
   .ServiceSection {
     padding: 50px 0;

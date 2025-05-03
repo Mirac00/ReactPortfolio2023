@@ -1,3 +1,4 @@
+/* styles/Popup.css */
 .popup-overlay {
     position: fixed;
     top: 0;
@@ -58,7 +59,6 @@
     color: #00bfff;
   }
   
-  /* Responsywność */
   @media (max-width: 768px) {
     .popup-content {
       max-width: 95%;

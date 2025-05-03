@@ -78,29 +78,37 @@
   transform: scale(1.05);
 }
 
-/* Responsywność */
 @media screen and (max-width: 960px) {
   .interview-container {
     flex-direction: column;
+    align-items: center;
     padding: 1em;
-    margin-top: 1em;
+    margin-top:1em;
   }
 
   .profile-image-container {
     left: 0;
     margin-bottom: 1em;
     width: 80%;
-    justify-content: center;
-  }
-
-  .profile-image {
-    width: 400px;
-    height: 400px;
   }
 
   .interview-text-container {
     padding: 1em;
     width: 100%;
     margin: 0;
+  }
+}
+@media (max-width: 960px) {
+  .profile-image-container {
+    justify-content: center; /* Wyśrodkowanie dla mobile */
+    left: 0;
+    width: 80%; /* Szerszy kontener na mobile */
+    margin-bottom: 2em; /* Dodatkowy odstęp */
+  }
+}
+@media (max-width: 768px) {
+  .profile-image {
+    width: 400px;
+    height: 400px;
   }
 }

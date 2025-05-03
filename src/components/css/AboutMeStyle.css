@@ -1,14 +1,16 @@
+
 .aboutme {
   padding: 50px;
   position: relative;
-  z-index: 1;
+  z-index: 1; /* Zmienione z 2 na 1, aby nie konfliktowało z popupem */
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 1920px;
+  width: 80%;
   margin: auto;
 }
 
+/* Reszta stylów pozostaje bez zmian */
 .aboutme__title {
   font-size: 2.5em;
   color: #333;
@@ -24,28 +26,43 @@
   width: 100%;
 }
 
+.aboutme__links {
+  margin: 2em;
+}
+
+.aboutme__links a {
+  text-decoration: none;
+  color: #222;
+}
+
 .aboutme__name {
   font-size: 2em;
   color: #222;
   margin-bottom: 15px;
 }
 
-.aboutme__contact p,
+.aboutme__contact p {
+  margin: 5px 0;
+  font-size: 1.1em;
+}
+
+.aboutme__contact .icon {
+  margin-right: 10px;
+  color: #555;
+}
+
 .aboutme__objective,
 .aboutme__skills,
 .aboutme__education,
-.aboutme__projects,
-.aboutme__experience,
-.aboutme__links p {
-  margin: 5px 0;
-  font-size: 1.1em;
+.aboutme__projects {
+  margin: 20px 0;
+  font-size: 1.2em;
   line-height: 1.6em;
 }
 
-.aboutme__contact .icon,
-.aboutme__links .icon {
-  margin-right: 10px;
-  color: #555;
+.aboutme__experience {
+  margin: 20px 0;
+  font-size: 1.2em;
 }
 
 .aboutme__experience div {
@@ -57,13 +74,14 @@
   padding-left: 20px;
 }
 
-.aboutme__links {
-  margin: 2em;
+.aboutme__links p {
+  margin: 10px 0;
+  font-size: 1.2em;
 }
 
-.aboutme__links a {
-  text-decoration: none;
-  color: #222;
+.aboutme__links .icon {
+  margin-right: 10px;
+  color: #555;
 }
 
 .aboutme__images {
@@ -85,10 +103,13 @@
   transform: scale(1.05);
 }
 
-/* Responsywność */
+
 @media screen and (max-width: 960px) {
-  .aboutme {
-    padding: 30px;
+  .aboutme{
+    width: 100%;
+  }
+  .aboutme__card {
+    width: 100%;
   }
 
   .aboutme__title {
@@ -109,27 +130,14 @@
     font-size: 1em;
   }
 
+  /* Dodaj te style, aby zdjęcia układały się pod sobą */
   .aboutme__images {
-    flex-direction: column;
-    align-items: center;
+    flex-direction: column; /* Ustawienie flexa w kolumnie, aby zdjęcia były jedno pod drugim */
+    align-items: center; /* Wyśrodkowanie zdjęć w kolumnie */
   }
 
   .aboutme__images img {
-    width: 80%;
-    margin-bottom: 20px;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .aboutme {
-    padding: 20px;
-  }
-
-  .aboutme__title {
-    font-size: 1.8em;
-  }
-
-  .aboutme__name {
-    font-size: 1.5em;
+    width: 80%; /* Zmniejszenie szerokości obrazów, aby wyglądały dobrze na wąskich ekranach */
+    margin-bottom: 20px; /* Dodanie odstępu między zdjęciami */
   }
 }
