@@ -195,11 +195,10 @@
   }
 
   .navbar-logo {
-    left: 40px;
+    left: 30px;
     position: absolute;
     top: 0;
     transform: translate(25%, 50%);
-    width: 1px;
   }
 
   .menu-icon {
@@ -299,7 +298,7 @@
     height: auto; /* Zmień ze stałej wysokości na auto */
   }
 }
-@media (max-width: 550px) {
+@media (max-width: 460px) {
   .logo-container {
       transform: scale(0.7); /* Zmniejsza całą zawartość o 30% */
       transform-origin: right ; /* Punkt transformacji po lewej stronie */
