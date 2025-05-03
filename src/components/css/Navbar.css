@@ -236,11 +236,6 @@
   }
 }
 
-@media screen and (max-width: 470px) {
-  .navbar-logo {
-    left: -15%;
-  }
-}
 
 @media screen and (max-width: 400px) {
   .navbar-logo span {
@@ -301,5 +296,12 @@
   .language-flag {
     width: 25px;
     height: auto; /* Zmień ze stałej wysokości na auto */
+  }
+}
+@media (max-width: 550px) {
+  .logo-container {
+      transform: scale(0.7); /* Zmniejsza całą zawartość o 30% */
+      transform-origin: right ; /* Punkt transformacji po lewej stronie */
+      margin-left: 1em; /* Mniejszy margines dla mniejszych ekranów */
   }
 }
