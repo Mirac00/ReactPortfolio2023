@@ -1,8 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Kanit:ital@0;1&family=Ysabeau+Office:wght@100&display=swap');
+
 .home {
   position: relative;
   padding-top: 100px;
-  z-index: 0; /* Dodaj to, aby ustalić kontekst stosowania */
+  z-index: 0;
 }
 
 .home::before {
@@ -16,9 +17,9 @@
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
-  z-index: -1; /* Upewnij się, że tło jest pod wszystkimi elementami */
+  z-index: -1;
 }
-/* Główne style */
+
 .container-box {
   background-color: #fff;
 }
@@ -27,13 +28,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 1920px; /* Maksymalna szerokość dla bardzo dużych ekranów */
-  margin: 0 auto; /* Wyśrodkowanie kontenera */
+  max-width: 1920px;
+  margin: 0 auto;
   background-color: #fff;
   padding: 100px;
 }
 
-/* Style dla artykułów */
 .article {
   width: 100%;
   padding: 2rem;
@@ -53,17 +53,11 @@
 
 .article-content {
   display: flex;
-  flex-direction: row;
   width: 100%;
   align-items: center;
 }
 
-.article-slider {
-  width: 40%;
-  padding-right: 2rem;
-  box-sizing: border-box;
-}
-
+.article-slider,
 .article-image {
   width: 40%;
   padding-right: 2rem;
@@ -121,7 +115,6 @@
   font-size: 1.1rem;
 }
 
-/* Style dla przycisków */
 .button-group {
   display: flex;
   flex-direction: column;
@@ -136,12 +129,7 @@
   margin-bottom: 0.8rem;
 }
 
-.github-button {
-  margin: 0;
-  align-self: flex-start;
-}
-
-.article .see-more-button {
+.see-more-button {
   background-color: #00bfff;
   color: #fff;
   border: 2px solid transparent;
@@ -160,7 +148,7 @@
   letter-spacing: 0.5px;
 }
 
-.article .see-more-button:hover {
+.see-more-button:hover {
   background-color: #000;
   color: #fff;
   border-color: #00bfff;
@@ -168,7 +156,15 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
-/* Sekcja AboutMeShort */
+.AboutMeShort {
+  display: flex;
+  width: auto;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .AboutMeShort h2 {
   color: #fff;
   text-align: center;
@@ -193,16 +189,6 @@
   transform: scale(1.2);
 }
 
-.AboutMeShort {
-  display: flex;
-  width: auto;
-  justify-content: center;
-  align-items: center;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* Animacje */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -214,24 +200,42 @@
   }
 }
 
+/* Ikony */
+.fab.fa-js { color: #F7DF1E; }
+.fab.fa-react { color: #61DAFB; }
+.fab.fa-css3-alt { color: #1572B6; }
+.fab.fa-sass { color: #CC6699; }
+.fas.fa-database { color: #00758f; }
+.fas.fa-project-diagram { color: #5e35b1; }
+
 /* Responsywność */
-@media screen and (max-width: 1200px) {
+@media (min-width: 2560px) {
   .container {
-    padding: 80px 40px;
-  }
-  
-  .article h1 {
-    font-size: 2rem;
-  }
-  
-  .article h2 {
-    font-size: 2.4rem;
+    padding: 80px 15%;
   }
 }
 
-@media screen and (max-width: 960px) {
+@media (min-width: 1920px) and (max-width: 2559px) {
   .container {
-    padding: 60px 30px;
+    padding: 70px 10%;
+  }
+}
+
+@media (min-width: 1440px) and (max-width: 1919px) {
+  .container {
+    padding: 60px 8%;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .container {
+    padding: 50px 6%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .container {
+    padding: 40px 5%;
   }
   
   .article-content {
@@ -252,43 +256,18 @@
 
   .AboutMeShort h2 {
     font-size: 2rem;
-    margin-top: 0;
-  }
-
-  .button-group {
-    gap: 1rem;
   }
 }
 
-@media screen and (max-width: 768px) {
+@media (min-width: 568px) and (max-width: 767px) {
   .container {
-    padding: 50px 20px;
-  }
-  
-  .article {
-    padding: 1.5rem;
-  }
-  
-  .article h1 {
-    font-size: 1.8rem;
-  }
-  
-  .article h2 {
-    font-size: 2rem;
-  }
-  
-  .AboutMeShort h2 {
-    font-size: 1.8rem;
+    padding: 30px 4%;
   }
 }
 
-@media screen and (max-width: 480px) {
+@media (max-width: 567px) {
   .container {
-    padding: 40px 15px;
-  }
-  
-  .article {
-    padding: 1.2rem;
+    padding: 20px 3%;
   }
   
   .article h1 {
@@ -299,7 +278,7 @@
     font-size: 1.8rem;
   }
   
-  .article .see-more-button {
+  .see-more-button {
     padding: 0.6em 1.2em;
     font-size: 0.9rem;
   }
@@ -309,83 +288,8 @@
   }
 }
 
-/* Style dla ikon */
-.fab.fa-js {
-  color: #F7DF1E;
-}
-
-.fab.fa-react {
-  color: #61DAFB;
-}
-
-.fab.fa-css3-alt {
-  color: #1572B6;
-}
-
-.fab.fa-sass {
-  color: #CC6699;
-}
-
-.fas.fa-database {
-  color: #00758f;
-}
-
-.fas.fa-project-diagram {
-  color: #5e35b1;
-}
-
-/* Ekrany 2K i większe (2560px i więcej) */
-@media (min-width: 2560px) {
-  .container {
-    padding: 80px 15%; /* Większe paddingi dla większej przestrzeni */
-    max-width: 2560px;
-  }
-}
-
-/* Full HD (1920px) */
-@media (min-width: 1920px) and (max-width: 2559px) {
-  .container {
-    padding: 70px 10%;
-  }
-}
-
-/* Laptopy (1440px) */
-@media (min-width: 1440px) and (max-width: 1919px) {
-  .container {
-    padding: 60px 8%;
-  }
-}
-
-/* Mniejsze laptopy i tablety poziome (1024px) */
-@media (min-width: 1024px) and (max-width: 1439px) {
-  .container {
-    padding: 50px 6%;
-  }
-}
-
-/* Tablety pionowe (768px) */
-@media (min-width: 768px) and (max-width: 1023px) {
-  .container {
-    padding: 40px 5%;
-  }
-}
-
-/* Smartfony poziome (568px) */
-@media (min-width: 568px) and (max-width: 767px) {
-  .container {
-    padding: 30px 4%;
-  }
-}
-
-/* Smartfony pionowe (do 567px) */
-@media (max-width: 567px) {
-  .container {
-    padding: 20px 3%;
-  }
-}
-
 @media (max-width: 960px) {
   .home::before {
-    height: 1500px; /* Zwiększona wysokość dla mobile */
+    height: 1500px;
   }
 }

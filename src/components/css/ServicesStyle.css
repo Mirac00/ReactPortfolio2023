@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Kanit:ital@0;1&family=Ysabeau+Office:wght@100&display=swap');
 
-/* Główne style */
 .Services {
   width: 100%;
   background-color: white;
@@ -88,17 +87,6 @@
   margin-top: 40px;
 }
 
-.github-button-container {
-  margin-bottom: 20px;
-}
-
-.github-button-container h3 {
-  color: #333;
-  margin-bottom: 10px;
-  font-size: 1.2rem;
-  font-family: 'Kanit', sans-serif;
-}
-
 .see-more-button {
   background-color: #00bfff;
   color: #fff;
@@ -167,19 +155,6 @@
 .contact-nav-button:hover {
   transform: translateY(-3px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.contact-text {
-  display: block;
-  font-size: 0.9rem;
-  margin-bottom: 5px;
-}
-
-.contact-label {
-  display: block;
-  font-size: 1.1rem;
-  color: white;
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
 }
 
 /* Responsywność */
