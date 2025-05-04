@@ -170,9 +170,9 @@ export default function Home() {
         </article>
       </section>
       </div>
-      <AnimatedSection delay={0.7}>
+      
       <AboutMe />
-      </AnimatedSection>
+
     </div>
   );
 }

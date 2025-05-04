@@ -7,6 +7,7 @@ import { useTranslation } from 'react-i18next';
 import img1 from '../../images/1port.jpg';
 import img2 from '../../images/2port.jpg';
 import Popup from '../Popup';
+import AnimatedSection from '../AnimatedSection';
 
 export default function AboutMe() {
   const { t } = useTranslation();
@@ -32,29 +33,34 @@ export default function AboutMe() {
   };
 
   return (
-    <section id='aboutme' className='aboutme'>
-      <h1 className='aboutme__title'>{t('aboutme.title')}</h1>
-      <div className='aboutme__card'>
-        <div className="aboutme__images">
-          <img src={img1} alt="Port 1" onClick={() => handleImgClick(0)} />
-          <img src={img2} alt="Port 2" onClick={() => handleImgClick(1)} />
+    <>
+    <AnimatedSection>
+      <section id='aboutme' className='aboutme'>
+        <h1 className='aboutme__title'>{t('aboutme.title')}</h1>
+        <div className='aboutme__card'>
+          <div className="aboutme__images">
+            <img src={img1} alt="Port 1" onClick={() => handleImgClick(0)} />
+            <img src={img2} alt="Port 2" onClick={() => handleImgClick(1)} />
+          </div>
+          <div className='aboutme__links'>
+            <strong>{t('aboutme.links')}</strong>
+            <p><FaGithub className='icon' /> <a href="https://github.com/Mirac00?tab=repositories" target="_blank" rel="noopener noreferrer">GitHub</a></p>
+            <p><FaLinkedin className='icon' /> <a href="https://www.linkedin.com/in/s%C5%82awomir-zajac-69ba94259/" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
+          </div>
         </div>
-        <div className='aboutme__links'>
-          <strong>{t('aboutme.links')}</strong>
-          <p><FaGithub className='icon' /> <a href="https://github.com/Mirac00?tab=repositories" target="_blank" rel="noopener noreferrer">GitHub</a></p>
-          <p><FaLinkedin className='icon' /> <a href="https://www.linkedin.com/in/s%C5%82awomir-zajac-69ba94259/" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
-        </div>
-      </div>
-
-      <Popup 
-        isOpen={isOpen} 
-        onClose={handleClose}
-        onNext={nextImage}
-        onPrev={prevImage}
-        showNavigation={true}
-      >
-        <img src={images[currentImgIndex]} alt="Fullscreen" className="popup-img" />
-      </Popup>
-    </section>
+      </section>
+      </AnimatedSection>
+      {isOpen && (
+        <Popup 
+          isOpen={isOpen} 
+          onClose={handleClose}
+          onNext={nextImage}
+          onPrev={prevImage}
+          showNavigation={true}
+        >
+          <img src={images[currentImgIndex]} alt="Fullscreen" className="popup-img" />
+        </Popup>
+      )}
+    </>
   );
 }
