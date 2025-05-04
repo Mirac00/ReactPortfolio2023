@@ -51,9 +51,35 @@ function Navbar() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const scrollToAboutMe = () => {
+    if (window.location.pathname !== '/') {
+      history.push('/');
+      setTimeout(() => {
+        const section = document.getElementById('aboutme');
+        if (section) {
+          window.scrollTo({
+            top: section.offsetTop - 20,
+            behavior: 'smooth'
+          });
+        }
+      }, 100);
+    } else {
+      const section = document.getElementById('aboutme');
+      if (section) {
+        window.scrollTo({
+          top: section.offsetTop - 20,
+          behavior: 'smooth'
+        });
+      }
+    }
+  };
+
   const handleDesktopClick = () => {
     if (window.innerWidth >= 960) {
-      toggleMobileDropdown();
+      setDropdown(prev => !prev);
+      if (window.location.pathname === '/services') {
+        scrollToTop();
+      }
     }
   };
 
@@ -61,6 +87,13 @@ function Navbar() {
     if (window.innerWidth < 960) {
       toggleMobileDropdown();
     }
+  };
+
+  const handleServicesLinkClick = () => {
+    if (window.location.pathname === '/services') {
+      scrollToTop();
+    }
+    closeMobileMenu();
   };
 
   return (
@@ -83,32 +116,42 @@ function Navbar() {
             </Link>
           </li>
           <li className='nav-item'>
-            <Links smooth to="/#aboutme" className={`nav-link ${click ? 'nav-link-mobile' : ''}`} onClick={closeMobileMenu}>
+            <div 
+              className={`nav-link ${click ? 'nav-link-mobile' : ''}`}
+              onClick={() => { closeMobileMenu(); scrollToAboutMe(); }}
+            >
               {t('navbar.aboutMe')}
-            </Links>
+            </div>
           </li>
           <li
             className='nav-item'
             onMouseEnter={onMouseEnter}
             onMouseLeave={onMouseLeave}
           >
-            <Link to="/services"
+            <div 
               className={`nav-link ${click ? 'drop-nav-link-mobile nav-link-mobile' : ''}`}
-              onClick={() => { handleDesktopClick(); closeMobileMenu(); scrollToTop(); }}
-            >
+              onClick={handleDesktopClick}
+            ><Link to='/Services' className={`nav-link ${click ? 'nav-link-mobile' : ''}`} onClick={() => { closeMobileMenu(); scrollToTop(); }}>
               {t('navbar.services')}
               {window.innerWidth >= 960 && (
                 <i className='fas fa-caret-down' onClick={handleMobileClick} />
               )}
-            </Link>
+              </Link>
+            </div>
             {window.innerWidth < 960 && (
               <i className='fas fa-caret-down' onClick={handleMobileClick} />
             )}
+            <AnimatePresence>
+              {(dropdown || (click && mobileDropdown)) && (
+                <Dropdown 
+                  isOpen={true}
+                  closeMobileMenu={closeMobileMenu}
+                  onMouseEnter={onMouseEnter}
+                  onMouseLeave={onMouseLeave}
+                />
+              )}
+            </AnimatePresence>
           </li>
-          <Dropdown 
-              isOpen={window.innerWidth >= 960 ? (dropdown || (click && mobileDropdown)) : (dropdown || (click && mobileDropdown))} 
-              closeMobileMenu={closeMobileMenu} 
-            />
           <li className='nav-item'>
             <Link to='/Documents' className={`nav-link ${click ? 'nav-link-mobile' : ''}`} onClick={() => { closeMobileMenu(); scrollToTop(); }}>
               {t('navbar.certificates')}
