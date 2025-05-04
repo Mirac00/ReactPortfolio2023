@@ -83,7 +83,6 @@
     flex-direction: column;
     align-items: center;
     padding: 1em;
-    margin-top:1em;
   }
 
   .profile-image-container {
@@ -103,7 +102,6 @@
     justify-content: center; /* Wyśrodkowanie dla mobile */
     left: 0;
     width: 80%; /* Szerszy kontener na mobile */
-    margin-bottom: 2em; /* Dodatkowy odstęp */
   }
 }
 @media (max-width: 768px) {
