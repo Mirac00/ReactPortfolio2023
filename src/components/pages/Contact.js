@@ -28,28 +28,34 @@ function ContactForm() {
         <form onSubmit={handleSubmit} className='contact-form__form'>
           <div className='form-group contact-form__form-group'>
             <div className='form-group-half contact-form__half'>
-              <label htmlFor='name' className='contact-form__label'>
-                {t('contact.nameLabel')}
-              </label>
-              <input
-                type='text'
-                id='name'
-                name='name'
-                className='contact-form__input'
-                required
-              />
+              <div className='input-container'>
+                <input
+                  type='text'
+                  id='name'
+                  name='name'
+                  placeholder=' '
+                  className='contact-form__input'
+                  required
+                />
+                <label htmlFor='name' className='contact-form__label'>
+                  {t('contact.nameLabel')}
+                </label>
+              </div>
             </div>
             <div className='form-group-half contact-form__half'>
-              <label htmlFor='email' className='contact-form__label'>
-                {t('contact.emailLabel')}
-              </label>
-              <input
-                type='email'
-                id='email'
-                name='email'
-                className='contact-form__input'
-                required
-              />
+              <div className='input-container'>
+                <input
+                  type='email'
+                  id='email'
+                  name='email'
+                  placeholder=' '
+                  className='contact-form__input'
+                  required
+                />
+                <label htmlFor='email' className='contact-form__label'>
+                  {t('contact.emailLabel')}
+                </label>
+              </div>
               <ValidationError 
                 prefix="Email" 
                 field="email"
@@ -58,16 +64,18 @@ function ContactForm() {
             </div>
           </div>
           <div className='form-group'>
-            <label htmlFor='message' className='contact-form__label'>
-              {t('contact.messageLabel')}
-            </label>
-            <textarea
-              id='message'
-              name='message'
-              rows='4'
-              className='contact-form__textarea'
-              required
-            ></textarea>
+            <div className='input-container'>
+              <textarea
+                id='message'
+                name='message'
+                rows='4'
+                className='contact-form__textarea'
+                required
+              ></textarea>
+              <label htmlFor='message' className='contact-form__label'>
+                {t('contact.messageLabel')}
+              </label>
+            </div>
             <ValidationError 
               prefix="Message" 
               field="message"

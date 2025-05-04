@@ -50,7 +50,7 @@
 }
 
 .next-arrow {
-  right: -15%;
+  right: -19%;
 }
 
 .next-arrow::before {
@@ -59,7 +59,7 @@
 }
 
 .prev-arrow {
-  left: -15%;
+  left: -19%;
 }
 
 .prev-arrow::before {

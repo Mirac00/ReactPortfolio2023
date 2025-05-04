@@ -6,7 +6,7 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  max-width: 70%;
+  max-width: 90%;
   padding: 20px;
   border-radius: 20px;
   position: relative;
@@ -50,11 +50,37 @@
   margin-bottom: 10px;
 }
 
-.contact-form__label {
+.input-container {
   position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 60px;
+}
+
+.contact-form__label {
+  position: absolute;
   font-size: 0.9em;
   color: rgba(255, 255, 255, 0.5);
-  transition: 0.3s ease;
+  transition: all 0.3s ease;
+  bottom: 12px;
+  left: 10px;
+  pointer-events: none;
+}
+
+.contact-form__input:not(:focus):placeholder-shown + .contact-form__label,
+.contact-form__textarea:not(:focus):placeholder-shown + .contact-form__label {
+  opacity: 1;
+  visibility: visible;
+}
+
+.contact-form__input:focus + .contact-form__label,
+.contact-form__textarea:focus + .contact-form__label,
+.contact-form__input:not(:placeholder-shown) + .contact-form__label,
+.contact-form__textarea:not(:placeholder-shown) + .contact-form__label {
+  opacity: 0;
+  visibility: hidden;
 }
 
 .contact-form__input,
@@ -62,27 +88,12 @@
   background-color: #333;
   color: #fff;
   width: 100%;
-  padding: 20px 5px 5px 10px;
+  padding: 12px 10px 8px 10px; /* zmniejszone paddingi dla lepszego wyglądu */
   outline: 0;
   border: 1px solid rgba(105, 105, 105, 0.397);
   border-radius: 10px;
   font-size: medium;
-}
-
-.contact-form__input:placeholder-shown + .contact-form__label,
-.contact-form__textarea:placeholder-shown + .contact-form__label {
-  top: 12.5px;
-  font-size: 0.9em;
-}
-
-.contact-form__input:focus + .contact-form__label,
-.contact-form__textarea:focus + .contact-form__label,
-.contact-form__input:valid + .contact-form__label,
-.contact-form__textarea:valid + .contact-form__label {
-  color: #00bfff;
-  top: 0px;
-  font-size: 0.7em;
-  font-weight: 600;
+  margin-bottom: 10px;
 }
 
 .contact-form__button {
@@ -104,4 +115,14 @@
 .contact-form__button:disabled {
   background-color: #cccccc;
   cursor: not-allowed;
+}
+
+.form-group-half {
+  flex: 1;
+}
+
+@media (max-width: 768px) {
+  .contact-form__form-group {
+    flex-direction: column;
+  }
 }

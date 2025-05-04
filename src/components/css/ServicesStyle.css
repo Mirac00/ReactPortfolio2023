@@ -163,6 +163,7 @@
   text-decoration: none;
   font-family: 'Kanit', sans-serif;
   transition: all 0.3s ease;
+  cursor: pointer;
 }
 
 .contact-nav-button:hover {

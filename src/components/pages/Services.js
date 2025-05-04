@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
+import { HashLink as Link } from 'react-router-hash-link';
+import { Link as ScrollLink } from 'react-scroll';
 import '../css/ServicesStyle.css';
 import GitHubButton from '../GitHubButton';
 import Slider from '../slider';
@@ -128,10 +129,16 @@ export default function Services() {
         <button onClick={() => scrollToSection('fullstack')}>
           {t('servicesPage.navigation.fullstack')}
         </button>
-        <Link to='/contact' className='contact-nav-button'>
+        <ScrollLink
+          to='contact'
+          spy={true}
+          smooth={true}
+          duration={500}
+          className='contact-nav-button'
+        >
           <span className='contact-text'>{t('servicesPage.navigation.contactText')}</span>
           <span className='contact-label'>{t('servicesPage.navigation.contactLabel')}</span>
-        </Link>
+        </ScrollLink>
       </div>
     </div>
   );
