@@ -1,5 +1,5 @@
 .language-switcher {
-  margin-left: auto;
+  margin-left: 10px;
   margin-right: 20px;
   display: flex;
   align-items: center;
@@ -22,7 +22,7 @@
 }
 
 .language-flag {
-  width: 30px;
+  width: 40px;
   height: auto;
   object-fit: cover;
   border-radius: 3px;
@@ -31,7 +31,8 @@
 /* Responsywność */
 @media screen and (max-width: 960px) {
   .language-switcher {
-    margin-right: 15px;
+    right: 60px;
+    margin-right: 0;
   }
   
   .language-flag {
@@ -39,10 +40,12 @@
   }
 }
 
-@media (max-width: 550px) {
-  .logo-container {
-    transform: scale(0.7);
-    transform-origin: right;
-    margin-left: 1em;
+@media screen and (max-width: 400px) {
+  .language-switcher {
+    right: 50px;
+  }
+  
+  .language-flag {
+    width: 20px;
   }
 }
