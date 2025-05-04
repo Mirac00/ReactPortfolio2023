@@ -14,6 +14,7 @@ import image8 from '../../images/netsec.png';
 import profileImage from '../../images/profilowe.png'; 
 import { useTranslation } from 'react-i18next';
 import GitHubButton from '../GitHubButton';
+import AnimatedSection from '../AnimatedSection';
 
 export default function Home() {
   const { t } = useTranslation();
@@ -65,14 +66,19 @@ export default function Home() {
           </h2>
         </MovingComponent>
       </section>
-
+      <AnimatedSection>
       <Interview profileImage={profileImage} scrollToAboutMe={scrollToAboutMe} />
+      </AnimatedSection>
       <div className='container-box'>
       <section className='container'>
+      <AnimatedSection delay={0.2}>
         <h2>{t('home.myBestProjects')}</h2>
+        </AnimatedSection>
           <br/>
         {/* Project 1 */}
+        
         <article className='article'>
+        <AnimatedSection delay={0.3}>
           <div className='article-content'>
             <div className='article-image'>
               <img src={image6} alt='Strona portfolio' className='article-main-image' />
@@ -88,10 +94,13 @@ export default function Home() {
               </div>
             </div>
           </div>
+          </AnimatedSection>
         </article>
-
+        
         {/* Project 2 */}
+        
         <article className='article'>
+        <AnimatedSection delay={0.4}>
           <div className='article-content'>
             <div className='article-image'>
               <img src={image5} alt='System CMS' className='article-main-image' />
@@ -107,10 +116,13 @@ export default function Home() {
               </div>
             </div>
           </div>
+          </AnimatedSection>
         </article>
-
+        
         {/* Project 3 */}
+        
         <article className='article'>
+        <AnimatedSection delay={0.5}>
           <div className='article-content'>
             <div className='article-image'>
               <img src={image4} alt='SM Trend aplikacja' className='article-main-image' />
@@ -133,10 +145,13 @@ export default function Home() {
               </div>
             </div>
           </div>
+          </AnimatedSection>
         </article>
-
+        
+        
         {/* Project 4 - Certificates */}
         <article className='article'>
+        <AnimatedSection delay={0.6}>
           <div className='article-content'>
             <div className='article-slider'>
               <Slider images={imagesProject4} />
@@ -151,10 +166,13 @@ export default function Home() {
               </div>
             </div>
           </div>
+          </AnimatedSection>
         </article>
       </section>
       </div>
+      <AnimatedSection delay={0.7}>
       <AboutMe />
+      </AnimatedSection>
     </div>
   );
 }
