@@ -1,3 +1,4 @@
+// Dropdown.js
 import React from 'react';
 import { MenuItems } from './MenuItems';
 import './css/Dropdown.css';
@@ -5,7 +6,7 @@ import { Link, useHistory, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
 
-function Dropdown({ isOpen, closeMobileMenu, onMouseEnter, onMouseLeave }) {
+function Dropdown({ isOpen, closeMobileMenu, onMouseEnter, onMouseLeave, isClosing }) {
   const { t } = useTranslation();
   const history = useHistory();
   const location = useLocation();
@@ -17,8 +18,11 @@ function Dropdown({ isOpen, closeMobileMenu, onMouseEnter, onMouseLeave }) {
   const scrollToSection = (sectionId) => {
     const section = document.getElementById(sectionId);
     if (section) {
+      const yOffset = -20;
+      const y = section.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      
       window.scrollTo({
-        top: section.offsetTop - 20,
+        top: y,
         behavior: 'smooth'
       });
     }
@@ -26,31 +30,28 @@ function Dropdown({ isOpen, closeMobileMenu, onMouseEnter, onMouseLeave }) {
 
   const handleServiceClick = (path) => {
     const sectionId = path.split('#')[1];
+    closeMobileMenu();
 
     if (location.pathname === '/services') {
-      // Jeśli już jesteś na /services, przewiń bez przeładowania
-      closeMobileMenu();
       if (sectionId) {
         setTimeout(() => {
           scrollToSection(sectionId);
-        }, 100); // daj czas na zamknięcie menu
+        }, 100);
       }
     } else {
-      // Ustaw sekcję do przewinięcia i przejdź do /services
       if (sectionId) {
         sessionStorage.setItem('scrollToSection', sectionId);
       }
-      closeMobileMenu();
       history.push('/services');
     }
   };
 
   return (
     <AnimatePresence>
-      {isOpen && (
+      {(isOpen || isClosing) && (
         <motion.ul
           initial={{ opacity: 0, height: 0 }}
-          animate={{ opacity: 1, height: 'auto' }}
+          animate={isClosing ? { opacity: 0, height: 0 } : { opacity: 1, height: 'auto' }}
           exit={{ opacity: 0, height: 0 }}
           transition={{ duration: 0.3, ease: 'easeInOut' }}
           className="dropdown-menu"
@@ -61,10 +62,10 @@ function Dropdown({ isOpen, closeMobileMenu, onMouseEnter, onMouseLeave }) {
             <li key={index}>
               <Link
                 className="dropdown-link"
-                to="#"
+                to={item.path}
                 onClick={(e) => {
-                  e.preventDefault(); // zapobiega domyślnemu zachowaniu linku
-                  if (item.path.includes('services#')) {
+                  e.preventDefault();
+                  if (item.path.includes('/services#')) {
                     handleServiceClick(item.path);
                   } else {
                     closeMobileMenu();

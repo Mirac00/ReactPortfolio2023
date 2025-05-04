@@ -22,11 +22,14 @@ const servicesImages = {
   fullstack: [image7, image8, image9]
 };
 
-const scrollToSection = (sectionId) => {
+const scrollToSection = (sectionId, offset = -20) => {
   const section = document.getElementById(sectionId);
   if (section) {
+    const elementPosition = section.getBoundingClientRect().top;
+    const offsetPosition = elementPosition + window.pageYOffset + offset;
+
     window.scrollTo({
-      top: section.offsetTop - 20,
+      top: offsetPosition,
       behavior: 'smooth'
     });
   }
@@ -36,13 +39,24 @@ export default function Services() {
   const { t } = useTranslation();
 
   useEffect(() => {
-    const sectionId = sessionStorage.getItem('scrollToSection');
+    // Pobierz sekcję z sessionStorage lub z hash w URL
+    const sectionIdFromStorage = sessionStorage.getItem('scrollToSection');
+    const hashSectionId = window.location.hash.substring(1);
+    const sectionId = sectionIdFromStorage || hashSectionId;
+
     if (sectionId) {
-      scrollToSection(sectionId);
-      sessionStorage.removeItem('scrollToSection');
+      // Małe opóźnienie dla pewności, że komponenty są zamontowane
+      const timer = setTimeout(() => {
+        scrollToSection(sectionId);
+        sessionStorage.removeItem('scrollToSection');
+        // Usuń hash z URL po przewinięciu
+        window.history.replaceState(null, null, ' ');
+      }, 300);
+
+      return () => clearTimeout(timer);
     }
   }, []);
-
+  
   return (
     <div className='Services'>
       <AnimatedSection>
@@ -124,30 +138,6 @@ export default function Services() {
         </div>
       </div>
       </AnimatedSection>      
-               
-      <div className='ServiceNavigation'>
-      
-        <button onClick={() => scrollToSection('websites')}>
-          {t('servicesPage.navigation.websites')}
-        </button>
-        <button onClick={() => scrollToSection('cms')}>
-          {t('servicesPage.navigation.cms')}
-        </button>
-        <button onClick={() => scrollToSection('fullstack')}>
-          {t('servicesPage.navigation.fullstack')}
-        </button>
-        
-        <ScrollLink
-          to='contact'
-          spy={true}
-          smooth={true}
-          duration={500}
-          className='contact-nav-button'
-        >
-          <span className='contact-text'>{t('servicesPage.navigation.contactText')}</span>
-          <span className='contact-label'>{t('servicesPage.navigation.contactLabel')}</span>
-        </ScrollLink>
-      </div>
       
     </div>
   );

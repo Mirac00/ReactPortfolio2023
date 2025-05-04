@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
 .App {
-  background-color: #313131;
   position: relative;
   min-height: 100vh;
+  background: linear-gradient(to bottom, #313131 0%, #313131 1000px, transparent 1000px, transparent 100%);
 }
 
 .App::before {
@@ -12,14 +12,23 @@
   bottom: 0;
   left: 0;
   right: 0;
-  height: 1000px; /* Dostosuj do wysokości swojego obrazka */
+  background-color: #313131;
+  height: 1500px; /* Dostosuj do wysokości swojego obrazka */
   background-image: url('../src/images/BG-interview.png');
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
-  z-index: 0;
+  z-index: -1;
+}
+@media screen and (max-width: 960px) {
+.App {
+  background: linear-gradient(to bottom, #313131 0%, #313131 2000px, transparent 1000px, transparent 100%);
 }
 
+.App::before {
+  height: 2000px;
+}
+}
 * {
   box-sizing: border-box;
   margin: 0;

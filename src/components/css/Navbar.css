@@ -84,6 +84,18 @@
   transition: all 0.2s ease-out;
 }
 
+.nav-link-service {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.nav-link-service:hover {
+  background-color: #00aae3;
+  border-radius: 4px;
+  transition: all 0.2s ease-out;
+}
+
 .fa-bars {
   color: #fff;
 }

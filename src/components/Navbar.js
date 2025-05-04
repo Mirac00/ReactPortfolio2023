@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+// Navbar.js
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import './css/Navbar.css';
 import Dropdown from './Dropdown';
@@ -13,6 +14,8 @@ function Navbar() {
   const [click, setClick] = useState(false);
   const [dropdown, setDropdown] = useState(false);
   const [mobileDropdown, setMobileDropdown] = useState(false);
+  const [isClosing, setIsClosing] = useState(false);
+  const dropdownTimeoutRef = useRef(null);
   const history = useHistory();
   const { t } = useTranslation();
 
@@ -21,30 +24,52 @@ function Navbar() {
 
   const onMouseEnter = () => {
     if (window.innerWidth >= 960) {
+      clearTimeout(dropdownTimeoutRef.current);
+      setIsClosing(false);
       setDropdown(true);
     }
   };
 
   const onMouseLeave = () => {
     if (window.innerWidth >= 960) {
-      setDropdown(false);
+      setIsClosing(true);
+      dropdownTimeoutRef.current = setTimeout(() => {
+        setDropdown(false);
+        setIsClosing(false);
+      }, 300); // Dopasuj do czasu trwania animacji
     }
   };
 
   const toggleMobileDropdown = () => {
-    setMobileDropdown(!mobileDropdown);
+    if (mobileDropdown) {
+      setIsClosing(true);
+      setTimeout(() => {
+        setMobileDropdown(false);
+        setIsClosing(false);
+      }, 300);
+    } else {
+      setMobileDropdown(true);
+    }
   };
 
   useEffect(() => {
     history.listen(() => {
-      setDropdown(false);
-      setMobileDropdown(false);
+      setIsClosing(true);
+      setTimeout(() => {
+        setDropdown(false);
+        setMobileDropdown(false);
+        setIsClosing(false);
+      }, 300);
     });
 
     const link = document.querySelector('.navbar-logo');
     if (link) {
       link.style.textDecoration = 'none';
     }
+
+    return () => {
+      clearTimeout(dropdownTimeoutRef.current);
+    };
   }, [history]);
 
   const scrollToTop = () => {
@@ -71,7 +96,15 @@ function Navbar() {
 
   const handleDesktopClick = () => {
     if (window.innerWidth >= 960) {
-      setDropdown(prev => !prev);
+      if (dropdown) {
+        setIsClosing(true);
+        setTimeout(() => {
+          setDropdown(false);
+          setIsClosing(false);
+        }, 300);
+      } else {
+        setDropdown(true);
+      }
       if (window.location.pathname === '/services') {
         scrollToTop();
       }
@@ -126,27 +159,29 @@ function Navbar() {
             <div 
               className={`nav-link ${click ? 'drop-nav-link-mobile nav-link-mobile' : ''}`}
               onClick={handleDesktopClick}
-            ><Link to='/Services' className={`nav-link ${click ? 'nav-link-mobile' : ''}`} onClick={() => { closeMobileMenu(); scrollToTop(); }}>
-              {t('navbar.services')}
-              {window.innerWidth >= 960 && (
-                <i className='fas fa-caret-down' onClick={handleMobileClick} />
-              )}
+            >
+              <Link to='/Services' className={`nav-link-service ${click ? 'nav-link-mobile-service' : ''}`} onClick={() => { closeMobileMenu(); scrollToTop(); }}>
+                {t('navbar.services')}
+                {window.innerWidth >= 960 && (
+                  <i className='fas fa-caret-down' onClick={handleMobileClick} />
+                )}
               </Link>
             </div>
             {window.innerWidth < 960 && (
               <i className='fas fa-caret-down' onClick={handleMobileClick} />
             )}
-            <AnimatePresence>
-              {(dropdown || (click && mobileDropdown)) && (
-                <Dropdown 
-                  isOpen={true}
-                  closeMobileMenu={closeMobileMenu}
-                  onMouseEnter={onMouseEnter}
-                  onMouseLeave={onMouseLeave}
-                />
-              )}
-            </AnimatePresence>
           </li>
+          <AnimatePresence>
+            {(dropdown || mobileDropdown) && (
+              <Dropdown 
+                isOpen={true}
+                isClosing={isClosing}
+                closeMobileMenu={closeMobileMenu}
+                onMouseEnter={onMouseEnter}
+                onMouseLeave={onMouseLeave}
+              />
+            )}
+          </AnimatePresence>
           <li className='nav-item'>
             <Link to='/Documents' className={`nav-link ${click ? 'nav-link-mobile' : ''}`} onClick={() => { closeMobileMenu(); scrollToTop(); }}>
               {t('navbar.certificates')}
