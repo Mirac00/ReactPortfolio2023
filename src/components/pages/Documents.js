@@ -6,6 +6,7 @@ import image1 from '../../images/dataimg.png';
 import image2 from '../../images/netsec.png';
 import image3 from '../../images/adobe.png';
 import Popup from '../Popup';
+import AnimatedSection from '../AnimatedSection';
 
 export default function Documents() {
   const { t } = useTranslation();
@@ -34,8 +35,10 @@ export default function Documents() {
     <>
       <div className="documents-box">
         <div className="documents-container">
+        <AnimatedSection>
           <h1 className="documents-title">{t('certificatesPage.title')}</h1>
-
+          </AnimatedSection>
+          <AnimatedSection delay={0.2}>
           <div className="document-article">
             <div className="document-image" onClick={() => openPopup(0)}>
               <img src={image1} alt={t('certificatesPage.certificate1.title')} />
@@ -45,7 +48,8 @@ export default function Documents() {
               <p>{t('certificatesPage.certificate1.description')}</p>
             </div>
           </div>
-
+          </AnimatedSection>
+          <AnimatedSection delay={0.3}>
           <div className="document-article">
             <div className="document-image" onClick={() => openPopup(1)}>
               <img src={image2} alt={t('certificatesPage.certificate2.title')} />
@@ -55,7 +59,8 @@ export default function Documents() {
               <p>{t('certificatesPage.certificate2.description')}</p>
             </div>
           </div>
-
+          </AnimatedSection>
+          <AnimatedSection delay={0.4}>
           <div className="document-article">
             <div className="document-image" onClick={() => openPopup(2)}>
               <img src={image3} alt={t('certificatesPage.certificate3.title')} />
@@ -65,6 +70,7 @@ export default function Documents() {
               <p>{t('certificatesPage.certificate3.description')}</p>
             </div>
           </div>
+          </AnimatedSection>
         </div>
       </div>
 

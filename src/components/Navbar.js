@@ -57,21 +57,16 @@ function Navbar() {
       setTimeout(() => {
         const section = document.getElementById('aboutme');
         if (section) {
-          window.scrollTo({
-            top: section.offsetTop - 20,
-            behavior: 'smooth'
-          });
+          section.scrollIntoView({ behavior: 'smooth' });
         }
       }, 100);
     } else {
       const section = document.getElementById('aboutme');
       if (section) {
-        window.scrollTo({
-          top: section.offsetTop - 20,
-          behavior: 'smooth'
-        });
+        section.scrollIntoView({ behavior: 'smooth' });
       }
     }
+    closeMobileMenu();
   };
 
   const handleDesktopClick = () => {
@@ -118,7 +113,7 @@ function Navbar() {
           <li className='nav-item'>
             <div 
               className={`nav-link ${click ? 'nav-link-mobile' : ''}`}
-              onClick={() => { closeMobileMenu(); scrollToAboutMe(); }}
+              onClick={scrollToAboutMe}
             >
               {t('navbar.aboutMe')}
             </div>

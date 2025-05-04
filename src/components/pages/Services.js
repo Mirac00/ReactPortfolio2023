@@ -14,6 +14,7 @@ import image6 from '../../images/imgcmsinterfejs.png';
 import image7 from '../../images/imgfrontbackdatabase.png';
 import image8 from '../../images/imgdopasowanie.png';
 import image9 from '../../images/imgcustom.jpg';
+import AnimatedSection from '../AnimatedSection';
 
 const servicesImages = {
   websites: [image1, image2, image3],
@@ -44,8 +45,10 @@ export default function Services() {
 
   return (
     <div className='Services'>
+      <AnimatedSection>
       <h1 className='ServiceSection-title'>{t('servicesPage.title')}</h1>
-
+      </AnimatedSection>
+      <AnimatedSection delay={0.2}>
       <div className='ServiceSection' id='websites'>
         <div className='ServiceSection-content'>
           <div className='ServiceSection-text'>
@@ -67,7 +70,8 @@ export default function Services() {
           </div>
         </div>
       </div>
-
+      </AnimatedSection> 
+      <AnimatedSection delay={0.3}>         
       <div className='ServiceSection' id='cms'>
         <div className='ServiceSection-content'>
           <div className='ServiceSection-text'>
@@ -89,7 +93,8 @@ export default function Services() {
           </div>
         </div>
       </div>
-
+      </AnimatedSection>    
+      <AnimatedSection delay={0.4}>           
       <div className='ServiceSection' id='fullstack'>
         <div className='ServiceSection-content'>
           <div className='ServiceSection-text'>
@@ -118,8 +123,10 @@ export default function Services() {
           </div>
         </div>
       </div>
-
+      </AnimatedSection>      
+               
       <div className='ServiceNavigation'>
+      
         <button onClick={() => scrollToSection('websites')}>
           {t('servicesPage.navigation.websites')}
         </button>
@@ -129,6 +136,7 @@ export default function Services() {
         <button onClick={() => scrollToSection('fullstack')}>
           {t('servicesPage.navigation.fullstack')}
         </button>
+        
         <ScrollLink
           to='contact'
           spy={true}
@@ -140,6 +148,7 @@ export default function Services() {
           <span className='contact-label'>{t('servicesPage.navigation.contactLabel')}</span>
         </ScrollLink>
       </div>
+      
     </div>
   );
 }

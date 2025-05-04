@@ -36,26 +36,26 @@
 /* Style dla artykułów */
 .article {
   width: 100%;
-  padding: 2rem;
   background-color: white;
   margin-bottom: 3rem;
   box-sizing: border-box;
   color: black;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.article:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
 }
 
 .article-content {
   display: flex;
   flex-direction: row;
   width: 100%;
+  padding: 2rem;
   align-items: center;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.article-content:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
 }
 
 .article-slider {
