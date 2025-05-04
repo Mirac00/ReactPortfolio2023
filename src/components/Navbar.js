@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import './/css/Navbar.css';
+import './css/Navbar.css';
 import Dropdown from './Dropdown';
 import { HashLink as Links } from 'react-router-hash-link';
 import { Link as ScrollLink } from 'react-scroll';
 import logo123 from '../images/logo123.png';
 import LanguageSwitcher from './LangueSwitcher';
 import { useTranslation } from 'react-i18next';
+import { motion, AnimatePresence } from 'framer-motion';
 
 function Navbar() {
   const [click, setClick] = useState(false);
@@ -103,9 +104,11 @@ function Navbar() {
             {window.innerWidth < 960 && (
               <i className='fas fa-caret-down' onClick={handleMobileClick} />
             )}
-            {window.innerWidth >= 960 && (dropdown || (click && mobileDropdown)) && <Dropdown closeMobileMenu={closeMobileMenu} />}
           </li>
-          {window.innerWidth < 960 && (dropdown || (click && mobileDropdown)) && <Dropdown closeMobileMenu={closeMobileMenu} />}
+          <Dropdown 
+              isOpen={window.innerWidth >= 960 ? (dropdown || (click && mobileDropdown)) : (dropdown || (click && mobileDropdown))} 
+              closeMobileMenu={closeMobileMenu} 
+            />
           <li className='nav-item'>
             <Link to='/Documents' className={`nav-link ${click ? 'nav-link-mobile' : ''}`} onClick={() => { closeMobileMenu(); scrollToTop(); }}>
               {t('navbar.certificates')}

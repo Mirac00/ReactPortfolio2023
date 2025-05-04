@@ -5,6 +5,8 @@
   list-style: none;
   text-align: start;
   z-index: 1000;
+  overflow: hidden;
+  right: 19rem;
 }
 
 .dropdown-menu li {

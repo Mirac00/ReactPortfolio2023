@@ -157,6 +157,7 @@
     opacity: 1;
     grid-gap:0px;
     transition: all 0.5s ease;
+    background: #242222;
   }
 
   .nav-menu.active {
