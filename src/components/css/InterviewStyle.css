@@ -9,6 +9,7 @@
   border-radius: 1em;
   position: relative;
   justify-content: center;
+  padding-bottom: 30vh;
 }
 
 .profile-image-container {
@@ -31,10 +32,10 @@
 }
 
 .interview-text-container {
-  padding: 2em;
-  margin: 2em;
+  padding: 0em 3em 0em 6em;
+  margin-right: auto;
   border-radius: 1em;
-  width: 70%;
+  width: 50%;
   font-family: Arial, sans-serif;
 }
 

@@ -9,6 +9,7 @@ export default function Interview({ profileImage, scrollToAboutMe }) {
   return (
     <div className="Interview">
       <div className="interview-container">
+        {/*
         <div className="profile-image-container">
           <img
             src={profileImage}
@@ -16,6 +17,7 @@ export default function Interview({ profileImage, scrollToAboutMe }) {
             className="profile-image"
           />
         </div>
+        */}
         <div className="interview-text-container">
           <h1 className="display-5 fw-bold mb-2">
             {t('interview.titleLine1')}<br/>
