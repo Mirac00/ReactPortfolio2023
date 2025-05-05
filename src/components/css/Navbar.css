@@ -53,7 +53,9 @@
 .fa-caret-down:before {
   margin-left: 5px;
 }
-
+.nav-filler{
+  width:100%;
+}
 .nav-menu {
   display: grid;
   grid-template-columns: repeat(6, auto);
