@@ -1,7 +1,5 @@
 import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { HashLink as Link } from 'react-router-hash-link';
-import { Link as ScrollLink } from 'react-scroll';
 import '../css/ServicesStyle.css';
 import GitHubButton from '../GitHubButton';
 import Slider from '../slider';
@@ -15,6 +13,7 @@ import image7 from '../../images/imgfrontbackdatabase.png';
 import image8 from '../../images/imgdopasowanie.png';
 import image9 from '../../images/imgcustom.jpg';
 import AnimatedSection from '../AnimatedSection';
+import '../css/global.css';
 
 const servicesImages = {
   websites: [image1, image2, image3],
@@ -39,17 +38,14 @@ export default function Services() {
   const { t } = useTranslation();
 
   useEffect(() => {
-    // Pobierz sekcję z sessionStorage lub z hash w URL
     const sectionIdFromStorage = sessionStorage.getItem('scrollToSection');
     const hashSectionId = window.location.hash.substring(1);
     const sectionId = sectionIdFromStorage || hashSectionId;
 
     if (sectionId) {
-      // Małe opóźnienie dla pewności, że komponenty są zamontowane
       const timer = setTimeout(() => {
         scrollToSection(sectionId);
         sessionStorage.removeItem('scrollToSection');
-        // Usuń hash z URL po przewinięciu
         window.history.replaceState(null, null, ' ');
       }, 300);
 
@@ -58,87 +54,89 @@ export default function Services() {
   }, []);
   
   return (
-    <div className='Services'>
+    <div className='services'>
       <AnimatedSection>
-      <h1 className='ServiceSection-title'>{t('servicesPage.title')}</h1>
+        <h1 className='services__title'>{t('servicesPage.title')}</h1>
       </AnimatedSection>
-      <AnimatedSection delay={0.2}>
-      <div className='ServiceSection' id='websites'>
-        <div className='ServiceSection-content'>
-          <div className='ServiceSection-text'>
-            <h2>{t('servicesPage.professionalWebsites.title')}</h2>
-            <div className='ServiceSection-description'>
-              <p>{t('servicesPage.professionalWebsites.description')}</p>
-              <ul>
-                {t('servicesPage.professionalWebsites.features', { returnObjects: true }).map((feature, index) => (
-                  <li key={index}>{feature}</li>
-                ))}
-              </ul>
-            </div>
-            <div className="button-group">
-              <GitHubButton link="https://github.com/Mirac00/ReactPortfolio2023.git" />
-            </div>
-          </div>
-          <div className='service-slider-container'>
-            <Slider images={servicesImages.websites} />
-          </div>
-        </div>
-      </div>
-      </AnimatedSection> 
-      <AnimatedSection delay={0.3}>         
-      <div className='ServiceSection' id='cms'>
-        <div className='ServiceSection-content'>
-          <div className='ServiceSection-text'>
-            <h2>{t('servicesPage.cmsSystems.title')}</h2>
-            <div className='ServiceSection-description'>
-              <p>{t('servicesPage.cmsSystems.description')}</p>
-              <ul>
-                {t('servicesPage.cmsSystems.features', { returnObjects: true }).map((feature, index) => (
-                  <li key={index}>{feature}</li>
-                ))}
-              </ul>
-            </div>
-            <div className="button-group">
-              <GitHubButton link="https://github.com/Mirac00/Notes.API.git" />
-            </div>
-          </div>
-          <div className='service-slider-container'>
-            <Slider images={servicesImages.cms} />
-          </div>
-        </div>
-      </div>
-      </AnimatedSection>    
-      <AnimatedSection delay={0.4}>           
-      <div className='ServiceSection' id='fullstack'>
-        <div className='ServiceSection-content'>
-          <div className='ServiceSection-text'>
-            <h2>{t('servicesPage.fullstackSolutions.title')}</h2>
-            <div className='ServiceSection-description'>
-              <p>{t('servicesPage.fullstackSolutions.description')}</p>
-              <ul>
-                {t('servicesPage.fullstackSolutions.features', { returnObjects: true }).map((feature, index) => (
-                  <li key={index}>{feature}</li>
-                ))}
-              </ul>
-            </div>
-            <div className="button-group">
-              <div className="github-button-container">
-                <h3>{t('servicesPage.professionalWebsites.githubButton')}</h3>
-                <GitHubButton link="https://github.com/Mirac00/SM-Trend-Frontend.git" />
-              </div>
-              <div className="github-button-container">
-                <h3>{t('servicesPage.professionalWebsites.githubButton2')}</h3>
-                <GitHubButton link="https://github.com/Mirac00/SM-Trend-Backend.git" />
-              </div>
-            </div>
-          </div>
-          <div className='service-slider-container'>
-            <Slider images={servicesImages.fullstack} />
-          </div>
-        </div>
-      </div>
-      </AnimatedSection>      
       
+      <AnimatedSection delay={0.2}>
+        <div className='article-section' id='websites'>
+          <div className='article-section__content'>
+            <div className='article-section__text'>
+              <h2>{t('servicesPage.professionalWebsites.title')}</h2>
+              <div className='article-section__description'>
+                <p>{t('servicesPage.professionalWebsites.description')}</p>
+                <ul className='article-section__list'>
+                  {t('servicesPage.professionalWebsites.features', { returnObjects: true }).map((feature, index) => (
+                    <li className='article-section__item' key={index}>{feature}</li>
+                  ))}
+                </ul>
+              </div>
+              <div className="button-group">
+                <GitHubButton link="https://github.com/Mirac00/ReactPortfolio2023.git" />
+              </div>
+            </div>
+            <div className='article-section__media'>
+              <Slider images={servicesImages.websites} />
+            </div>
+          </div>
+        </div>
+      </AnimatedSection> 
+      
+      <AnimatedSection delay={0.3}>         
+        <div className='article-section' id='cms'>
+          <div className='article-section__content'>
+            <div className='article-section__text'>
+              <h2>{t('servicesPage.cmsSystems.title')}</h2>
+              <div className='article-section__description'>
+                <p>{t('servicesPage.cmsSystems.description')}</p>
+                <ul className='article-section__list'>
+                  {t('servicesPage.cmsSystems.features', { returnObjects: true }).map((feature, index) => (
+                    <li className='article-section__item' key={index}>{feature}</li>
+                  ))}
+                </ul>
+              </div>
+              <div className="button-group">
+                <GitHubButton link="https://github.com/Mirac00/Notes.API.git" />
+              </div>
+            </div>
+            <div className='article-section__media'>
+              <Slider images={servicesImages.cms} />
+            </div>
+          </div>
+        </div>
+      </AnimatedSection>    
+      
+      <AnimatedSection delay={0.4}>           
+        <div className='article-section' id='fullstack'>
+          <div className='article-section__content'>
+            <div className='article-section__text'>
+              <h2>{t('servicesPage.fullstackSolutions.title')}</h2>
+              <div className='article-section__description'>
+                <p>{t('servicesPage.fullstackSolutions.description')}</p>
+                <ul className='article-section__list'>
+                  {t('servicesPage.fullstackSolutions.features', { returnObjects: true }).map((feature, index) => (
+                    <li className='article-section__item' key={index}>{feature}</li>
+                  ))}
+                </ul>
+              </div>
+              <div className="button-group">
+                <div className="github-button-container">
+                  <h3>{t('servicesPage.professionalWebsites.githubButton')}</h3>
+                  <GitHubButton link="https://github.com/Mirac00/SM-Trend-Frontend.git" />
+                </div>
+                <div className="github-button-container">
+                  <h3>{t('servicesPage.professionalWebsites.githubButton2')}</h3>
+                  <GitHubButton link="https://github.com/Mirac00/SM-Trend-Backend.git" />
+                </div>
+              </div>
+            </div>
+            <div className='article-section__media'>
+              <Slider images={servicesImages.fullstack} />
+            </div>
+          </div>
+        </div>
+      </AnimatedSection>      
     </div>
   );
 }

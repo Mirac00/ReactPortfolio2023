@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import '../../App.css';
 import '../css/HomeStyle.css';
+import '../css/global.css';
 import { Link } from 'react-router-dom';
 import AboutMe from './aboutme';
 import Interview from './interview';
@@ -45,7 +46,7 @@ export default function Home() {
 
   return (
     <div className='home'>
-      <section className='AboutMeShort'>
+      <section className='home__about-short'>
         <MovingComponent
           type='slideInFromBottom'
           duration='1000ms'
@@ -66,113 +67,111 @@ export default function Home() {
           </h2>
         </MovingComponent>
       </section>
+      
       <AnimatedSection>
-      <Interview profileImage={profileImage} scrollToAboutMe={scrollToAboutMe} />
+        <Interview profileImage={profileImage} scrollToAboutMe={scrollToAboutMe} />
       </AnimatedSection>
-      <div className='container-box'>
-      <section className='container'>
-      <AnimatedSection delay={0.2}>
-        <h2>{t('home.myBestProjects')}</h2>
-        </AnimatedSection>
+      
+      <div className='home__projects'>
+        <section className='container'>
+          <AnimatedSection delay={0.2}>
+            <h2 className='home__projects-title'>{t('home.myBestProjects')}</h2>
+          </AnimatedSection>
           <br/>
-        {/* Project 1 */}
-        
-        <article className='article'>
-        <AnimatedSection delay={0.3}>
-          <div className='article-content'>
-            <div className='article-image'>
-              <img src={image6} alt='Strona portfolio' className='article-main-image' />
-            </div>
-            <div className='article-text'>
-              <h1>{t('services.professionalWebsites')}</h1>
-              <p>{t('services.professionalWebsitesDesc')}</p>
-              <div className="button-group">
-                <GitHubButton link="https://github.com/Mirac00/ReactPortfolio2023.git" />
-                <Link to='/services#websites' onClick={() => handleServiceClick('websites')}>
-                  <button className='see-more-button'>{t('services.seeServices')}</button>
-                </Link>
-              </div>
-            </div>
-          </div>
-          </AnimatedSection>
-        </article>
-        
-        {/* Project 2 */}
-        
-        <article className='article'>
-        <AnimatedSection delay={0.4}>
-          <div className='article-content'>
-            <div className='article-image'>
-              <img src={image5} alt='System CMS' className='article-main-image' />
-            </div>
-            <div className='article-text'>
-              <h1>{t('services.cmsSystems')}</h1>
-              <p>{t('services.cmsSystemsDesc')}</p>
-              <div className="button-group">
-                <GitHubButton link="https://github.com/Mirac00/Notes.API.git" />
-                <Link to='/services#cms' onClick={() => handleServiceClick('cms')}>
-                  <button className='see-more-button'>{t('services.seeServices')}</button>
-                </Link>
-              </div>
-            </div>
-          </div>
-          </AnimatedSection>
-        </article>
-        
-        {/* Project 3 */}
-        
-        <article className='article'>
-        <AnimatedSection delay={0.5}>
-          <div className='article-content'>
-            <div className='article-image'>
-              <img src={image4} alt='SM Trend aplikacja' className='article-main-image' />
-            </div>
-            <div className='article-text'>
-              <h1>{t('services.fullstackSolutions')}</h1>
-              <p>{t('services.fullstackSolutionsDesc')}</p>
-              <div className="button-group">
-                <div className="github-button-container">
-                  <h3>FrontEnd</h3>
-                  <GitHubButton link="https://github.com/Mirac00/SM-Trend-Frontend.git" />
+          
+          {/* Project 1 */}
+          <article className='article-section'>
+            <AnimatedSection delay={0.3}>
+              <div className='article-section__content'>
+                <div className='article-section__media'>
+                  <img src={image6} alt='Strona portfolio' className='article-section__image' />
                 </div>
-                <div className="github-button-container">
-                  <h3>BackEnd</h3>
-                  <GitHubButton link="https://github.com/Mirac00/SM-Trend-Backend.git" />
+                <div className='article-section__text'>
+                  <h1>{t('services.professionalWebsites')}</h1>
+                  <p>{t('services.professionalWebsitesDesc')}</p>
+                  <div className="button-group">
+                    <GitHubButton link="https://github.com/Mirac00/ReactPortfolio2023.git" />
+                    <Link to='/services#websites' onClick={() => handleServiceClick('websites')}>
+                      <button className='button'>{t('services.seeServices')}</button>
+                    </Link>
+                  </div>
                 </div>
-                <Link to='/services#fullstack' onClick={() => handleServiceClick('fullstack')}>
-                  <button className='see-more-button'>{t('services.seeServices')}</button>
-                </Link>
               </div>
-            </div>
-          </div>
-          </AnimatedSection>
-        </article>
-        
-        
-        {/* Project 4 - Certificates */}
-        <article className='article'>
-        <AnimatedSection delay={0.6}>
-          <div className='article-content'>
-            <div className='article-slider'>
-              <Slider images={imagesProject4} />
-            </div>
-            <div className='article-text'>
-              <h1>{t('certificates.title')}</h1>
-              <p>{t('certificates.description')}</p>
-              <div className="button-group">
-                <Link to='/Documents'>
-                  <button className='see-more-button'>{t('certificates.seeCertificates')}</button>
-                </Link>
+            </AnimatedSection>
+          </article>
+          
+          {/* Project 2 */}
+          <article className='article-section'>
+            <AnimatedSection delay={0.4}>
+              <div className='article-section__content'>
+                <div className='article-section__media'>
+                  <img src={image5} alt='System CMS' className='article-section__image' />
+                </div>
+                <div className='article-section__text'>
+                  <h1>{t('services.cmsSystems')}</h1>
+                  <p>{t('services.cmsSystemsDesc')}</p>
+                  <div className="button-group">
+                    <GitHubButton link="https://github.com/Mirac00/Notes.API.git" />
+                    <Link to='/services#cms' onClick={() => handleServiceClick('cms')}>
+                      <button className='button'>{t('services.seeServices')}</button>
+                    </Link>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-          </AnimatedSection>
-        </article>
-      </section>
+            </AnimatedSection>
+          </article>
+          
+          {/* Project 3 */}
+          <article className='article-section'>
+            <AnimatedSection delay={0.5}>
+              <div className='article-section__content'>
+                <div className='article-section__media'>
+                  <img src={image4} alt='SM Trend aplikacja' className='article-section__image' />
+                </div>
+                <div className='article-section__text'>
+                  <h1>{t('services.fullstackSolutions')}</h1>
+                  <p>{t('services.fullstackSolutionsDesc')}</p>
+                  <div className="button-group">
+                    <div className="github-button-container">
+                      <h3>FrontEnd</h3>
+                      <GitHubButton link="https://github.com/Mirac00/SM-Trend-Frontend.git" />
+                    </div>
+                    <div className="github-button-container">
+                      <h3>BackEnd</h3>
+                      <GitHubButton link="https://github.com/Mirac00/SM-Trend-Backend.git" />
+                    </div>
+                    <Link to='/services#fullstack' onClick={() => handleServiceClick('fullstack')}>
+                      <button className='button'>{t('services.seeServices')}</button>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </AnimatedSection>
+          </article>
+          
+          {/* Project 4 - Certificates */}
+          <article className='article-section'>
+            <AnimatedSection delay={0.6}>
+              <div className='article-section__content'>
+                <div className='article-section__media'>
+                  <Slider images={imagesProject4} />
+                </div>
+                <div className='article-section__text'>
+                  <h1>{t('certificates.title')}</h1>
+                  <p>{t('certificates.description')}</p>
+                  <div className="button-group">
+                    <Link to='/Documents'>
+                      <button className='button'>{t('certificates.seeCertificates')}</button>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </AnimatedSection>
+          </article>
+        </section>
       </div>
       
       <AboutMe />
-
     </div>
   );
 }
