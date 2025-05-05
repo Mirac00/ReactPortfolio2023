@@ -14,6 +14,7 @@ import image8 from '../../images/imgdopasowanie.png';
 import image9 from '../../images/imgcustom.jpg';
 import AnimatedSection from '../AnimatedSection';
 import '../css/global.css';
+import '../../App.css';
 
 const servicesImages = {
   websites: [image1, image2, image3],
