@@ -1,7 +1,9 @@
 .contact{
   padding:1em 0 1em 0;
 }
-
+.contact p{
+  color: #fff;
+}
 .contact-form {
   display: flex;
   flex-direction: column;
