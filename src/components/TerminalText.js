@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import styled, { keyframes } from 'styled-components';
+import React, { useEffect, useState, useRef, useLayoutEffect } from 'react';
+import styled, { keyframes, css } from 'styled-components';
 
 // Animacje
 const drawLeft = keyframes`
@@ -49,7 +49,7 @@ const Terminal__Border = styled.div`
   min-height: auto;
 `;
 
-// Style dla borderów
+// Style dla borderów z poprawionymi opóźnieniami
 const Terminal__BorderLeft = styled.div`
   position: absolute;
   left: 0;
@@ -57,7 +57,7 @@ const Terminal__BorderLeft = styled.div`
   width: 1vmin;
   height: 0;
   background: white;
-  animation: ${drawLeft} 1s forwards;
+  ${props => props.$show && css`animation: ${drawLeft} 1s forwards;`} /* Bez opóźnienia */
 `;
 
 const Terminal__BorderBottom = styled.div`
@@ -67,7 +67,7 @@ const Terminal__BorderBottom = styled.div`
   width: 0;
   height: 1vmin;
   background: white;
-  animation: ${drawBottom} 1s forwards;
+  ${props => props.$show && css`animation: ${drawBottom} 1s forwards;`} /* Bez opóźnienia */
 `;
 
 const Terminal__BorderTop = styled.div`
@@ -77,17 +77,17 @@ const Terminal__BorderTop = styled.div`
   width: 0;
   height: 1vmin;
   background: white;
-  animation: ${drawTop} 1s 1s forwards;
+  ${props => props.$show && css`animation: ${drawTop} 1s 1s forwards;`} /* Opóźnienie 1s (czeka na lewy) */
 `;
 
 const Terminal__BorderRight = styled.div`
   position: absolute;
   right: 0;
-  bottom: 0;
+  top: 0;
   width: 1vmin;
   height: 0;
   background: white;
-  animation: ${drawRight} 1s 1s forwards;
+  ${props => props.$show && css`animation: ${drawRight} 1s 1s forwards;`} /* Opóźnienie 1s (razem z górnym) */
 `;
 
 // Zawartość terminala
@@ -96,62 +96,165 @@ const Terminal__Content = styled.div`
   font-weight: bold;
   color: white;
   text-align: center;
-  white-space: nowrap;
+  white-space: pre-wrap;
   overflow: hidden;
-  text-overflow: ellipsis;
   width: 100%;
   font-size: calc(12px + 1.5vw);
   line-height: 1.5;
-
-  @media (min-width: 768px) {
-    white-space: pre-wrap;
-    font-size: calc(16px + 1vw);
-  }
-
-  @media (max-width: 480px) {
-    font-size: calc(10px + 2vw);
-  }
+  display: block;
+  word-break: keep-all;
 `;
 
-// Kursor (teraz miga cały czas)
+// Kursor (blinker)
 const Terminal__Cursor = styled.span`
-  animation: ${blink} 1s step-start infinite;
-  color: white;
-  font-weight: bold;
-  margin-left: 0.3rem;
+  display: inline-block;
+  width: 0.5em;
+  height: 1em;
+  background: white;
+  animation: ${blink} 1s step-end infinite;
+  vertical-align: middle;
+  margin-left: 2px;
 `;
 
 const TerminalText = ({ 
   text, 
   charDelay = 70,
   startDelay = 0
-  // Usunięto cursorBlinkDelay, bo kursor nie znika
 }) => {
   const [displayedText, setDisplayedText] = useState('');
+  const [needsTwoLines, setNeedsTwoLines] = useState(false);
+  const [showBorders, setShowBorders] = useState(false);
+  const [mainText, setMainText] = useState('');
+  const [lastTwoWords, setLastTwoWords] = useState('');
+  const contentRef = useRef(null);
+  const terminalRef = useRef(null);
+  const isInitialMount = useRef(true);
+  const resizeTimeout = useRef(null);
 
+  // Funkcja dzieląca tekst na główną część i ostatnie dwa słowa
+  const splitText = (text) => {
+    const words = text.trim().split(' ');
+    if (words.length <= 2) return { main: '', last: text };
+    
+    const lastTwo = words.slice(-2).join(' ');
+    const main = words.slice(0, -2).join(' ');
+    
+    return { main, last: lastTwo };
+  };
+
+  // Sprawdzanie czy tekst potrzebuje dwóch linii
+  const checkTextWidth = () => {
+    if (!contentRef.current || !terminalRef.current) return;
+
+    // Tworzymy element do pomiaru
+    const measureEl = document.createElement('div');
+    measureEl.style.position = 'absolute';
+    measureEl.style.visibility = 'hidden';
+    measureEl.style.whiteSpace = 'nowrap';
+    measureEl.style.fontFamily = "'Courier New', monospace";
+    measureEl.style.fontWeight = 'bold';
+    measureEl.style.fontSize = window.getComputedStyle(contentRef.current).fontSize;
+    document.body.appendChild(measureEl);
+
+    // Sprawdzamy pełną szerokość
+    measureEl.textContent = displayedText + '|';
+    const fullWidth = measureEl.offsetWidth;
+    const terminalWidth = terminalRef.current.offsetWidth - 40;
+
+    if (fullWidth <= terminalWidth) {
+      setMainText(displayedText);
+      setLastTwoWords('');
+      setNeedsTwoLines(false);
+    } else {
+      const { main, last } = splitText(displayedText);
+      
+      // Sprawdzamy szerokość głównej części
+      measureEl.textContent = main;
+      const mainWidth = measureEl.offsetWidth;
+      
+      if (mainWidth <= terminalWidth) {
+        setMainText(main);
+        setLastTwoWords(last);
+        setNeedsTwoLines(true);
+      } else {
+        setMainText(displayedText);
+        setLastTwoWords('');
+        setNeedsTwoLines(false);
+      }
+    }
+
+    // Czyszczenie
+    document.body.removeChild(measureEl);
+  };
+
+  // Efekt dla animacji tekstu
   useEffect(() => {
     let index = 0;
     const interval = setInterval(() => {
-      setDisplayedText((prev) => prev + text.charAt(index));
+      setDisplayedText((prev) => {
+        const newText = prev + text.charAt(index);
+        return newText;
+      });
       index++;
       if (index >= text.length) {
         clearInterval(interval);
+        setShowBorders(true);
       }
     }, charDelay);
 
     return () => clearInterval(interval);
   }, [text, charDelay]);
 
+  // Inicjalne sprawdzenie szerokości
+  useLayoutEffect(() => {
+    if (isInitialMount.current) {
+      checkTextWidth();
+      isInitialMount.current = false;
+    }
+  }, []);
+
+  // Obsługa zmiany rozmiaru okna
+  useEffect(() => {
+    const handleResize = () => {
+      clearTimeout(resizeTimeout.current);
+      resizeTimeout.current = setTimeout(() => {
+        checkTextWidth();
+      }, 100);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      clearTimeout(resizeTimeout.current);
+    };
+  }, []);
+
+  // Sprawdzanie przy zmianie tekstu
+  useLayoutEffect(() => {
+    if (displayedText.length > 0) {
+      checkTextWidth();
+    }
+  }, [displayedText]);
+
   return (
-    <Terminal className="terminal">
+    <Terminal className="terminal" ref={terminalRef}>
       <Terminal__Border className="terminal__border">
-        <Terminal__BorderLeft className="terminal__border-left" />
-        <Terminal__BorderBottom className="terminal__border-bottom" />
-        <Terminal__BorderTop className="terminal__border-top" />
-        <Terminal__BorderRight className="terminal__border-right" />
-        <Terminal__Content className="terminal__content">
-          {displayedText}
-          <Terminal__Cursor>|</Terminal__Cursor> {/* Kursor zawsze widoczny */}
+        <Terminal__BorderLeft className="terminal__border-left" $show={showBorders} />
+        <Terminal__BorderBottom className="terminal__border-bottom" $show={showBorders} />
+        <Terminal__BorderTop className="terminal__border-top" $show={showBorders} />
+        <Terminal__BorderRight className="terminal__border-right" $show={showBorders} />
+        <Terminal__Content 
+          className="terminal__content" 
+          ref={contentRef}
+        >
+          {mainText}
+          {lastTwoWords && (
+            <>
+              <br />
+              {lastTwoWords}
+            </>
+          )}
+          <Terminal__Cursor />
         </Terminal__Content>
       </Terminal__Border>
     </Terminal>
