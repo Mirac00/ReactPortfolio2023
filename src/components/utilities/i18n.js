@@ -24,13 +24,13 @@ const resources = {
       // Interview component
       interview: {
         profileImageAlt: "Profile picture",
-        titleLine1: "Custom websites",
-        titleLine2: "E-Commerce CMS",
-        titleLine3: "100% tailored projects",
-        subtitle: "Eng. Sławomir Zając",
-        description1: "I'm a programmer specializing in e-commerce and marketing, creating user-friendly environments - from this portfolio, through custom CMS systems, to responsive web and mobile applications and online stores.",
+        titleLine1: "Websites",
+        titleLine2: "Fullstack Applications",
+        titleLine3: "Online Stores",
+        description1: "I am an applied computer science engineer, actively working in the e-commerce, marketing, and graphic design industries. Thanks to my experience, I am able to create modern, visually appealing, and user-friendly digital projects tailored to the needs of both businesses and individual clients.",
         description2: "Check out examples of my work below and see how I can help with your projects!",
-        buttonText: "Learn more about me"
+        buttonText: "Learn more about me",
+        greeting: "Hello, I'am Sławek Zając"
       },
 
       // PAGES > HOME
@@ -161,13 +161,13 @@ const resources = {
       // Interview component
       interview: {
         profileImageAlt: "Zdjęcie profilowe",
-        titleLine1: "Autorskie strony internetowe",
-        titleLine2: "E-Commerce CMS",
-        titleLine3: "Indywidualne projekty dostosowane w 100%",
-        subtitle: "Inż. Sławomir Zając",
-        description1: "Jestem programistą z branży e-commerce i marketingu, tworzę przyjazne użytkownikowi środowiska – od tego portfolio, przez autorskie systemy CMS, aż po responsywne aplikacje webowe, mobilne i sklepy internetowe.",
+        titleLine1: "Strony internetowe",
+        titleLine2: "Aplikacje Fullstack",
+        titleLine3: "Sklepy internetowe",
+        description1: "Jestem inżynierem informatyki stosowanej, działającym w branży e-commerce, marketingu oraz projektowania graficznego. Dzięki zdobytemu doświadczeniu potrafię tworzyć nowoczesne, estetyczne i przyjazne użytkownikowi projekty, dopasowane do potrzeb zarówno firm, jak i indywidualnych klientów.",
         description2: "Sprawdź przykłady moich prac poniżej i przekonaj się, jak mogę pomóc w realizacji Twoich projektów!",
-        buttonText: "Dowiedz się o mnie więcej"
+        buttonText: "Dowiedz się o mnie więcej",
+        greeting: "Hello, I'am Sławek Zając"
       },
 
       // STRONY > HOME

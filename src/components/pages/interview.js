@@ -2,6 +2,7 @@ import React from 'react';
 import '../../App.css';
 import '../css/InterviewStyle.css';
 import { useTranslation } from 'react-i18next';
+import TerminalText from '../TerminalText';
 
 export default function Interview({ profileImage, scrollToAboutMe }) {
   const { t } = useTranslation();
@@ -9,24 +10,18 @@ export default function Interview({ profileImage, scrollToAboutMe }) {
   return (
     <div className="Interview">
       <div className="interview-container">
-        {/*
-        <div className="profile-image-container">
-          <img
-            src={profileImage}
-            alt={t('interview.profileImageAlt')}
-            className="profile-image"
-          />
-        </div>
-        */}
         <div className="interview-text-container">
           <h1 className="display-5 fw-bold mb-2">
+            <TerminalText 
+              text={t('interview.greeting')} 
+              animate={true}
+            />
+            <br/>
             {t('interview.titleLine1')}<br/>
             {t('interview.titleLine2')}<br/>
             {t('interview.titleLine3')}
           </h1>
-          <h2 className="h4 text-secondary mb-4">
-            {t('interview.subtitle')}
-          </h2>
+          
           <p className="mb-4">
             {t('interview.description1')}
           </p>
