@@ -13,7 +13,8 @@ export default function Interview({ profileImage, scrollToAboutMe }) {
         <div className="interview-text-container">
           <h1 className="display-5 fw-bold mb-2">
             <TerminalText 
-              text={t('interview.greeting')} 
+              part1={t('interview.greeting.part1')} // "Hello, I'm"
+              part2={t('interview.greeting.part2')} // "Sławek Zając"
               animate={true}
             />
             <br/>

@@ -30,7 +30,10 @@ const resources = {
         description1: "I am an applied computer science engineer, actively working in the e-commerce, marketing, and graphic design industries. Thanks to my experience, I am able to create modern, visually appealing, and user-friendly digital projects tailored to the needs of both businesses and individual clients.",
         description2: "Check out examples of my work below and see how I can help with your projects!",
         buttonText: "Learn more about me",
-        greeting: "Hello, I'am Sławek Zając"
+        "greeting": {
+          "part1": "Hello, I'm",
+          "part2": "Sławek Zając"
+        }
       },
 
       // PAGES > HOME
@@ -167,7 +170,10 @@ const resources = {
         description1: "Jestem inżynierem informatyki stosowanej, działającym w branży e-commerce, marketingu oraz projektowania graficznego. Dzięki zdobytemu doświadczeniu potrafię tworzyć nowoczesne, estetyczne i przyjazne użytkownikowi projekty, dopasowane do potrzeb zarówno firm, jak i indywidualnych klientów.",
         description2: "Sprawdź przykłady moich prac poniżej i przekonaj się, jak mogę pomóc w realizacji Twoich projektów!",
         buttonText: "Dowiedz się o mnie więcej",
-        greeting: "Hello, I'am Sławek Zając"
+        "greeting": {
+          "part1": "Hello, I'm",
+          "part2": "Sławek Zając"
+        }
       },
 
       // STRONY > HOME

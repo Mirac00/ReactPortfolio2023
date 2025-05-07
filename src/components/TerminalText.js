@@ -1,23 +1,13 @@
-import React, { useEffect, useState, useRef, useLayoutEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled, { keyframes, css } from 'styled-components';
 
-// Animacje
-const drawLeft = keyframes`
-  from { height: 0; }
-  to { height: 100%; }
-`;
-
-const drawBottom = keyframes`
+// Animations
+const drawHorizontal = keyframes`
   from { width: 0; }
   to { width: 100%; }
 `;
 
-const drawTop = keyframes`
-  from { width: 0; }
-  to { width: 100%; }
-`;
-
-const drawRight = keyframes`
+const drawVertical = keyframes`
   from { height: 0; }
   to { height: 100%; }
 `;
@@ -27,17 +17,17 @@ const blink = keyframes`
   50% { opacity: 0; }
 `;
 
-// Główny kontener
-const Terminal = styled.div`
+// Containers
+const TerminalContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  padding: 1rem;
+  width: fit-content;
+  padding: 0 1rem 0 1rem;
+  margin: auto;
 `;
 
-// Kontener z borderem
-const Terminal__Border = styled.div`
+const TerminalBorder = styled.div`
   position: relative;
   width: 100%;
   border: 5px solid transparent;
@@ -46,67 +36,92 @@ const Terminal__Border = styled.div`
   align-items: center;
   padding: 1.5rem;
   box-sizing: border-box;
-  min-height: auto;
+  min-width: 0;
 `;
 
-// Style dla borderów z poprawionymi opóźnieniami
-const Terminal__BorderLeft = styled.div`
+// Animated edges
+const BorderLeft = styled.div`
   position: absolute;
   left: 0;
   bottom: 0;
   width: 1vmin;
   height: 0;
   background: white;
-  ${props => props.$show && css`animation: ${drawLeft} 1s forwards;`} /* Bez opóźnienia */
+  ${({ $animate }) =>
+    $animate &&
+    css`
+      animation: ${drawVertical} 0.5s forwards;
+    `}
 `;
 
-const Terminal__BorderBottom = styled.div`
+const BorderBottom = styled.div`
   position: absolute;
   left: 0;
   bottom: 0;
   width: 0;
   height: 1vmin;
   background: white;
-  ${props => props.$show && css`animation: ${drawBottom} 1s forwards;`} /* Bez opóźnienia */
+  ${({ $animate }) =>
+    $animate &&
+    css`
+      animation: ${drawHorizontal} 0.5s forwards;
+    `}
 `;
 
-const Terminal__BorderTop = styled.div`
+const BorderTop = styled.div`
   position: absolute;
   left: 0;
   top: 0;
   width: 0;
   height: 1vmin;
   background: white;
-  ${props => props.$show && css`animation: ${drawTop} 1s 1s forwards;`} /* Opóźnienie 1s (czeka na lewy) */
+  ${({ $animate }) =>
+    $animate &&
+    css`
+      animation: ${drawHorizontal} 0.5s 0.5s forwards;
+    `}
 `;
 
-const Terminal__BorderRight = styled.div`
+const BorderRight = styled.div`
   position: absolute;
   right: 0;
-  top: 0;
+  bottom: 0;
   width: 1vmin;
   height: 0;
   background: white;
-  ${props => props.$show && css`animation: ${drawRight} 1s 1s forwards;`} /* Opóźnienie 1s (razem z górnym) */
+  ${({ $animate }) =>
+    $animate &&
+    css`
+      animation: ${drawVertical} 0.5s 0.5s forwards;
+    `}
 `;
 
-// Zawartość terminala
-const Terminal__Content = styled.div`
+// Text content
+const TerminalContent = styled.div`
   font-family: 'Courier New', monospace;
   font-weight: bold;
   color: white;
-  text-align: center;
-  white-space: pre-wrap;
-  overflow: hidden;
+  text-align: start;
   width: 100%;
   font-size: calc(12px + 1.5vw);
   line-height: 1.5;
-  display: block;
-  word-break: keep-all;
+  overflow: visible;
+  min-width: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+
+  @media (max-width: 434px) {
+    flex-direction: column;
+  }
 `;
 
-// Kursor (blinker)
-const Terminal__Cursor = styled.span`
+const TextPart = styled.span`
+  white-space: nowrap;
+`;
+
+const Cursor = styled.span`
   display: inline-block;
   width: 0.5em;
   height: 1em;
@@ -116,148 +131,73 @@ const Terminal__Cursor = styled.span`
   margin-left: 2px;
 `;
 
-const TerminalText = ({ 
-  text, 
-  charDelay = 70,
-  startDelay = 0
-}) => {
-  const [displayedText, setDisplayedText] = useState('');
-  const [needsTwoLines, setNeedsTwoLines] = useState(false);
+const TerminalText = ({ part1 = "Hello, I'm", part2 = 'Sławek Zając', animate = true }) => {
+  const [displayedPart1, setDisplayedPart1] = useState('');
+  const [displayedPart2, setDisplayedPart2] = useState('');
+  const [showCursor1, setShowCursor1] = useState(true);
+  const [showCursor2, setShowCursor2] = useState(false);
   const [showBorders, setShowBorders] = useState(false);
-  const [mainText, setMainText] = useState('');
-  const [lastTwoWords, setLastTwoWords] = useState('');
-  const contentRef = useRef(null);
-  const terminalRef = useRef(null);
-  const isInitialMount = useRef(true);
-  const resizeTimeout = useRef(null);
 
-  // Funkcja dzieląca tekst na główną część i ostatnie dwa słowa
-  const splitText = (text) => {
-    const words = text.trim().split(' ');
-    if (words.length <= 2) return { main: '', last: text };
-    
-    const lastTwo = words.slice(-2).join(' ');
-    const main = words.slice(0, -2).join(' ');
-    
-    return { main, last: lastTwo };
-  };
-
-  // Sprawdzanie czy tekst potrzebuje dwóch linii
-  const checkTextWidth = () => {
-    if (!contentRef.current || !terminalRef.current) return;
-
-    // Tworzymy element do pomiaru
-    const measureEl = document.createElement('div');
-    measureEl.style.position = 'absolute';
-    measureEl.style.visibility = 'hidden';
-    measureEl.style.whiteSpace = 'nowrap';
-    measureEl.style.fontFamily = "'Courier New', monospace";
-    measureEl.style.fontWeight = 'bold';
-    measureEl.style.fontSize = window.getComputedStyle(contentRef.current).fontSize;
-    document.body.appendChild(measureEl);
-
-    // Sprawdzamy pełną szerokość
-    measureEl.textContent = displayedText + '|';
-    const fullWidth = measureEl.offsetWidth;
-    const terminalWidth = terminalRef.current.offsetWidth - 40;
-
-    if (fullWidth <= terminalWidth) {
-      setMainText(displayedText);
-      setLastTwoWords('');
-      setNeedsTwoLines(false);
-    } else {
-      const { main, last } = splitText(displayedText);
-      
-      // Sprawdzamy szerokość głównej części
-      measureEl.textContent = main;
-      const mainWidth = measureEl.offsetWidth;
-      
-      if (mainWidth <= terminalWidth) {
-        setMainText(main);
-        setLastTwoWords(last);
-        setNeedsTwoLines(true);
-      } else {
-        setMainText(displayedText);
-        setLastTwoWords('');
-        setNeedsTwoLines(false);
-      }
-    }
-
-    // Czyszczenie
-    document.body.removeChild(measureEl);
-  };
-
-  // Efekt dla animacji tekstu
   useEffect(() => {
-    let index = 0;
-    const interval = setInterval(() => {
-      setDisplayedText((prev) => {
-        const newText = prev + text.charAt(index);
-        return newText;
-      });
-      index++;
-      if (index >= text.length) {
-        clearInterval(interval);
-        setShowBorders(true);
-      }
-    }, charDelay);
+    let part1Interval;
+    let part2Interval;
+    let part1Index = 0;
+    let part2Index = 0;
 
-    return () => clearInterval(interval);
-  }, [text, charDelay]);
-
-  // Inicjalne sprawdzenie szerokości
-  useLayoutEffect(() => {
-    if (isInitialMount.current) {
-      checkTextWidth();
-      isInitialMount.current = false;
-    }
-  }, []);
-
-  // Obsługa zmiany rozmiaru okna
-  useEffect(() => {
-    const handleResize = () => {
-      clearTimeout(resizeTimeout.current);
-      resizeTimeout.current = setTimeout(() => {
-        checkTextWidth();
-      }, 100);
+    const animatePart1 = () => {
+      part1Interval = setInterval(() => {
+        setDisplayedPart1((prev) => prev + part1.charAt(part1Index));
+        part1Index++;
+        if (part1Index >= part1.length) {
+          clearInterval(part1Interval);
+          setTimeout(() => {
+            setShowCursor1(false);
+            setShowCursor2(true);
+            animatePart2();
+          }, 500); // Delay before starting part 2
+        }
+      }, 100); // Slower animation speed (100ms per character)
     };
 
-    window.addEventListener('resize', handleResize);
+    const animatePart2 = () => {
+      part2Interval = setInterval(() => {
+        setDisplayedPart2((prev) => prev + part2.charAt(part2Index));
+        part2Index++;
+        if (part2Index >= part2.length) {
+          clearInterval(part2Interval);
+          setShowBorders(true);
+        }
+      }, 100); // Slower animation speed (100ms per character)
+    };
+
+    animatePart1();
+
     return () => {
-      window.removeEventListener('resize', handleResize);
-      clearTimeout(resizeTimeout.current);
+      clearInterval(part1Interval);
+      clearInterval(part2Interval);
     };
-  }, []);
-
-  // Sprawdzanie przy zmianie tekstu
-  useLayoutEffect(() => {
-    if (displayedText.length > 0) {
-      checkTextWidth();
-    }
-  }, [displayedText]);
+  }, [part1, part2]);
 
   return (
-    <Terminal className="terminal" ref={terminalRef}>
-      <Terminal__Border className="terminal__border">
-        <Terminal__BorderLeft className="terminal__border-left" $show={showBorders} />
-        <Terminal__BorderBottom className="terminal__border-bottom" $show={showBorders} />
-        <Terminal__BorderTop className="terminal__border-top" $show={showBorders} />
-        <Terminal__BorderRight className="terminal__border-right" $show={showBorders} />
-        <Terminal__Content 
-          className="terminal__content" 
-          ref={contentRef}
-        >
-          {mainText}
-          {lastTwoWords && (
-            <>
-              <br />
-              {lastTwoWords}
-            </>
-          )}
-          <Terminal__Cursor />
-        </Terminal__Content>
-      </Terminal__Border>
-    </Terminal>
+    <TerminalContainer>
+      <TerminalBorder>
+        <BorderLeft $animate={animate && showBorders} />
+        <BorderBottom $animate={animate && showBorders} />
+        <BorderTop $animate={animate && showBorders} />
+        <BorderRight $animate={animate && showBorders} />
+        <TerminalContent>
+          <TextPart>
+            {displayedPart1}
+            {showCursor1 && <Cursor />}
+            &nbsp;
+          </TextPart>
+          <TextPart>
+            {displayedPart2}
+            {showCursor2 && <Cursor />}
+          </TextPart>
+        </TerminalContent>
+      </TerminalBorder>
+    </TerminalContainer>
   );
 };
 
