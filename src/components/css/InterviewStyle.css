@@ -1,15 +1,41 @@
 .Interview {
   height: auto;
   width: 100%;
+  position: relative; /* dodane dla pseudo-elementu */
+}
+
+.Interview::after {
+  content: "";
+  position: absolute;
+  bottom: -5px; /* wychodzi 5px poza dolną krawędź */
+  left: 0;
+  width: 100%;
+  height: 10px;
+  background-color: white;
+  z-index: 2; /* wyższy niż tło, niższy niż zawartość */
 }
 
 .interview-container {
   display: flex;
   align-items: center;
-  border-radius: 1em;
   position: relative;
   justify-content: center;
-  height: 100vh;
+  height: 80vh;
+  min-height: 600px;
+  overflow: hidden;
+  z-index: 1; /* wyższy niż tło, niższy niż border */
+}
+
+.interview-background-image {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  min-height: 100%;
+  object-fit: cover;
+  object-position: center bottom;
+  z-index: 0;
 }
 
 .profile-image-container {
@@ -22,6 +48,7 @@
   justify-content: flex-end;
   overflow: hidden;
   z-index: 1;
+  position: relative; /* ważne dla z-index */
 }
 
 .profile-image {
@@ -38,6 +65,9 @@
   width: 50%;
   font-family: Arial, sans-serif;
   overflow: hidden;
+  margin-bottom: auto;
+  position: relative; /* ważne dla z-index */
+  z-index: 1; /* tekst nad tłem */
 }
 
 .interview-text-container h1 {
@@ -73,6 +103,8 @@
   font-size: 1rem;
   transition: background-color 0.3s ease, transform 0.3s ease;
   border-radius: 0.5em;
+  position: relative; /* ważne dla z-index */
+  z-index: 1;
 }
 
 .interview-button:hover {
@@ -99,17 +131,27 @@
     width: 100%;
     margin: 0;
   }
-}
-@media (max-width: 960px) {
-  .profile-image-container {
-    justify-content: center; /* Wyśrodkowanie dla mobile */
-    left: 0;
-    width: 80%; /* Szerszy kontener na mobile */
+  
+  .interview-background-image {
+    object-position: center center; /* lepsze wyśrodkowanie na mobile */
   }
 }
+
+@media (max-width: 960px) {
+  .profile-image-container {
+    justify-content: center;
+    left: 0;
+    width: 80%;
+  }
+}
+
 @media (max-width: 768px) {
   .profile-image {
     width: 400px;
     height: 400px;
+  }
+  
+  .interview-container {
+    min-height: 400px; /* mniejsza minimalna wysokość na mobile */
   }
 }
