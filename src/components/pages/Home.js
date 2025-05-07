@@ -16,6 +16,7 @@ import profileImage from '../../images/profilowe.png';
 import { useTranslation } from 'react-i18next';
 import GitHubButton from '../GitHubButton';
 import AnimatedSection from '../AnimatedSection';
+import HomeIndustries from '../HomeIndustries';
 
 export default function Home() {
   const { t } = useTranslation();
@@ -46,27 +47,7 @@ export default function Home() {
 
   return (
     <div className='home'>
-      <section className='home__about-short'>
-        <MovingComponent
-          type='slideInFromBottom'
-          duration='1000ms'
-          delay='1s'
-          direction='normal'
-          timing='ease'
-          iteration={1}
-          fillMode='none'
-        >
-          <h2>
-            C# .NET MSSQL <i className='fas fa-database'></i> 
-            JavaScript <i className='fab fa-js'></i> 
-            React <i className='fab fa-react'></i> 
-            CSS <i className='fab fa-css3-alt'></i> 
-            SCSS <i className='fab fa-sass'></i> 
-            Entity Framework <i className='fas fa-project-diagram'></i> 
-            {t('home.andManyMore')}
-          </h2>
-        </MovingComponent>
-      </section>
+      <HomeIndustries />
       
       <AnimatedSection>
         <Interview profileImage={profileImage} scrollToAboutMe={scrollToAboutMe} />

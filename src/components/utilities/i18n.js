@@ -39,8 +39,12 @@ const resources = {
       // PAGES > HOME
       home: {
         welcomeMessage: "Welcome",
-        andManyMore: "and many more...",
-        myBestProjects: "My Best Projects"
+        myBestProjects: "My Best Projects",
+        "industries": {
+          "coding": "Coding",
+          "ecommerce": "E-commerce",
+          "marketing": "Marketing"
+        }
       },
 
       // article > SERVICES
@@ -179,8 +183,12 @@ const resources = {
       // STRONY > HOME
       home: {
         welcomeMessage: "Witamy",
-        andManyMore: "i wiele więcej...",
-        myBestProjects: "Moje Najlepsze Realizacje"
+        myBestProjects: "Moje Najlepsze Realizacje",
+        "industries": {
+          "coding": "Coding",
+          "ecommerce": "E-commerce",
+          "marketing": "Marketing"
+        }
       },
 
       // artykuł > SERVICES
