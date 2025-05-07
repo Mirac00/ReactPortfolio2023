@@ -49,20 +49,18 @@ export default function Home() {
     <div className='home'>
       <HomeIndustries />
       
-      <AnimatedSection>
         <Interview profileImage={profileImage} scrollToAboutMe={scrollToAboutMe} />
-      </AnimatedSection>
       
       <div className='home__projects'>
         <section className='container'>
-          <AnimatedSection delay={0.2}>
+          <AnimatedSection >
             <h2 className='home__projects-title'>{t('home.myBestProjects')}</h2>
           </AnimatedSection>
           <br/>
           
           {/* Project 1 */}
           <article className='article-section'>
-            <AnimatedSection delay={0.3}>
+            <AnimatedSection delay={0.2}>
               <div className='article-section__content'>
                 <div className='article-section__media'>
                   <img src={image6} alt='Strona portfolio' className='article-section__image' />
@@ -83,7 +81,7 @@ export default function Home() {
           
           {/* Project 2 */}
           <article className='article-section'>
-            <AnimatedSection delay={0.4}>
+            <AnimatedSection delay={0.3}>
               <div className='article-section__content'>
                 <div className='article-section__media'>
                   <img src={image5} alt='System CMS' className='article-section__image' />
@@ -104,7 +102,7 @@ export default function Home() {
           
           {/* Project 3 */}
           <article className='article-section'>
-            <AnimatedSection delay={0.5}>
+            <AnimatedSection delay={0.4}>
               <div className='article-section__content'>
                 <div className='article-section__media'>
                   <img src={image4} alt='SM Trend aplikacja' className='article-section__image' />
@@ -132,7 +130,7 @@ export default function Home() {
           
           {/* Project 4 - Certificates */}
           <article className='article-section'>
-            <AnimatedSection delay={0.6}>
+            <AnimatedSection delay={0.5}>
               <div className='article-section__content'>
                 <div className='article-section__media'>
                   <Slider images={imagesProject4} />
