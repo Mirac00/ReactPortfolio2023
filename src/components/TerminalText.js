@@ -19,24 +19,15 @@ const blink = keyframes`
 
 // Containers
 const TerminalContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: fit-content;
-  padding: 0 1rem 0 1rem;
-  margin: auto;
+  width: 100%;
+  padding: 0 1rem;
 `;
 
 const TerminalBorder = styled.div`
   position: relative;
-  width: 100%;
   border: 5px solid transparent;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   padding: 1.5rem;
   box-sizing: border-box;
-  min-width: 0;
 `;
 
 // Animated edges
@@ -101,16 +92,12 @@ const TerminalContent = styled.div`
   font-family: 'Courier New', monospace;
   font-weight: bold;
   color: white;
-  text-align: start;
-  width: 100%;
+  text-align: left;
   font-size: calc(12px + 1.5vw);
   line-height: 1.5;
-  overflow: visible;
-  min-width: 0;
+  overflow: hidden;
   display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  align-items: flex-start;
+  flex-wrap: wrap;
 
   @media (max-width: 434px) {
     flex-direction: column;
@@ -119,6 +106,7 @@ const TerminalContent = styled.div`
 
 const TextPart = styled.span`
   white-space: nowrap;
+  padding-right: 0.5em;
 `;
 
 const Cursor = styled.span`
@@ -143,6 +131,13 @@ const TerminalText = ({ part1 = "Hello, I'm", part2 = 'Sławek Zając', animate 
     let part2Interval;
     let part1Index = 0;
     let part2Index = 0;
+    let initialDelay;
+
+    const startAnimation = () => {
+      initialDelay = setTimeout(() => {
+        animatePart1();
+      }, 1500); // 1.5s initial cursor delay
+    };
 
     const animatePart1 = () => {
       part1Interval = setInterval(() => {
@@ -153,10 +148,16 @@ const TerminalText = ({ part1 = "Hello, I'm", part2 = 'Sławek Zając', animate 
           setTimeout(() => {
             setShowCursor1(false);
             setShowCursor2(true);
-            animatePart2();
-          }, 500); // Delay before starting part 2
+            
+            const isMobile = window.innerWidth <= 434;
+            const delay = isMobile ? 1500 : 0;
+            
+            setTimeout(() => {
+              animatePart2();
+            }, delay);
+          }, 500);
         }
-      }, 100); // Slower animation speed (100ms per character)
+      }, 110); // 10% slower animation (100ms -> 110ms)
     };
 
     const animatePart2 = () => {
@@ -167,12 +168,13 @@ const TerminalText = ({ part1 = "Hello, I'm", part2 = 'Sławek Zając', animate 
           clearInterval(part2Interval);
           setShowBorders(true);
         }
-      }, 100); // Slower animation speed (100ms per character)
+      }, 110); // 10% slower animation (100ms -> 110ms)
     };
 
-    animatePart1();
+    startAnimation();
 
     return () => {
+      clearTimeout(initialDelay);
       clearInterval(part1Interval);
       clearInterval(part2Interval);
     };
@@ -189,7 +191,6 @@ const TerminalText = ({ part1 = "Hello, I'm", part2 = 'Sławek Zając', animate 
           <TextPart>
             {displayedPart1}
             {showCursor1 && <Cursor />}
-            &nbsp;
           </TextPart>
           <TextPart>
             {displayedPart2}
