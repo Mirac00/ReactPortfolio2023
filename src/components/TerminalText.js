@@ -123,12 +123,12 @@ const TextPart = styled.span`
 
 const Cursor = styled.span`
   display: inline-block;
-  width: 0.5em;
+  width: 0.4em;
   height: 1em;
   background: white;
   animation: ${blink} 1s step-end infinite;
   vertical-align: middle;
-  margin-left: 2px;
+  margin-left: 3px;
 `;
 
 const TerminalText = ({ part1 = "Hello, I'm", part2 = 'Sławek Zając', animate = true }) => {
