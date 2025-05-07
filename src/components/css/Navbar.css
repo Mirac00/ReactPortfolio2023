@@ -11,7 +11,7 @@
 }
 
 .navbar-box {
-  background: linear-gradient(90deg, rgb(19, 19, 19) 0%, rgb(26, 23, 23) 100%);
+  background: linear-gradient(90deg, rgb(12, 12, 12) 0%, rgb(26, 23, 23) 100%);
   margin: 3em;
   display: flex;
   justify-content: space-between;
@@ -137,7 +137,7 @@
     border-bottom: #888888 solid 2px; /* przykładowo grubsza linia */
   }
   .navbar {
-    background: linear-gradient(90deg, rgb(19, 19, 19) 0%, rgb(26, 23, 23) 100%);
+    background: linear-gradient(90deg, rgb(12, 12, 12) 0%, rgb(26, 23, 23) 100%);
     padding-top: 0em !important;
     display: flex;
     justify-content: space-between;
@@ -223,8 +223,7 @@
   }
 
   .nav-link-mobile:hover {
-    background: #fff;
-    color: #1888ff;
+    color: #ffffff;
     transition: 250ms;
   }
 }
