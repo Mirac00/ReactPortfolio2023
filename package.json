@@ -1,0 +1,67 @@
+{
+  "homepage": "https://mirac00.github.io/ReactPortfolio2023",
+  "name": "portfolio-react",
+  "version": "0.1.0",
+  "private": false,
+  "dependencies": {
+    "@formspree/react": "^2.5.1",
+    "@fortawesome/fontawesome-svg-core": "^6.4.2",
+    "@fortawesome/free-brands-svg-icons": "^6.4.2",
+    "@fortawesome/free-solid-svg-icons": "^6.4.2",
+    "@fortawesome/react-fontawesome": "^0.2.0",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "autoprefixer": "^10.4.20",
+    "devicon": "^2.15.1",
+    "framer-motion": "^11.18.2",
+    "i18next": "^23.12.3",
+    "i18next-http-backend": "^2.5.2",
+    "postcss": "^8.4.47",
+    "react": "^18.3.3",
+    "react-dom": "^18.3.3",
+    "react-i18next": "^15.0.1",
+    "react-icons": "^4.11.0",
+    "react-intersection-observer": "^9.16.0",
+    "react-router-dom": "^5.2.0",
+    "react-router-hash-link": "^2.4.3",
+    "react-scripts": "^5.0.2",
+    "react-scroll": "^1.8.9",
+    "react-slick": "^0.29.0",
+    "react-spring": "^9.7.2",
+    "react-swipeable": "^7.0.1",
+    "react-transition-group": "^4.4.5",
+    "slick-carousel": "^1.8.1",
+    "styled-components": "^6.1.17",
+    "tailwindcss": "^3.4.11"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build -b gh-pages",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "postinstall": "npx update-browserslist-db@latest"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ],
+    "CI": "false"
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "gh-pages": "^6.3.0"
+  }
+}

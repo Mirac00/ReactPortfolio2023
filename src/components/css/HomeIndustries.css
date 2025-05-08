@@ -1,0 +1,125 @@
+.home__industries {
+    display: flex;
+    width: auto;
+    justify-content: center;
+    align-items: center;
+    padding: 0 5%;
+    margin-bottom: 1em;
+  }
+  
+  .home__industries-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    width: 100%;
+  }
+  
+  @keyframes fallIn {
+    0% {
+      opacity: 0;
+      transform: translateY(-50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .home__industries-item {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 1.5rem;
+    color: var(--text-light);
+    font-family: 'Ysabeau Office', sans-serif;
+    transition: transform 0.3s ease;
+    opacity: 0;
+    transform: translateY(-50px);
+    animation: fallIn 0.6s ease forwards;
+  }
+  
+  /* Domyślna kolejność animacji (desktop) */
+  .home__industries-item.item-1 {
+    animation-delay: 0.2s;
+  }
+  
+  .home__industries-item.item-2 {
+    animation-delay: 0.6s;
+  }
+  
+  .home__industries-item.item-3 {
+    animation-delay: 1.0s;
+  }
+  
+  /* Odwrotna kolejność animacji dla wersji mobilnej */
+  @media (max-width: 768px) {
+    .home__industries-container {
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+    }
+  
+    .home__industries-item.item-1 {
+      animation-delay: 1.0s;
+    }
+  
+    .home__industries-item.item-2 {
+      animation-delay: 0.6s;
+    }
+  
+    .home__industries-item.item-3 {
+      animation-delay: 0.2s;
+    }
+  
+    .home__industries-item {
+      font-size: 1.6rem;
+    }
+  }
+  
+  .home__industries-item i {
+    font-size: 1.8rem;
+    transition: transform 0.3s ease;
+  }
+  
+  .home__industries-item:hover {
+    transform: translateY(-3px);
+  }
+  
+  .home__industries-item:hover i {
+    transform: scale(1.2);
+  }
+  
+  /* Ikony */
+  .fa-code {
+    color: var(--primary-color);
+  }
+  
+  .fa-shopping-cart {
+    color: #ff6b6b;
+  }
+  
+  .fa-bullhorn {
+    color: #feca57;
+  }
+  
+  /* Responsywność */
+  @media (max-width: 480px) {
+    .home__industries-item {
+      font-size: 1.4rem;
+    }
+  
+    .home__industries-item i {
+      font-size: 1.6rem;
+    }
+  }
+  
+  @media (max-width: 960px) {
+    .home__industries-item {
+      font-size: 1.8rem;
+    }
+  
+    .home__industries-item i {
+      font-size: 2rem;
+    }
+  }

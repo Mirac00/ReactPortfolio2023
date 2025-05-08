@@ -1,0 +1,182 @@
+
+.aboutme {
+  padding: 20px;
+  position: relative;
+  z-index: 1; /* Zmienione z 2 na 1, aby nie konfliktowało z popupem */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 5%;
+  background-color: #ffffff;
+}
+
+/* Reszta stylów pozostaje bez zmian */
+.aboutme__title {
+  font-size: 2.5em;
+  color: #333;
+  background-color: white;
+  padding: 3% 3% 1% 3%;
+  border-radius: 50% 50% 0 0;
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1); /* Cień tylko u góry */
+}
+
+.aboutme__card {
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+.aboutme__links {
+  margin: 2em;
+}
+
+.aboutme__links a {
+  text-decoration: none;
+  color: #222;
+}
+
+.aboutme__name {
+  font-size: 2em;
+  color: #222;
+  margin-bottom: 15px;
+}
+
+.aboutme__contact p {
+  margin: 5px 0;
+  font-size: 1.1em;
+}
+
+.aboutme__contact .icon {
+  margin-right: 10px;
+  color: #555;
+}
+
+.aboutme__objective,
+.aboutme__skills,
+.aboutme__education,
+.aboutme__projects {
+  margin: 20px 0;
+  font-size: 1.2em;
+  line-height: 1.6em;
+}
+
+.aboutme__experience {
+  margin: 20px 0;
+  font-size: 1.2em;
+}
+
+.aboutme__experience div {
+  margin-bottom: 15px;
+}
+
+.aboutme__experience ul {
+  margin: 10px 0;
+  padding-left: 20px;
+}
+
+.aboutme__links p {
+  margin: 10px 0;
+  font-size: 1.2em;
+}
+
+.aboutme__links .icon {
+  margin-right: 10px;
+  color: #555;
+}
+
+.aboutme__images {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 0;
+}
+
+.aboutme__images img {
+  width: 48%;
+  height: auto;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+.aboutme__images img:hover {
+  transform: scale(1.05);
+}
+
+
+@media screen and (max-width: 960px) {
+  .aboutme{
+    width: 100%;
+  }
+
+  .aboutme__title {
+    font-size: 2em;
+  }
+
+  .aboutme__name {
+    font-size: 1.8em;
+  }
+
+  .aboutme__contact p,
+  .aboutme__objective,
+  .aboutme__skills,
+  .aboutme__education,
+  .aboutme__projects,
+  .aboutme__experience,
+  .aboutme__links p {
+    font-size: 1em;
+  }
+
+  /* Dodaj te style, aby zdjęcia układały się pod sobą */
+  .aboutme__images {
+    flex-direction: column; /* Ustawienie flexa w kolumnie, aby zdjęcia były jedno pod drugim */
+    align-items: center; /* Wyśrodkowanie zdjęć w kolumnie */
+  }
+
+  .aboutme__images img {
+    width: 80%; /* Zmniejszenie szerokości obrazów, aby wyglądały dobrze na wąskich ekranach */
+    margin-bottom: 20px; /* Dodanie odstępu między zdjęciami */
+  }
+}
+@media screen and (min-width: 600px) {
+  .aboutme__card {
+    width: 90%;
+    padding: 25px;
+  }
+}
+
+/* Tablets (768px and up) */
+@media screen and (min-width: 768px) {
+  .aboutme__card {
+    width: 80%;
+    padding: 30px;
+  }
+}
+
+/* Small laptops (1024px and up) */
+@media screen and (min-width: 1024px) {
+  .aboutme__card {
+    width: 70%;
+    max-width: 900px;
+  }
+}
+
+/* Large screens (1440px and up) */
+@media screen and (min-width: 1440px) {
+  .aboutme__card {
+    width: 60%;
+    max-width: 1000px;
+    padding: 35px;
+  }
+}
+
+/* 4K monitors (2560px and up) */
+@media screen and (min-width: 2560px) {
+  .aboutme__card {
+    width: 50%;
+    max-width: 1200px;
+    padding: 40px;
+  }
+}

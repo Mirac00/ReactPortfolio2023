@@ -1,0 +1,259 @@
+.navbar {
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar-box {
+  background: linear-gradient(90deg, rgb(12, 12, 12) 0%, rgb(26, 23, 23) 100%);
+  margin: 3em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+  width: 95%;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  margin-left: 2em;
+}
+
+.logo-img {
+  max-width: 50px;
+  height: auto;
+  margin-right: 10px;
+}
+
+.navbar-logo-text {
+  color: #fff;
+  cursor: pointer;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 100%;
+}
+
+.fa-firstdraft {
+  margin-left: 0.5rem;
+  font-size: 1.6rem;
+}
+
+.fa-caret-down:before {
+  margin-left: 5px;
+}
+.nav-filler{
+  width:100%;
+}
+.nav-menu {
+  display: grid;
+  grid-template-columns: repeat(6, auto);
+  grid-gap: 10px;
+  list-style: none;
+  text-align: center;
+  width: 70vw;
+  justify-content: end;
+  margin-right: 2rem;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  height: 80px;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.nav-link:hover {
+  background-color: #00aae3;
+  border-radius: 4px;
+  transition: all 0.2s ease-out;
+}
+
+.nav-link-service {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.nav-link-service:hover {
+  background-color: #00aae3;
+  border-radius: 4px;
+  transition: all 0.2s ease-out;
+}
+
+.fa-bars {
+  color: #fff;
+}
+
+.nav-link-mobile {
+  display: none;
+}
+
+.menu-icon {
+  display: none;
+}
+
+@media screen and (max-width: 960px) {
+  .fa-caret-down:before {
+    margin-left: 0px;
+  }
+  .nav-link-mobile {
+    position: relative;
+  }
+
+  .navbar-box {
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    border-radius: 0;
+    width: 100%;
+  }
+  .nav-item{
+    border-bottom: #888888 solid 1px;
+    border-top: #888888 solid 1px;
+  }
+  .nav-item:first-child {
+    border-top: #888888 solid 2px; /* przykładowo grubsza linia */
+  }
+  
+  .nav-item:last-child {
+    border-bottom: #888888 solid 2px; /* przykładowo grubsza linia */
+  }
+  .navbar {
+    background: linear-gradient(90deg, rgb(12, 12, 12) 0%, rgb(26, 23, 23) 100%);
+    padding-top: 0em !important;
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+  }
+
+  .navbar-logo {
+    position: static;
+    transform: none;
+  }
+
+  .menu-icon {
+    position: static;
+    transform: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+  }
+
+  .drop-nav-link-mobile {
+    margin-right: 0% !important;
+  }
+
+
+  .nav-menu {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 80px;
+    left: -100%;
+    opacity: 1;
+    grid-gap:0px;
+    transition: all 0.5s ease;
+    background: #242222;
+    height: 100vh;
+    justify-content: flex-start;
+  }
+
+  .nav-menu.active {
+    background: #242222;
+    left: 0;
+    opacity: 1;
+    transition: all 0.5s ease;
+    z-index: 1;
+    height: 100vh;
+    justify-content: flex-start;
+  }
+
+  .nav-link {
+    text-align: start;
+    padding: 2rem;
+    width: 100%;
+    display: table;
+  }
+
+  .nav-link:hover {
+    background-color: #1888ff;
+    border-radius: 0;
+  }
+
+  .navbar-logo {
+    margin-left: 1rem;
+  }
+
+  .menu-icon {
+    display: block;
+    margin-right: 1rem;
+    font-size: 2rem;
+    cursor: pointer;
+  }
+
+  .fa-times {
+    color: #fff;
+    font-size: 2rem;
+  }
+
+  .nav-link-mobile {
+    display: block;
+    text-align: start;
+    padding: 1.5rem;
+    margin: auto;
+    border-radius: 4px;
+    width: 100%;
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.2rem;
+  }
+
+  .nav-link-mobile:hover {
+    color: #ffffff;
+    transition: 250ms;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .navbar-logo-text {
+    font-size: 1.5rem;
+  }
+  .navbar {
+    height: 65px;
+  }
+  .menu-icon {
+    font-size: 1.5rem;
+  }
+  .logo-container img {
+    max-width: 35px;
+  }
+  .nav-menu {
+    top: 65px;
+  }
+}
+
+@media (max-width: 550px) {
+  .logo-container {
+    transform: scale(0.7);
+    transform-origin: left;
+    margin-left: 0.5em;
+  }
+}

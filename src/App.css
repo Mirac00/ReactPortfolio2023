@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+.App {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff; /* Tło pomiędzy obrazami */
+}
+
+.App::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100vh; /* Dostosuj wysokość górnego tła */
+  background-image: url('../src/images/BG-interview1.png');
+  background-size: contain; /* Zachowuje proporcje obrazu */
+  background-position: center top;
+  background-repeat: no-repeat;
+  z-index: 0;
+  background-size: cover;
+}
+
+.App::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #363636; 
+  height: 100vh; /* Dostosuj wysokość dolnego tła */
+  background-image: url('../src/images/BG-interview.png');
+  background-size: contain; /* Zachowuje proporcje obrazu */
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  z-index: 0;
+  background-size: cover;
+}
+
+.home,
+.services,
+.documents,
+.aboutme
+ {
+  position: relative;
+  z-index: 1;
+  padding-top: 100px;
+}
+
+@media screen and (max-width: 960px) {
+  .App {
+    background: linear-gradient(to bottom, #313131 0%, #313131 2000px, transparent 1000px, transparent 100%);
+  }
+
+  .App::before {
+    height: 2000px;
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Animation classes */
+.fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.slide-up {
+  animation: slideUp 0.8s ease-out forwards;
+}
+
+.slide-right {
+  animation: slideRight 0.8s ease-out forwards;
+}
+
+.slide-left {
+  animation: slideLeft 0.8s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideRight {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideLeft {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Delay classes */
+.delay-1 {
+  animation-delay: 0.2s;
+}
+
+.delay-2 {
+  animation-delay: 0.4s;
+}
+
+.delay-3 {
+  animation-delay: 0.6s;
+}

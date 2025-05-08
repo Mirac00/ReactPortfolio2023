@@ -1,0 +1,98 @@
+
+.slider-box {
+  width: 84%;
+  margin: auto;
+}
+
+.slick-slide > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slider-image {
+  max-width: 100%;
+  max-height: 500px;
+  object-fit: contain;
+  display: block;
+  margin: auto;
+}
+
+
+.custom-arrow {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+.custom-arrow:hover {
+  background-color: white;
+}
+
+.custom-arrow::before {
+  content: '';
+  display: block;
+  width: 15px;
+  height: 15px;
+  border: 2px solid #333;
+  border-width: 2px 2px 0 0;
+  transition: all 0.2s ease;
+}
+
+.next-arrow {
+  right: -19%;
+}
+
+.next-arrow::before {
+  transform: rotate(45deg);
+  margin-left: -5px;
+}
+
+.prev-arrow {
+  left: -19%;
+}
+
+.prev-arrow::before {
+  transform: rotate(-135deg);
+  margin-right: -5px;
+}
+
+.custom-arrow:hover::before {
+  border-color: #000;
+}
+
+
+
+/* Stylizacje kropek nawigacyjnych */
+.slick-dots li button:before {
+  font-size: 12px;
+  color: #fff;
+  opacity: 0.75;
+}
+
+.slick-dots li.slick-active button:before {
+  color: #fff;
+  opacity: 1;
+}
+
+.slick-prev:before,
+.slick-next:before{
+  font-size: 40px !important;
+}
+
+/* Responsywność */
+@media screen and (max-width: 960px) {
+  .custom-arrow {
+    display: none !important;
+  }
+}
