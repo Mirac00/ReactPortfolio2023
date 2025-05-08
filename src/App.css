@@ -35,7 +35,7 @@
   background-size: contain; /* Zachowuje proporcje obrazu */
   background-position: center bottom;
   background-repeat: no-repeat;
-  z-index: 0;
+  z-index: -1;
   background-size: cover;
 }
 
