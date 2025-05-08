@@ -180,10 +180,12 @@
     opacity: 1;
     transition: all 0.5s ease;
     z-index: 1;
+    height: 100vh;
+    justify-content: flex-start;
   }
 
   .nav-link {
-    text-align: center;
+    text-align: start;
     padding: 2rem;
     width: 100%;
     display: table;
