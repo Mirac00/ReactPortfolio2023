@@ -18,7 +18,7 @@ function Dropdown({ isOpen, closeMobileMenu, onMouseEnter, onMouseLeave, isClosi
 const scrollToSection = (sectionId) => {
   const section = document.getElementById(sectionId);
   if (section) {
-    const yOffset = -80; // Change from -20 to -80
+    const yOffset = -160; // Change from -20 to -80
     const y = section.getBoundingClientRect().top + window.pageYOffset + yOffset;
     window.scrollTo({
       top: y,
