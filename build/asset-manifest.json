@@ -1,0 +1,37 @@
+{
+  "files": {
+    "main.css": "/portfolio/static/css/main.b261cea6.css",
+    "main.js": "/portfolio/static/js/main.6f7ae142.js",
+    "static/media/adobe.png": "/portfolio/static/media/adobe.fdc0562c17f5aed7eae3.png",
+    "static/media/BG-interview1.png": "/portfolio/static/media/BG-interview1.06e46cca00985e284073.png",
+    "static/media/imgportfolio.png": "/portfolio/static/media/imgportfolio.7d9031c99432f8322643.png",
+    "static/media/1port.jpg": "/portfolio/static/media/1port.65ffe0c0eb9f5307f900.jpg",
+    "static/media/BG-interview.png": "/portfolio/static/media/BG-interview.dac3636ca7213c69ce1f.png",
+    "static/media/imgmobileportfolio.png": "/portfolio/static/media/imgmobileportfolio.cf628f3e457032b5e007.png",
+    "static/media/2port.jpg": "/portfolio/static/media/2port.47b5e2418db3871775aa.jpg",
+    "static/media/img1.png": "/portfolio/static/media/img1.49ce5a2757ba5b45b5ac.png",
+    "static/media/imgdopasowanie.png": "/portfolio/static/media/imgdopasowanie.ee26eb5e484819d9d3cc.png",
+    "static/media/BG-interviewWihteBotton.png": "/portfolio/static/media/BG-interviewWihteBotton.8ac73108b67aa7628cf8.png",
+    "static/media/imgwebpages.jpg": "/portfolio/static/media/imgwebpages.0d884c16f5ddc18c3aeb.jpg",
+    "static/media/imgCMS.jpg": "/portfolio/static/media/imgCMS.bb75fa0cdeb6921f0d7b.jpg",
+    "static/media/imgcustom.jpg": "/portfolio/static/media/imgcustom.3a3d000073420ab44798.jpg",
+    "static/media/imgcmssklep.jpg": "/portfolio/static/media/imgcmssklep.808c643076fde8e76366.jpg",
+    "static/media/profilowe.png": "/portfolio/static/media/profilowe.b3bd7f8d1182f1be89f7.png",
+    "static/media/dataimg.png": "/portfolio/static/media/dataimg.ee4e87aff7eca36afc0a.png",
+    "static/media/netsec.png": "/portfolio/static/media/netsec.79f4bba5a0afda3c559f.png",
+    "static/media/enflag.jpg": "/portfolio/static/media/enflag.ce11c0199b3ac1011a4d.jpg",
+    "static/media/imgcmsinterfejs.png": "/portfolio/static/media/imgcmsinterfejs.00592b812c2d9fa895af.png",
+    "static/media/imgfrontbackdatabase.png": "/portfolio/static/media/imgfrontbackdatabase.c0c26fe6365c0f763b1c.png",
+    "static/media/slick.svg": "/portfolio/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/portfolio/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/portfolio/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/slick.woff": "/portfolio/static/media/slick.295183786cd8a1389865.woff",
+    "index.html": "/portfolio/index.html",
+    "main.b261cea6.css.map": "/portfolio/static/css/main.b261cea6.css.map",
+    "main.6f7ae142.js.map": "/portfolio/static/js/main.6f7ae142.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b261cea6.css",
+    "static/js/main.6f7ae142.js"
+  ]
+}
