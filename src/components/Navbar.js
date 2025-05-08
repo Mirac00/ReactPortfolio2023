@@ -36,7 +36,7 @@ function Navbar() {
       dropdownTimeoutRef.current = setTimeout(() => {
         setDropdown(false);
         setIsClosing(false);
-      }, 300); // Dopasuj do czasu trwania animacji
+      }, 300);
     }
   };
 
@@ -77,19 +77,19 @@ function Navbar() {
   };
 
   const scrollToAboutMe = () => {
-    if (window.location.pathname !== '/') {
-      history.push('/');
-      setTimeout(() => {
-        const section = document.getElementById('aboutme');
-        if (section) {
-          section.scrollIntoView({ behavior: 'smooth' });
-        }
-      }, 100);
-    } else {
+    const scrollToSection = () => {
       const section = document.getElementById('aboutme');
       if (section) {
-        section.scrollIntoView({ behavior: 'smooth' });
+        const y = section.getBoundingClientRect().top + window.pageYOffset - 80;
+        window.scrollTo({ top: y, behavior: 'smooth' });
       }
+    };
+
+    if (window.location.pathname !== '/') {
+      history.push('/');
+      setTimeout(scrollToSection, 100);
+    } else {
+      scrollToSection();
     }
     closeMobileMenu();
   };
@@ -194,6 +194,7 @@ function Navbar() {
               to='contact'
               spy={true}
               smooth={true}
+              offset={-80}
               duration={500}
               className={`nav-link ${click ? 'nav-link-mobile' : ''}`}
               onClick={closeMobileMenu}

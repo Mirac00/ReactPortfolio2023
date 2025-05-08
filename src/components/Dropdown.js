@@ -15,18 +15,17 @@ function Dropdown({ isOpen, closeMobileMenu, onMouseEnter, onMouseLeave, isClosi
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const scrollToSection = (sectionId) => {
-    const section = document.getElementById(sectionId);
-    if (section) {
-      const yOffset = -20;
-      const y = section.getBoundingClientRect().top + window.pageYOffset + yOffset;
-      
-      window.scrollTo({
-        top: y,
-        behavior: 'smooth'
-      });
-    }
-  };
+const scrollToSection = (sectionId) => {
+  const section = document.getElementById(sectionId);
+  if (section) {
+    const yOffset = -80; // Change from -20 to -80
+    const y = section.getBoundingClientRect().top + window.pageYOffset + yOffset;
+    window.scrollTo({
+      top: y,
+      behavior: 'smooth'
+    });
+  }
+};
 
   const handleServiceClick = (path) => {
     const sectionId = path.split('#')[1];
