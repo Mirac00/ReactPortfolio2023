@@ -101,6 +101,7 @@ const TerminalContent = styled.div`
 
   @media (max-width: 434px) {
     flex-direction: column;
+    min-height: 3em; /* Fixed height for 2 lines */
   }
 `;
 
@@ -136,7 +137,7 @@ const TerminalText = ({ part1 = "Hello, I'm", part2 = 'Sławek Zając', animate 
     const startAnimation = () => {
       initialDelay = setTimeout(() => {
         animatePart1();
-      }, 1500); // 1.5s initial cursor delay
+      }, 1500);
     };
 
     const animatePart1 = () => {
@@ -157,7 +158,7 @@ const TerminalText = ({ part1 = "Hello, I'm", part2 = 'Sławek Zając', animate 
             }, delay);
           }, 500);
         }
-      }, 110); // 10% slower animation (100ms -> 110ms)
+      }, 110);
     };
 
     const animatePart2 = () => {
@@ -168,7 +169,7 @@ const TerminalText = ({ part1 = "Hello, I'm", part2 = 'Sławek Zając', animate 
           clearInterval(part2Interval);
           setShowBorders(true);
         }
-      }, 110); // 10% slower animation (100ms -> 110ms)
+      }, 110);
     };
 
     startAnimation();
