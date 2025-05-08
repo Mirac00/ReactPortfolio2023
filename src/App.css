@@ -42,8 +42,8 @@
 .home,
 .services,
 .documents,
-.aboutme,
-.contact {
+.aboutme
+ {
   position: relative;
   z-index: 1;
   padding-top: 100px;
