@@ -10,11 +10,6 @@ export default function Interview({ profileImage, scrollToAboutMe }) {
   return (
     <div className="Interview">
       <div className="interview-container">
-      <img 
-          src={require('../../images/BG-interviewWihteBotton.png')} 
-          alt="background"
-          className="interview-background-image"
-        />
         <div className="interview-text-container">
           <h1 className="display-5 fw-bold mb-2">
             <TerminalText 
@@ -41,6 +36,11 @@ export default function Interview({ profileImage, scrollToAboutMe }) {
             {t('interview.buttonText')}
           </button>
         </div>
+        <img 
+          src={require('../../images/BG-interviewWihteBotton.png')} 
+          alt="background"
+          className="interview-background-image"
+        />
       </div>
     </div>
   );
