@@ -53,9 +53,11 @@
 .fa-caret-down:before {
   margin-left: 5px;
 }
-.nav-filler{
-  width:100%;
+
+.nav-filler {
+  width: 100%;
 }
+
 .nav-menu {
   display: grid;
   grid-template-columns: repeat(6, auto);
@@ -114,6 +116,7 @@
   .fa-caret-down:before {
     margin-left: 0px;
   }
+
   .nav-link-mobile {
     position: relative;
   }
@@ -125,17 +128,20 @@
     border-radius: 0;
     width: 100%;
   }
-  .nav-item{
+
+  .nav-item {
     border-bottom: #888888 solid 1px;
     border-top: #888888 solid 1px;
   }
+
   .nav-item:first-child {
-    border-top: #888888 solid 2px; /* przykładowo grubsza linia */
+    border-top: #888888 solid 2px;
   }
-  
+
   .nav-item:last-child {
-    border-bottom: #888888 solid 2px; /* przykładowo grubsza linia */
+    border-bottom: #888888 solid 2px;
   }
+
   .navbar {
     background: linear-gradient(90deg, rgb(12, 12, 12) 0%, rgb(26, 23, 23) 100%);
     padding-top: 0em !important;
@@ -150,16 +156,45 @@
   }
 
   .menu-icon {
-    position: static;
-    transform: none;
-    font-size: 1.8rem;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 35px;
     cursor: pointer;
+    margin-right: 1rem;
+  }
+
+  .menu-icon i {
+    position: absolute;
+    transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-origin: center;
+  }
+
+  .fa-bars {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .fa-times {
+    opacity: 0;
+    transform: scale(0) rotate(180deg);
+  }
+
+  .menu-icon.active .fa-bars {
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  .menu-icon.active .fa-times {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
   }
 
   .drop-nav-link-mobile {
     margin-right: 0% !important;
   }
-
 
   .nav-menu {
     display: flex;
@@ -169,7 +204,7 @@
     top: 80px;
     left: -100%;
     opacity: 1;
-    grid-gap:0px;
+    grid-gap: 0px;
     transition: all 0.5s ease;
     background: #242222;
     height: 100vh;
@@ -199,17 +234,11 @@
   }
 
   .navbar-logo {
-    margin-left: 1rem;
+    
   }
 
-  .menu-icon {
-    display: block;
-    margin-right: 1rem;
-    font-size: 1.7rem;
-    cursor: pointer;
-  }
-
-  .fa-times {
+  .fa-times,
+  .fa-bars {
     color: #fff;
     font-size: 2rem;
   }
@@ -236,24 +265,20 @@
   .navbar-logo-text {
     font-size: 1.5rem;
   }
+
   .navbar {
     height: 65px;
   }
+
   .menu-icon {
     font-size: 1.5rem;
   }
+
   .logo-container img {
     max-width: 35px;
   }
+
   .nav-menu {
     top: 65px;
-  }
-}
-
-@media (max-width: 550px) {
-  .logo-container {
-    transform: scale(0.7);
-    transform-origin: left;
-    margin-left: 0.5em;
   }
 }

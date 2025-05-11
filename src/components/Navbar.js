@@ -1,4 +1,3 @@
-// Navbar.js
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import './css/Navbar.css';
@@ -134,10 +133,12 @@ function Navbar() {
           </div>
         </Link>
         <LanguageSwitcher />
-        <div className='menu-icon' onClick={handleClick}>
-          <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
+        <div className={`menu-icon ${click ? 'active' : ''}`} onClick={handleClick}>
+          <i className="fas fa-bars" />
+          <i className="fas fa-times" />
         </div>
         <ul className={click ? 'nav-menu active' : 'nav-menu'}>
+          {/* Reszta kodu pozostaje bez zmian */}
           <li className='nav-item'>
             <Link to='/' className={`nav-link ${click ? 'nav-link-mobile' : ''}`} onClick={() => { closeMobileMenu(); scrollToTop(); }}>
               {t('navbar.start')}
