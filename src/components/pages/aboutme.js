@@ -1,8 +1,8 @@
-// AboutMe.js
+// components/pages/AboutMe.js
 import React, { useState } from 'react';
 import '../../App.css';
 import '../css/AboutMeStyle.css';
-import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaGithub, FaLinkedin } from 'react-icons/fa';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { useTranslation } from 'react-i18next';
 import img1 from '../../images/1port.jpg';
 import img2 from '../../images/2port.jpg';
@@ -25,42 +25,49 @@ export default function AboutMe() {
   };
 
   const nextImage = () => {
-    setCurrentImgIndex((prevIndex) => (prevIndex + 1) % images.length);
+    setCurrentImgIndex((prev) => (prev + 1) % images.length);
   };
 
   const prevImage = () => {
-    setCurrentImgIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
+    setCurrentImgIndex((prev) => (prev - 1 + images.length) % images.length);
   };
 
   return (
     <>
-    <AnimatedSection>
-      <section id='aboutme' className='aboutme'>
-        <h1 className='aboutme__title'>{t('aboutme.title')}</h1>
-        <div className='aboutme__card'>
-          <div className="aboutme__images">
-            <img src={img1} alt="Port 1" onClick={() => handleImgClick(0)} />
-            <img src={img2} alt="Port 2" onClick={() => handleImgClick(1)} />
+      <AnimatedSection>
+        <section id='aboutme' className='aboutme'>
+          <h1 className='aboutme__title'>{t('aboutme.title')}</h1>
+          <div className='aboutme__card'>
+            <div className="aboutme__images">
+              <img src={img1} alt="Port 1" onClick={() => handleImgClick(0)} />
+              <img src={img2} alt="Port 2" onClick={() => handleImgClick(1)} />
+            </div>
+            <div className='aboutme__links'>
+              <strong>{t('aboutme.links')}</strong>
+              <p><FaGithub className='icon' /> 
+                <a href="https://github.com/Mirac00?tab=repositories" target="_blank" rel="noopener noreferrer">
+                  GitHub
+                </a>
+              </p>
+              <p><FaLinkedin className='icon' /> 
+                <a href="https://www.linkedin.com/in/s%C5%82awomir-zajac-69ba94259/" target="_blank" rel="noopener noreferrer">
+                  LinkedIn
+                </a>
+              </p>
+            </div>
           </div>
-          <div className='aboutme__links'>
-            <strong>{t('aboutme.links')}</strong>
-            <p><FaGithub className='icon' /> <a href="https://github.com/Mirac00?tab=repositories" target="_blank" rel="noopener noreferrer">GitHub</a></p>
-            <p><FaLinkedin className='icon' /> <a href="https://www.linkedin.com/in/s%C5%82awomir-zajac-69ba94259/" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
-          </div>
-        </div>
-      </section>
+        </section>
       </AnimatedSection>
-      {isOpen && (
-        <Popup 
-          isOpen={isOpen} 
-          onClose={handleClose}
-          onNext={nextImage}
-          onPrev={prevImage}
-          showNavigation={true}
-        >
-          <img src={images[currentImgIndex]} alt="Fullscreen" className="popup-img" />
-        </Popup>
-      )}
+      
+      <Popup 
+        isOpen={isOpen} 
+        onClose={handleClose}
+        onNext={nextImage}
+        onPrev={prevImage}
+        showNavigation={true}
+      >
+        <img src={images[currentImgIndex]} alt="Fullscreen" className="popup-img" />
+      </Popup>
     </>
   );
 }

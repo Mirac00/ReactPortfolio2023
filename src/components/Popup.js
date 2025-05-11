@@ -1,11 +1,13 @@
-import './css/Popup.css';
+// components/Popup.js
 import React from 'react';
+import ReactDOM from 'react-dom';
 import { FaTimes, FaArrowLeft, FaArrowRight } from 'react-icons/fa';
+import './css/Popup.css';
 
 export default function Popup({ isOpen, onClose, children, onNext, onPrev, showNavigation }) {
   if (!isOpen) return null;
 
-  return (
+  return ReactDOM.createPortal(
     <div className="popup-overlay">
       <div className="popup-content">
         <button className="popup-close" onClick={onClose}>
@@ -23,6 +25,7 @@ export default function Popup({ isOpen, onClose, children, onNext, onPrev, showN
           </div>
         )}
       </div>
-    </div>
+    </div>,
+    document.getElementById('popup-root')
   );
 }

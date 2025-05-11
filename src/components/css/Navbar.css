@@ -21,7 +21,7 @@
 .logo-container {
   display: flex;
   align-items: center;
-  margin-left: 2em;
+  margin-left: 1em;
 }
 
 .logo-img {
@@ -161,7 +161,7 @@
     width: 35px;
     height: 35px;
     cursor: pointer;
-    margin-right: 1rem;
+    margin-left: 1rem 0.5rem;
   }
 
   .menu-icon i {
@@ -229,14 +229,14 @@
   }
 
   .nav-link:hover {
-    background-color: #1888ff;
+    background-color: #474747;
     border-radius: 0;
   }
 
   .fa-times,
   .fa-bars {
     color: #fff;
-    font-size: 2rem;
+    font-size: 1.4rem;
   }
 
   .nav-link-mobile {

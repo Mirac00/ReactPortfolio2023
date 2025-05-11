@@ -1,3 +1,4 @@
+// components/pages/Documents.js
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import '../css/DocumentsStyle.css';
@@ -6,7 +7,6 @@ import image2 from '../../images/netsec.png';
 import image3 from '../../images/adobe.png';
 import Popup from '../Popup';
 import AnimatedSection from '../AnimatedSection';
-import '../css/global.css';
 
 export default function Documents() {
   const { t } = useTranslation();
@@ -24,11 +24,11 @@ export default function Documents() {
   };
 
   const nextImage = () => {
-    setCurrentImgIndex((prevIndex) => (prevIndex + 1) % images.length);
+    setCurrentImgIndex((prev) => (prev + 1) % images.length);
   };
 
   const prevImage = () => {
-    setCurrentImgIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
+    setCurrentImgIndex((prev) => (prev - 1 + images.length) % images.length);
   };
 
   return (

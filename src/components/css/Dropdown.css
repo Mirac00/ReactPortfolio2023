@@ -6,7 +6,7 @@
   text-align: start;
   z-index: 1;
   right: 19rem;
-  background: #00aae3;
+  background: #414141;
   margin: 0;
   padding: 0;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
@@ -19,17 +19,17 @@
   right: 20px;
   border-width: 8px;
   border-style: solid;
-  border-color: transparent transparent #00aae3 transparent;
+  border-color: transparent transparent #b3b3b3 transparent;
 }
 
 .dropdown-menu li {
-  background: #00aae3;
+  background: #1f1f1f;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
 .dropdown-menu li:hover {
-  background: #00bfff;
+  background: #474747;
 }
 
 .dropdown-menu.clicked {
