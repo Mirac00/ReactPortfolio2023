@@ -1,9 +1,15 @@
-.contact{
-  padding:1em 0 1em 0;
+.contact {
+  background-image: url('../../images/BG-interview.png');
+  background-size: cover;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  height: auto;
 }
+
 .contact p{
   color: #fff;
 }
+
 .contact-form {
   display: flex;
   flex-direction: column;
@@ -15,7 +21,7 @@
   background-color: #1a1a1a;
   color: #fff;
   border: 1px solid #333;
-  margin: 0 auto;
+  margin:1em auto;
 }
 
 .contact__title {
@@ -90,7 +96,7 @@
   background-color: #333;
   color: #fff;
   width: 100%;
-  padding: 12px 10px 8px 10px; /* zmniejszone paddingi dla lepszego wyglądu */
+  padding: 12px 10px 8px 10px;
   outline: 0;
   border: 1px solid rgba(105, 105, 105, 0.397);
   border-radius: 10px;

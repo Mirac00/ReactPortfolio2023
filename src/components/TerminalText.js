@@ -19,7 +19,7 @@ const blink = keyframes`
 
 // Containers
 const TerminalContainer = styled.div`
-  width: 100%;
+  width: 100%
 `;
 
 const TerminalBorder = styled.div`
@@ -27,6 +27,8 @@ const TerminalBorder = styled.div`
   border: 5px solid transparent;
   padding: 1.5rem;
   box-sizing: border-box;
+  width: fit-content;
+  
 `;
 
 // Animated edges

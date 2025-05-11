@@ -5,61 +5,31 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background-color: #ffffff; /* Tło pomiędzy obrazami */
-}
-
-.App::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  width: 100vw;
-  height: 100vh; /* Dostosuj wysokość górnego tła */
-  background-image: url('../src/images/BG-interview1.png');
-  background-size: contain; /* Zachowuje proporcje obrazu */
-  background-position: center top;
-  background-repeat: no-repeat;
-  z-index: 0;
-  background-size: cover;
-}
-
-.App::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: #363636; 
-  height: 100; /* Dostosuj wysokość dolnego tła */
-  background-image: url('../src/images/BG-interview.png');
-  background-size: contain; /* Zachowuje proporcje obrazu */
-  background-position: center bottom;
-  background-repeat: no-repeat;
-  z-index: -1;
-  background-size: cover;
+  background-color: #ffffff;
 }
 
 .home,
 .services,
 .documents,
-.aboutme
- {
+.aboutme {
   position: relative;
   z-index: 1;
-  padding-top: 100px;
+  padding-top: 80px;
 }
 
 @media screen and (max-width: 960px) {
   .App {
-    background: linear-gradient(to bottom, #313131 0%, #313131 2000px, transparent 1000px, transparent 100%);
-  }
-
-  .App::before {
-    height: 2000px;
+    background: transparent;
   }
 }
-
+@media screen and (max-width: 401px) {
+  .home,
+.services,
+.documents,
+.aboutme {
+  padding-top: 60px;
+}
+}
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;

@@ -174,7 +174,7 @@ function Navbar() {
               <i className='fas fa-caret-down' onClick={handleMobileClick} />
             )}
           </li>
-          <AnimatePresence>
+
             {(dropdown || mobileDropdown) && (
               <Dropdown 
                 isOpen={true}
@@ -184,7 +184,7 @@ function Navbar() {
                 onMouseLeave={onMouseLeave}
               />
             )}
-          </AnimatePresence>
+
           <li className='nav-item'>
             <Link to='/Documents' className={`nav-link ${click ? 'nav-link-mobile' : ''}`} onClick={() => { closeMobileMenu(); scrollToTop(); }}>
               {t('navbar.certificates')}

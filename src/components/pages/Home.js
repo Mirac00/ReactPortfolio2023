@@ -16,7 +16,7 @@ import profileImage from '../../images/profilowe.png';
 import { useTranslation } from 'react-i18next';
 import GitHubButton from '../GitHubButton';
 import AnimatedSection from '../AnimatedSection';
-import HomeIndustries from '../HomeIndustries';
+
 
 export default function Home() {
   const { t } = useTranslation();
@@ -47,7 +47,7 @@ export default function Home() {
 
   return (
     <div className='home'>
-      <HomeIndustries />
+      
       
         <Interview profileImage={profileImage} scrollToAboutMe={scrollToAboutMe} />
       

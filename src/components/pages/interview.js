@@ -3,12 +3,14 @@ import '../../App.css';
 import '../css/InterviewStyle.css';
 import { useTranslation } from 'react-i18next';
 import TerminalText from '../TerminalText';
+import HomeIndustries from '../HomeIndustries';
 
 export default function Interview({ profileImage, scrollToAboutMe }) {
   const { t } = useTranslation();
   
   return (
     <div className="Interview">
+      <HomeIndustries />
       <div className="interview-container">
         <div className="interview-text-container">
           <h1 className="display-5 fw-bold mb-2">
@@ -36,11 +38,6 @@ export default function Interview({ profileImage, scrollToAboutMe }) {
             {t('interview.buttonText')}
           </button>
         </div>
-        <img 
-          src={require('../../images/BG-interviewWihteBotton.png')} 
-          alt="background"
-          className="interview-background-image"
-        />
       </div>
     </div>
   );
