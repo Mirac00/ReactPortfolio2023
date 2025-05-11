@@ -20,7 +20,6 @@ const blink = keyframes`
 // Containers
 const TerminalContainer = styled.div`
   width: 100%;
-  padding: 0 1rem;
 `;
 
 const TerminalBorder = styled.div`

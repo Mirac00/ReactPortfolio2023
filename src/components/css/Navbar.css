@@ -207,7 +207,8 @@
     grid-gap: 0px;
     transition: all 0.5s ease;
     background: #242222;
-    height: 100vh;
+    height: calc(100vh - 80px);
+    overflow-y: auto;
     justify-content: flex-start;
   }
 
@@ -217,7 +218,8 @@
     opacity: 1;
     transition: all 0.5s ease;
     z-index: 1;
-    height: 100vh;
+        height: calc(100vh - 80px);
+    overflow-y: auto;
     justify-content: flex-start;
   }
 

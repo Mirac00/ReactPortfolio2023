@@ -20,6 +20,7 @@
   border-bottom-left-radius: 40px;
   border-bottom-right-radius: 40px;
   width: 95%;
+  height: 80px;
 }
 
 .logo-container {
@@ -59,13 +60,13 @@
 .nav-item {
   display: flex;
   align-items: center;
-  height: 80px;
+  height: fit-content;
 }
 
 .nav-link {
   color: white;
   text-decoration: none;
-  padding: 0.5rem 1rem;
+  padding: 16px;
   cursor: pointer;
 }
 
@@ -84,6 +85,7 @@
     margin: 0;
     border-radius: 0;
     width: 100%;
+    height: auto;
   }
 
   .nav-menu {
