@@ -1,4 +1,4 @@
-/* components/css/Popup.css */
+/* Popup.css */
 .popup-overlay {
   position: fixed;
   top: 0;
@@ -15,74 +15,125 @@
 
 .popup-content {
   position: relative;
-  max-width: 90%;
-  max-height: 90%;
+  width: 60%;
+  max-width: 1200px;
   background: #fff;
   border-radius: 12px;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
   padding: 20px;
-}
-
-.popup-img {
-  max-width: 100%;
-  max-height: 80vh;
-  object-fit: contain;
-  border-radius: 8px;
+  margin-top: 60px; /* Nowy margines górny */
 }
 
 .popup-close {
   position: absolute;
-  top: -40px;
-  right: -40px;
+  top: -50px;
+  right: 0;
   background: transparent;
   border: none;
   color: white;
   font-size: 2.5rem;
   cursor: pointer;
+  z-index: 100;
   transition: transform 0.3s ease;
 }
 
-.popup-close:hover {
-  transform: scale(1.2);
+.popup-slider-container {
+  position: relative;
+  padding: 20px;
 }
 
-.popup-navigation {
-  position: fixed;
+.popup-slider-image {
+  max-width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: 8px;
+  margin: 0 auto;
+}
+
+/* Strzałki dla desktop */
+.popup-arrow {
+  position: absolute;
+  top: 50%;
   transform: translateY(-50%);
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  padding: 0 20px;
-  pointer-events: none;
-}
-
-.popup-nav-btn {
-  background: rgba(255, 255, 255, 0.2);
-  border: none;
-  color: white;
-  padding: 12px;
+  width: 60px;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.9);
   border-radius: 50%;
-  font-size: 1.8rem;
   cursor: pointer;
+  z-index: 10;
   transition: all 0.3s ease;
-  pointer-events: all;
-  backdrop-filter: blur(5px);
 }
 
-.popup-nav-btn:hover {
-  background: rgba(255, 255, 255, 0.3);
-  transform: scale(1.15);
+.popup-arrow:hover {
+  background: rgba(255, 255, 255, 1);
+}
+
+.popup-next-arrow {
+  right: -80px;
+}
+
+.popup-prev-arrow {
+  left: -80px;
+}
+
+.popup-arrow::before {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  border: 2px solid #333;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.popup-next-arrow::before {
+  transform: translate(-50%, -50%) rotate(135deg);
+}
+
+.popup-prev-arrow::before {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+/* Kropki nawigacyjne */
+.slick-dots {
+  bottom: -40px !important;
+}
+
+.slick-dots li button:before {
+  font-size: 12px;
+  color: #fff;
+  opacity: 0.75;
+}
+
+.slick-dots li.slick-active button:before {
+  color: #fff;
+  opacity: 1;
 }
 
 @media (max-width: 768px) {
+  .popup-content {
+    width: 75%;
+    padding: 10px;
+    margin-top: 60px; /* Zachowaj margines na mobile */
+  }
+
   .popup-close {
-    top: -30px;
-    right: -30px;
+    top: -45px;
+    right: 10px;
     font-size: 2rem;
   }
-  
-  .popup-nav-btn {
-    font-size: 1.4rem;
+
+  .popup-arrow {
+    display: none !important;
+  }
+
+  .slick-dots {
+    bottom: -30px !important;
+  }
+}
+@media (max-width: 568px) {
+  .popup-content {
+    width: 95%;
     padding: 10px;
+    margin-top: 60px; /* Zachowaj margines na mobile */
   }
 }

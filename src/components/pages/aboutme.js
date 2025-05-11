@@ -20,17 +20,7 @@ export default function AboutMe() {
     setIsOpen(true);
   };
 
-  const handleClose = () => {
-    setIsOpen(false);
-  };
-
-  const nextImage = () => {
-    setCurrentImgIndex((prev) => (prev + 1) % images.length);
-  };
-
-  const prevImage = () => {
-    setCurrentImgIndex((prev) => (prev - 1 + images.length) % images.length);
-  };
+  const handleClose = () => setIsOpen(false);
 
   return (
     <>
@@ -60,14 +50,11 @@ export default function AboutMe() {
       </AnimatedSection>
       
       <Popup 
-        isOpen={isOpen} 
+        isOpen={isOpen}
         onClose={handleClose}
-        onNext={nextImage}
-        onPrev={prevImage}
-        showNavigation={true}
-      >
-        <img src={images[currentImgIndex]} alt="Fullscreen" className="popup-img" />
-      </Popup>
+        images={images}
+        currentImgIndex={currentImgIndex}
+      />
     </>
   );
 }

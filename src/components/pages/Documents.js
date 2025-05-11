@@ -19,17 +19,7 @@ export default function Documents() {
     setIsOpen(true);
   };
 
-  const closePopup = () => {
-    setIsOpen(false);
-  };
-
-  const nextImage = () => {
-    setCurrentImgIndex((prev) => (prev + 1) % images.length);
-  };
-
-  const prevImage = () => {
-    setCurrentImgIndex((prev) => (prev - 1 + images.length) % images.length);
-  };
+  const closePopup = () => setIsOpen(false);
 
   return (
     <>
@@ -78,14 +68,11 @@ export default function Documents() {
       </div>
 
       <Popup 
-        isOpen={isOpen} 
+        isOpen={isOpen}
         onClose={closePopup}
-        onNext={nextImage}
-        onPrev={prevImage}
-        showNavigation={true}
-      >
-        <img src={images[currentImgIndex]} alt="Certificate" className="popup-img" />
-      </Popup>
+        images={images}
+        currentImgIndex={currentImgIndex}
+      />
     </>
   );
 }
