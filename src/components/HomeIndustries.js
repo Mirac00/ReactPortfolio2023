@@ -1,6 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import './css/HomeIndustries.css';
+import TerminalText from './TerminalText';
 
 const HomeIndustries = () => {
   const { t } = useTranslation();
@@ -20,6 +21,11 @@ const HomeIndustries = () => {
           <i className='fas fa-bullhorn'></i>
           <span>{t('home.industries.marketing')}</span>
         </div>
+              <TerminalText 
+              part1={t('interview.greeting.part1')} // "Hello, I'm"
+              part2={t('interview.greeting.part2')} // "Sławek Zając"
+              animate={true}
+            />
       </div>
     </section>
   );

@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef, useLayoutEffect } from 'react';
 import styled, { keyframes, css } from 'styled-components';
 
-// Animations
+// Animacje
 const drawHorizontal = keyframes`
   from { width: 0; }
   to { width: 100%; }
@@ -17,9 +17,15 @@ const blink = keyframes`
   50% { opacity: 0; }
 `;
 
-// Containers
-const TerminalContainer = styled.div`
-  width: 100%
+// Kontenery
+const Wrapper = styled.div`
+  display: flex;
+  width: 100%;
+`;
+
+const SideContainer = styled.div`
+  flex: 1;
+  position: relative;
 `;
 
 const TerminalBorder = styled.div`
@@ -27,11 +33,11 @@ const TerminalBorder = styled.div`
   border: 5px solid transparent;
   padding: 1.5rem;
   box-sizing: border-box;
-  width: fit-content;
-  
+  min-width: ${({ $measuredWidth }) => $measuredWidth ? `${$measuredWidth}px` : 'auto'};
+  margin: 0 auto;
 `;
 
-// Animated edges
+// Elementy ramki
 const BorderLeft = styled.div`
   position: absolute;
   left: 0;
@@ -88,7 +94,7 @@ const BorderRight = styled.div`
     `}
 `;
 
-// Text content
+// Zawartość terminala
 const TerminalContent = styled.div`
   font-family: 'Courier New', monospace;
   font-weight: bold;
@@ -99,10 +105,13 @@ const TerminalContent = styled.div`
   overflow: hidden;
   display: flex;
   flex-wrap: wrap;
+  width: max-content;
+  max-width: 100%;
 
   @media (max-width: 434px) {
     flex-direction: column;
-    min-height: 3em; /* Fixed height for 2 lines */
+    min-height: 3em;
+    width: 100%;
   }
 `;
 
@@ -127,6 +136,16 @@ const TerminalText = ({ part1 = "Hello, I'm", part2 = 'Sławek Zając', animate 
   const [showCursor1, setShowCursor1] = useState(true);
   const [showCursor2, setShowCursor2] = useState(false);
   const [showBorders, setShowBorders] = useState(false);
+  const [measuredWidth, setMeasuredWidth] = useState(0);
+  const hiddenRef = useRef(null);
+
+  // Pomiar szerokości tekstu
+  useLayoutEffect(() => {
+    if (hiddenRef.current) {
+      const width = hiddenRef.current.offsetWidth;
+      setMeasuredWidth(width);
+    }
+  }, []);
 
   useEffect(() => {
     let part1Interval;
@@ -183,8 +202,21 @@ const TerminalText = ({ part1 = "Hello, I'm", part2 = 'Sławek Zając', animate 
   }, [part1, part2]);
 
   return (
-    <TerminalContainer>
-      <TerminalBorder>
+    <Wrapper>
+      {/* Ukryty element do pomiaru */}
+      <div ref={hiddenRef} style={{
+        position: 'absolute',
+        visibility: 'hidden',
+        whiteSpace: 'nowrap',
+        fontFamily: "'Courier New', monospace",
+        fontSize: 'calc(12px + 1.5vw)',
+        paddingRight: '0.5em'
+      }}>
+        {part1} {part2}
+      </div>
+
+      <SideContainer />
+      <TerminalBorder $measuredWidth={measuredWidth}>
         <BorderLeft $animate={animate && showBorders} />
         <BorderBottom $animate={animate && showBorders} />
         <BorderTop $animate={animate && showBorders} />
@@ -200,7 +232,8 @@ const TerminalText = ({ part1 = "Hello, I'm", part2 = 'Sławek Zając', animate 
           </TextPart>
         </TerminalContent>
       </TerminalBorder>
-    </TerminalContainer>
+      <SideContainer />
+    </Wrapper>
   );
 };
 
