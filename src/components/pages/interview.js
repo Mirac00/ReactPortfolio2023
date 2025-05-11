@@ -19,7 +19,6 @@ export default function Interview({ profileImage, scrollToAboutMe }) {
               part2={t('interview.greeting.part2')} // "Sławek Zając"
               animate={true}
             />
-            <br/>
             {t('interview.titleLine1')}<br/>
             {t('interview.titleLine2')}<br/>
             {t('interview.titleLine3')}

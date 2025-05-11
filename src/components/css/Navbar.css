@@ -260,7 +260,7 @@
   }
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 401px) {
   .navbar-logo-text {
     font-size: 1.5rem;
   }
@@ -279,5 +279,11 @@
 
   .nav-menu {
     top: 65px;
+    height: calc(100vh - 65px);
+  }
+
+    .nav-menu.active {
+    top: 65px;
+    height: calc(100vh - 65px);
   }
 }

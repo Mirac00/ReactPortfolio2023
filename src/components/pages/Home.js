@@ -56,7 +56,6 @@ export default function Home() {
           <AnimatedSection >
             <h2 className='home__projects-title'>{t('home.myBestProjects')}</h2>
           </AnimatedSection>
-          <br/>
           
           {/* Project 1 */}
           <article className='article-section'>
