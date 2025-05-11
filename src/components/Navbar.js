@@ -138,7 +138,6 @@ function Navbar() {
           <i className="fas fa-times" />
         </div>
         <ul className={click ? 'nav-menu active' : 'nav-menu'}>
-          {/* Reszta kodu pozostaje bez zmian */}
           <li className='nav-item'>
             <Link to='/' className={`nav-link ${click ? 'nav-link-mobile' : ''}`} onClick={() => { closeMobileMenu(); scrollToTop(); }}>
               {t('navbar.start')}
@@ -162,28 +161,28 @@ function Navbar() {
               onClick={handleDesktopClick}
             >
               <Link to='/Services' className={`nav-link-service ${click ? 'nav-link-mobile-service' : ''}`} onClick={() => { closeMobileMenu(); scrollToTop(); }}>
-              <div className='nav-filler'>
-                {t('navbar.services')}
-                {window.innerWidth >= 960 && (
-                  <i className='fas fa-caret-down' onClick={handleMobileClick} />
-                )}
-              </div> 
+                <div className='nav-filler'>
+                  {t('navbar.services')}
+                  {window.innerWidth >= 960 && (
+                    <i className='fas fa-caret-down' onClick={handleMobileClick} />
+                  )}
+                </div> 
               </Link>
-              </div>
+            </div>
             {window.innerWidth < 960 && (
               <i className='fas fa-caret-down' onClick={handleMobileClick} />
             )}
           </li>
 
-            {(dropdown || mobileDropdown) && (
-              <Dropdown 
-                isOpen={true}
-                isClosing={isClosing}
-                closeMobileMenu={closeMobileMenu}
-                onMouseEnter={onMouseEnter}
-                onMouseLeave={onMouseLeave}
-              />
-            )}
+          {(dropdown || mobileDropdown) && (
+            <Dropdown 
+              isOpen={true}
+              isClosing={isClosing}
+              closeMobileMenu={closeMobileMenu}
+              onMouseEnter={onMouseEnter}
+              onMouseLeave={onMouseLeave}
+            />
+          )}
 
           <li className='nav-item'>
             <Link to='/Documents' className={`nav-link ${click ? 'nav-link-mobile' : ''}`} onClick={() => { closeMobileMenu(); scrollToTop(); }}>

@@ -1,4 +1,3 @@
-// Dropdown.js
 import React from 'react';
 import { MenuItems } from './MenuItems';
 import './css/Dropdown.css';
@@ -15,17 +14,17 @@ function Dropdown({ isOpen, closeMobileMenu, onMouseEnter, onMouseLeave, isClosi
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-const scrollToSection = (sectionId) => {
-  const section = document.getElementById(sectionId);
-  if (section) {
-    const yOffset = -160; // Change from -20 to -80
-    const y = section.getBoundingClientRect().top + window.pageYOffset + yOffset;
-    window.scrollTo({
-      top: y,
-      behavior: 'smooth'
-    });
-  }
-};
+  const scrollToSection = (sectionId) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      const yOffset = -160;
+      const y = section.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({
+        top: y,
+        behavior: 'smooth'
+      });
+    }
+  };
 
   const handleServiceClick = (path) => {
     const sectionId = path.split('#')[1];
@@ -49,9 +48,9 @@ const scrollToSection = (sectionId) => {
     <AnimatePresence>
       {(isOpen || isClosing) && (
         <motion.ul
-          initial={{ opacity: 0, height: 0 }}
-          animate={isClosing ? { opacity: 0, height: 0 } : { opacity: 1, height: 'auto' }}
-          exit={{ opacity: 0, height: 0 }}
+          initial={{ opacity: 0, maxHeight: 0 }}
+          animate={isClosing ? { opacity: 0, maxHeight: 0 } : { opacity: 1, maxHeight: "1000px" }}
+          exit={{ opacity: 0, maxHeight: 0 }}
           transition={{ duration: 0.3, ease: 'easeInOut' }}
           className="dropdown-menu"
           onMouseEnter={onMouseEnter}
