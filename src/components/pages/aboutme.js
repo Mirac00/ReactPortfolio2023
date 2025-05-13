@@ -4,16 +4,22 @@ import '../../App.css';
 import '../css/AboutMeStyle.css';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { useTranslation } from 'react-i18next';
-import img1 from '../../images/1port.jpg';
-import img2 from '../../images/2port.jpg';
 import Popup from '../Popup';
 import AnimatedSection from '../AnimatedSection';
 
+// Importuj wszystkie wersje językowe zdjęć
+import pl1 from '../../images/1PL.png';
+import pl2 from '../../images/2PL.png';
+import en1 from '../../images/1EN.png';
+import en2 from '../../images/2EN.png';
+
 export default function AboutMe() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const [currentImgIndex, setCurrentImgIndex] = useState(0);
-  const images = [img1, img2];
+  
+  // Wybierz odpowiednie zdjęcia w zależności od języka
+  const images = i18n.language === 'pl' ? [pl1, pl2] : [en1, en2];
 
   const handleImgClick = (index) => {
     setCurrentImgIndex(index);
@@ -29,8 +35,16 @@ export default function AboutMe() {
           <h1 className='aboutme__title'>{t('aboutme.title')}</h1>
           <div className='aboutme__card'>
             <div className="aboutme__images">
-              <img src={img1} alt="Port 1" onClick={() => handleImgClick(0)} />
-              <img src={img2} alt="Port 2" onClick={() => handleImgClick(1)} />
+              <img 
+                src={images[0]} 
+                alt="Portfolio 1" 
+                onClick={() => handleImgClick(0)} 
+              />
+              <img 
+                src={images[1]} 
+                alt="Portfolio 2" 
+                onClick={() => handleImgClick(1)} 
+              />
             </div>
             <div className='aboutme__links'>
               <strong>{t('aboutme.links')}</strong>

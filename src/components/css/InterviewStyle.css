@@ -11,8 +11,7 @@
 
 .interview-container {
   align-items: center;
-  position: relative;
-  display: ruby;
+  display: initial;
   height: 100vh;
   min-height: 600px;
   overflow: hidden;
@@ -40,13 +39,11 @@
 }
 
 .interview-text-container {
-  padding: 0em 3em 0em 6em;
+  padding: 0em 3em 10em 6em;
   margin-right: auto;
-  border-radius: 1em;
   width: 50%;
   font-family: Arial, sans-serif;
   overflow: hidden;
-  margin-bottom: 15%;
   position: relative;
   z-index: 1;
 }
@@ -122,14 +119,17 @@
 
 @media (max-width: 921px) {
   .Interview {
-    background-size: cover;
-    background-position: left bottom;
+    background-color: transparent;
   }
   
   .interview-container {
-    flex-direction: column;
-    height: auto;
-    min-height: unset;
+    display: inline-table;
+    width: 100% !important;
+    background-image: url('../../images/bg-long-wave.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-bottom: 0px;
   }
   
   .profile-image-container {
@@ -143,18 +143,21 @@
   }
   
   .interview-text-container {
-    padding: 2em;
+    padding: 0em 3em 0em 3em;
     margin-left: auto;
-    width: 100% !important;
+    width: 100%;
+  }
+
+  .interview-text-container h1 {
+    color: #575757;
+  }
+
+  .interview-text-container p {
+    color: #575757;
   }
 }
 
 @media (max-width: 768px) {
-  .Interview {
-    background-size: cover;
-    background-position: left bottom;
-  }
-  
   .profile-image-container {
     width: 90%;
     height: 300px;
@@ -166,17 +169,13 @@
   }
   
   .interview-text-container {
-    padding: 1em;
+    padding: 10em 1em 1em 1em;
   }
   
   .interview-text-container h1 {
     width: fit-content;
   }
   
-  
-  .interview-container {
-    min-height: 400px;
-  }
 }
 
 @media (orientation: landscape) {
@@ -187,5 +186,8 @@
   
   .interview-container {
     min-height: 100vh;
+  }
+  .interview-text-container {
+    padding: 10em 1em 1em 1em;
   }
 }
