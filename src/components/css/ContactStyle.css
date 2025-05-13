@@ -1,9 +1,12 @@
 .contact {
   background-image: url('../../images/BG-interview.png');
   background-size: cover;
-  background-position: center bottom;
-  background-repeat: no-repeat;
-  height: auto;
+  background-size: cover;
+  background-position: initial;
+  min-height: 600px;
+  align-items: flex-end;
+  display: flex;
+  width: 100%;
 }
 
 .contact p{

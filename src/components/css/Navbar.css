@@ -13,7 +13,7 @@
 .navbar-box {
   background: linear-gradient(90deg, rgb(12, 12, 12) 0%, rgb(26, 23, 23) 100%);
   display: flex;
-  justify-content: space-between;
+  justify-content: unset;
   align-items: center;
   width: 100%;
 }
@@ -161,7 +161,7 @@
     width: 35px;
     height: 35px;
     cursor: pointer;
-    margin-left: 1rem 0.5rem;
+    margin-right: 0.5em;
   }
 
   .menu-icon i {
