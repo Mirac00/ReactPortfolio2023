@@ -13,14 +13,6 @@
   font-weight: 600;
 }
 
-.article-section {
-  border-top: 1px solid #f0f0f0;
-}
-
-.article-section:last-child {
-  border-bottom: 1px solid #f0f0f0;
-}
-
 .github-button-container {
   margin-bottom: 20px;
 }

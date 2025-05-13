@@ -1,7 +1,7 @@
 /* ===== INTERVIEW SECTION ===== */
 .Interview {
   height: auto;
-  width: 100%;
+  min-height: max(0px, -80px + 100vh);
   position: relative;
   background-image: url('../../images/BG-interview1.png');
   background-size: 100% auto;
@@ -12,8 +12,6 @@
 .interview-container {
   align-items: center;
   display: initial;
-  height: 100vh;
-  min-height: 600px;
   overflow: hidden;
   z-index: 1;
 }
@@ -95,7 +93,7 @@
 
 @media (max-width: 1199px) and (min-width: 993px) {
   .Interview {
-    background-position: center 80px;
+    background-position: center 0px;
   }
 }
 
@@ -117,17 +115,19 @@
   }
 }
 
-@media (max-width: 921px) {
+@media (max-width: 1136px) {
   .Interview {
     background-color: transparent;
+    display: table-row-group;
+    height: fit-content;
   }
   
   .interview-container {
     display: inline-table;
-    width: 100% !important;
+    height: fit-content;
     background-image: url('../../images/bg-long-wave.png');
     background-size: cover;
-    background-position: center;
+    background-position: unset;
     background-repeat: no-repeat;
     margin-bottom: 0px;
   }
@@ -143,8 +143,7 @@
   }
   
   .interview-text-container {
-    padding: 0em 3em 0em 3em;
-    margin-left: auto;
+    padding: 5em 3em 0em 3em;
     width: 100%;
   }
 

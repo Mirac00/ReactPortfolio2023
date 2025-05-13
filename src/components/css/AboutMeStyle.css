@@ -1,6 +1,5 @@
 
 .aboutme {
-  padding: 20px;
   position: relative;
   z-index: 1; /* Zmienione z 2 na 1, aby nie konfliktowało z popupem */
   display: flex;

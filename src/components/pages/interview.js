@@ -3,6 +3,7 @@ import '../../App.css';
 import '../css/InterviewStyle.css';
 import { useTranslation } from 'react-i18next';
 import HomeIndustries from '../HomeIndustries';
+import AnimatedSection from '../AnimatedSection';
 
 export default function Interview({ profileImage, scrollToAboutMe }) {
   const { t } = useTranslation();
@@ -11,7 +12,7 @@ export default function Interview({ profileImage, scrollToAboutMe }) {
     <div className="Interview">
       <HomeIndustries />
       <div className="interview-container">
-
+        <AnimatedSection>
         <div className="interview-text-container">
           <h1 className="display-5 fw-bold mb-2">
             {t('interview.titleLine1')}<br/>
@@ -32,6 +33,7 @@ export default function Interview({ profileImage, scrollToAboutMe }) {
             {t('interview.buttonText')}
           </button>
         </div>
+      </AnimatedSection>
       </div>
     </div>
   );
