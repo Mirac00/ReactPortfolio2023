@@ -4,28 +4,47 @@
   display: flex;
   align-items: center;
   height: 100%;
-}
-
-.language-button {
-  background: none;
-  border: none;
+  background-color: #f0f0f0;
+  border-radius: 20px;
+  padding: 2px;
   cursor: pointer;
-  padding: 5px;
-  transition: transform 0.2s;
-  display: flex;
-  align-items: center;
-  height: 100%;
+  transition: all 0.3s ease;
 }
 
-.language-button:hover {
-  transform: scale(1.1);
+.language-switcher:hover {
+  background-color: #e0e0e0;
+}
+
+.language-flags-container {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
 
 .language-flag {
   width: 40px;
   height: auto;
   object-fit: cover;
-  border-radius: 3px;
+  transition: filter 0.3s ease;
+}
+
+.language-flag.active {
+  filter: brightness(1);
+}
+
+.language-flag.inactive {
+  filter: brightness(0.5) contrast(0.8);
+}
+
+.language-flag.pl {
+  border-top-left-radius: 18px;
+  border-bottom-left-radius: 18px;
+}
+
+.language-flag.en {
+  border-top-right-radius: 18px;
+  border-bottom-right-radius: 18px;
 }
 
 /* Responsywność */
