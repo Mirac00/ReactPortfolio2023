@@ -49,32 +49,33 @@
   margin: 0 auto;
 }
 
-/* Strzałki dla desktop */
-.popup-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 60px;
-  height: 60px;
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: 50%;
-  cursor: pointer;
-  z-index: 10;
-  transition: all 0.3s ease;
+.popup-slider-container .slider-box {
+  width: 100%;
+  margin: 0;
 }
 
-.popup-arrow:hover {
-  background: rgba(255, 255, 255, 1);
+.popup-slider-container .slider-image {
+  max-height: 80vh;
 }
 
-.popup-next-arrow {
-  right: -80px;
+.popup-slider-container .custom-arrow {
+  width: 50px;
+  height: 50px;
 }
 
-.popup-prev-arrow {
-  left: -80px;
+.popup-slider-container .next-arrow {
+  right: -60px;
 }
 
+.popup-slider-container .prev-arrow {
+  left: -60px;
+}
+
+@media (max-width: 768px) {
+  .popup-slider-container .custom-arrow {
+    display: none !important;
+  }
+}
 .popup-arrow::before {
   position: absolute;
   width: 15px;

@@ -79,7 +79,7 @@ function Navbar() {
     const scrollToSection = () => {
       const section = document.getElementById('aboutme');
       if (section) {
-        const y = section.getBoundingClientRect().top + window.pageYOffset - 80;
+        const y = section.getBoundingClientRect().top + window.pageYOffset;
         window.scrollTo({ top: y, behavior: 'smooth' });
       }
     };
