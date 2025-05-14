@@ -1,4 +1,3 @@
-// components/pages/Documents.js
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import '../css/DocumentsStyle.css';
@@ -24,43 +23,43 @@ export default function Documents() {
   return (
     <>
       <div className="documents">
-        <div className="documents__container">
+        <div className="container">
           <AnimatedSection>
             <h1 className="documents__title">{t('certificatesPage.title')}</h1>
           </AnimatedSection>
           
           <AnimatedSection delay={0.2}>
             <div className="documents__article">
-              <div className="documents__image" onClick={() => openPopup(0)}>
-                <img src={image1} alt={t('certificatesPage.certificate1.title')} />
-              </div>
               <div className="documents__text">
                 <h2>{t('certificatesPage.certificate1.title')}</h2>
                 <p>{t('certificatesPage.certificate1.description')}</p>
+              </div>
+              <div className="documents__image" onClick={() => openPopup(0)}>
+                <img src={image1} alt={t('certificatesPage.certificate1.title')} className="documents__certificate" />
               </div>
             </div>
           </AnimatedSection>
           
           <AnimatedSection delay={0.3}>
             <div className="documents__article">
-              <div className="documents__image" onClick={() => openPopup(1)}>
-                <img src={image2} alt={t('certificatesPage.certificate2.title')} />
-              </div>
               <div className="documents__text">
                 <h2>{t('certificatesPage.certificate2.title')}</h2>
                 <p>{t('certificatesPage.certificate2.description')}</p>
+              </div>
+              <div className="documents__image" onClick={() => openPopup(1)}>
+                <img src={image2} alt={t('certificatesPage.certificate2.title')} className="documents__certificate" />
               </div>
             </div>
           </AnimatedSection>
           
           <AnimatedSection delay={0.4}>
             <div className="documents__article">
-              <div className="documents__image" onClick={() => openPopup(2)}>
-                <img src={image3} alt={t('certificatesPage.certificate3.title')} />
-              </div>
               <div className="documents__text">
                 <h2>{t('certificatesPage.certificate3.title')}</h2>
                 <p>{t('certificatesPage.certificate3.description')}</p>
+              </div>
+              <div className="documents__image" onClick={() => openPopup(2)}>
+                <img src={image3} alt={t('certificatesPage.certificate3.title')} className="documents__certificate" />
               </div>
             </div>
           </AnimatedSection>

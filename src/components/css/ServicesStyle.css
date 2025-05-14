@@ -1,31 +1,114 @@
 .services {
-  width: 100%;
-  background-color: var(--bg-light);
-  min-height: 100vh;
-  padding: 80px 5% 0 5%;
+    width: 100%;
+    background-color: var(--bg-light);
+    min-height: 100vh;
+    padding: 80px 0;
 }
 
 .services__title {
-  font-size: 2.8rem;
-  color: var(--text-dark);
-  margin-bottom: 60px;
-  text-align: center;
-  font-weight: 600;
+    font-size: 2.8rem;
+    color: var(--text-dark);
+    margin-bottom: 60px;
+    text-align: center;
+    font-weight: 600;
 }
 
-.github-button-container {
-  margin-bottom: 20px;
+/* Specyficzne style dla artykułów w services */
+.services .article-section {
+    margin-bottom: 5rem;
 }
 
-.github-button-container h3 {
-  color: var(--text-dark);
-  margin-bottom: 10px;
-  font-size: 1.2rem;
+.services .article-section__header {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    text-align: center;
 }
 
-@media screen and (max-width: 768px) {
-  .services__title {
-    font-size: 2.2rem;
-    margin-bottom: 40px;
-  }
+.services .article-section__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.services .article-section__text {
+    width: 100%;
+    max-width: 800px;
+    margin-bottom: 2rem;
+    text-align: left;
+}
+
+.services .article-section__description {
+    margin-bottom: 2rem;
+}
+
+.services .article-section__media {
+    width: 100%;
+    max-width: 800px;
+    margin-bottom: 2rem;
+}
+
+.services .article-section__buttons {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.services .github-button-container {
+    margin-bottom: 20px;
+}
+
+.services .github-button-container h3 {
+    color: var(--text-dark);
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+/* Desktop styles */
+@media screen and (min-width: 992px) {
+    .services .article-section__content {
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 3rem;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    .services .article-section__text {
+        flex: 1;
+        min-width: 30%;
+        margin-bottom: 0;
+    }
+    
+    .services .article-section__media {
+        flex: 1;
+        margin-bottom: 0;
+    }
+    
+    .services .article-section__buttons {
+        justify-content: flex-start;
+    }
+}
+
+/* Mobile styles */
+@media screen and (max-width: 992px) {
+    .services {
+        padding: 60px 0;
+    }
+    
+    .services__title {
+        font-size: 2.2rem;
+        margin-bottom: 40px;
+    }
+    
+    .services .article-section__text {
+        padding-left: 0;
+    }
+    
+    .services .article-section__list {
+        padding-left: 20px;
+    }
 }

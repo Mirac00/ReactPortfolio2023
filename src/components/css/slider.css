@@ -49,7 +49,7 @@
 }
 
 .next-arrow {
-  right: -19%;
+  right: -10%;
 }
 
 .next-arrow::before {
@@ -58,7 +58,7 @@
 }
 
 .prev-arrow {
-  left: -19%;
+  left: -10%;
 }
 
 .prev-arrow::before {

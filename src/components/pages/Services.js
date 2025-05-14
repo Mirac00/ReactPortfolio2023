@@ -56,88 +56,96 @@ export default function Services() {
   
   return (
     <div className='services'>
-      <AnimatedSection>
-        <h1 className='services__title'>{t('servicesPage.title')}</h1>
-      </AnimatedSection>
-      
-      <AnimatedSection delay={0.2}>
-        <div className='article-section' id='websites'>
-          <div className='article-section__content'>
-            <div className='article-section__text'>
+      <div className='container'>
+        <AnimatedSection>
+          <h1 className='services__title'>{t('servicesPage.title')}</h1>
+        </AnimatedSection>
+        
+        <AnimatedSection delay={0.2}>
+          <div className='article-section' id='websites'>
+            <div className='article-section__header'>
               <h2>{t('servicesPage.professionalWebsites.title')}</h2>
               <div className='article-section__description'>
                 <p>{t('servicesPage.professionalWebsites.description')}</p>
+              </div>
+            </div>
+            <div className='article-section__content'>
+              <div className='article-section__text'>
                 <ul className='article-section__list'>
                   {t('servicesPage.professionalWebsites.features', { returnObjects: true }).map((feature, index) => (
                     <li className='article-section__item' key={index}>{feature}</li>
                   ))}
                 </ul>
+                <div className="button-group">
+                  <GitHubButton link="https://github.com/Mirac00/ReactPortfolio2023.git" />
+                </div>
               </div>
-              <div className="button-group">
-                <GitHubButton link="https://github.com/Mirac00/ReactPortfolio2023.git" />
+              <div className='article-section__media'>
+                <Slider images={servicesImages.websites} />
               </div>
-            </div>
-            <div className='article-section__media'>
-              <Slider images={servicesImages.websites} />
             </div>
           </div>
-        </div>
-      </AnimatedSection> 
-      
-      <AnimatedSection delay={0.3}>         
-        <div className='article-section' id='cms'>
-          <div className='article-section__content'>
-            <div className='article-section__text'>
+        </AnimatedSection> 
+        
+        <AnimatedSection delay={0.3}>         
+          <div className='article-section' id='cms'>
+            <div className='article-section__header'>
               <h2>{t('servicesPage.cmsSystems.title')}</h2>
               <div className='article-section__description'>
                 <p>{t('servicesPage.cmsSystems.description')}</p>
+              </div>
+            </div>
+            <div className='article-section__content'>
+              <div className='article-section__text'>
                 <ul className='article-section__list'>
                   {t('servicesPage.cmsSystems.features', { returnObjects: true }).map((feature, index) => (
                     <li className='article-section__item' key={index}>{feature}</li>
                   ))}
                 </ul>
+                <div className="button-group">
+                  <GitHubButton link="https://github.com/Mirac00/Notes.API.git" />
+                </div>
               </div>
-              <div className="button-group">
-                <GitHubButton link="https://github.com/Mirac00/Notes.API.git" />
+              <div className='article-section__media'>
+                <Slider images={servicesImages.cms} />
               </div>
-            </div>
-            <div className='article-section__media'>
-              <Slider images={servicesImages.cms} />
             </div>
           </div>
-        </div>
-      </AnimatedSection>    
-      
-      <AnimatedSection delay={0.4}>           
-        <div className='article-section' id='fullstack'>
-          <div className='article-section__content'>
-            <div className='article-section__text'>
+        </AnimatedSection>    
+        
+        <AnimatedSection delay={0.4}>           
+          <div className='article-section' id='fullstack'>
+            <div className='article-section__header'>
               <h2>{t('servicesPage.fullstackSolutions.title')}</h2>
               <div className='article-section__description'>
                 <p>{t('servicesPage.fullstackSolutions.description')}</p>
+              </div>
+            </div>
+            <div className='article-section__content'>
+              <div className='article-section__text'>
                 <ul className='article-section__list'>
                   {t('servicesPage.fullstackSolutions.features', { returnObjects: true }).map((feature, index) => (
                     <li className='article-section__item' key={index}>{feature}</li>
                   ))}
                 </ul>
-              </div>
-              <div className="button-group">
-                <div className="github-button-container">
-                  <h3>{t('servicesPage.professionalWebsites.githubButton')}</h3>
-                  <GitHubButton link="https://github.com/Mirac00/SM-Trend-Frontend.git" />
+                <div className="button-group">
+                  <div className="github-button-container">
+                    <h3>{t('servicesPage.professionalWebsites.githubButton')}</h3>
+                    <GitHubButton link="https://github.com/Mirac00/SM-Trend-Frontend.git" />
+                  </div>
+                  <div className="github-button-container">
+                    <h3>{t('servicesPage.professionalWebsites.githubButton2')}</h3>
+                    <GitHubButton link="https://github.com/Mirac00/SM-Trend-Backend.git" />
+                  </div>
                 </div>
-                <div className="github-button-container">
-                  <h3>{t('servicesPage.professionalWebsites.githubButton2')}</h3>
-                  <GitHubButton link="https://github.com/Mirac00/SM-Trend-Backend.git" />
-                </div>
               </div>
-            </div>
-            <div className='article-section__media'>
-              <Slider images={servicesImages.fullstack} />
+              <div className='article-section__media'>
+                <Slider images={servicesImages.fullstack} />
+              </div>
             </div>
           </div>
-        </div>
-      </AnimatedSection>      
+        </AnimatedSection>      
+      </div>
     </div>
   );
 }

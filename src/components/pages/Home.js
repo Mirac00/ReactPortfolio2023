@@ -17,7 +17,6 @@ import { useTranslation } from 'react-i18next';
 import GitHubButton from '../GitHubButton';
 import AnimatedSection from '../AnimatedSection';
 
-
 export default function Home() {
   const { t } = useTranslation();
 
@@ -47,13 +46,11 @@ export default function Home() {
 
   return (
     <div className='home'>
-      
-      
-        <Interview profileImage={profileImage} scrollToAboutMe={scrollToAboutMe} />
+      <Interview profileImage={profileImage} scrollToAboutMe={scrollToAboutMe} />
       
       <div className='home__projects'>
-        <section className='container'>
-          <AnimatedSection >
+        <div className='container'>
+          <AnimatedSection>
             <h2 className='home__projects-title'>{t('home.myBestProjects')}</h2>
           </AnimatedSection>
           
@@ -61,12 +58,14 @@ export default function Home() {
           <article className='article-section'>
             <AnimatedSection delay={0.2}>
               <div className='article-section__content'>
+                <div className='article-section__header'>
+                  <h1>{t('services.professionalWebsites')}</h1>
+                  <p>{t('services.professionalWebsitesDesc')}</p>
+                </div>
                 <div className='article-section__media'>
                   <img src={image6} alt='Strona portfolio' className='article-section__image' />
                 </div>
-                <div className='article-section__text'>
-                  <h1>{t('services.professionalWebsites')}</h1>
-                  <p>{t('services.professionalWebsitesDesc')}</p>
+                <div className='article-section__buttons'>
                   <div className="button-group">
                     <GitHubButton link="https://github.com/Mirac00/ReactPortfolio2023.git" />
                     <Link to='/services#websites' onClick={() => handleServiceClick('websites')}>
@@ -82,12 +81,14 @@ export default function Home() {
           <article className='article-section'>
             <AnimatedSection delay={0.3}>
               <div className='article-section__content'>
+                <div className='article-section__header'>
+                  <h1>{t('services.cmsSystems')}</h1>
+                  <p>{t('services.cmsSystemsDesc')}</p>
+                </div>
                 <div className='article-section__media'>
                   <img src={image5} alt='System CMS' className='article-section__image' />
                 </div>
-                <div className='article-section__text'>
-                  <h1>{t('services.cmsSystems')}</h1>
-                  <p>{t('services.cmsSystemsDesc')}</p>
+                <div className='article-section__buttons'>
                   <div className="button-group">
                     <GitHubButton link="https://github.com/Mirac00/Notes.API.git" />
                     <Link to='/services#cms' onClick={() => handleServiceClick('cms')}>
@@ -103,12 +104,14 @@ export default function Home() {
           <article className='article-section'>
             <AnimatedSection delay={0.4}>
               <div className='article-section__content'>
+                <div className='article-section__header'>
+                  <h1>{t('services.fullstackSolutions')}</h1>
+                  <p>{t('services.fullstackSolutionsDesc')}</p>
+                </div>
                 <div className='article-section__media'>
                   <img src={image4} alt='SM Trend aplikacja' className='article-section__image' />
                 </div>
-                <div className='article-section__text'>
-                  <h1>{t('services.fullstackSolutions')}</h1>
-                  <p>{t('services.fullstackSolutionsDesc')}</p>
+                <div className='article-section__buttons'>
                   <div className="button-group">
                     <div className="github-button-container">
                       <h3>FrontEnd</h3>
@@ -131,12 +134,14 @@ export default function Home() {
           <article className='article-section'>
             <AnimatedSection delay={0.5}>
               <div className='article-section__content'>
+                <div className='article-section__header'>
+                  <h1>{t('certificates.title')}</h1>
+                  <p>{t('certificates.description')}</p>
+                </div>
                 <div className='article-section__media'>
                   <Slider images={imagesProject4} />
                 </div>
-                <div className='article-section__text'>
-                  <h1>{t('certificates.title')}</h1>
-                  <p>{t('certificates.description')}</p>
+                <div className='article-section__buttons'>
                   <div className="button-group">
                     <Link to='/Documents'>
                       <button className='button'>{t('certificates.seeCertificates')}</button>
@@ -146,7 +151,7 @@ export default function Home() {
               </div>
             </AnimatedSection>
           </article>
-        </section>
+        </div>
       </div>
       
       <AboutMe />
