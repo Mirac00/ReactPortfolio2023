@@ -1,14 +1,15 @@
 .language-switcher {
-  margin-left: 10px;
+  margin-left: 20px;
   margin-right: 20px;
   display: flex;
   align-items: center;
   height: 100%;
-  background-color: #f0f0f0;
+  background-color: #2e2e2e;
   border-radius: 20px;
   padding: 2px;
   cursor: pointer;
   transition: all 0.3s ease;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .language-switcher:hover {
@@ -52,10 +53,11 @@
   .language-switcher {
     right: 60px;
     margin-right: 0;
+    height: 40%;
   }
   
   .language-flag {
-    width: 25px;
+    width: 32px;
   }
 }
 
