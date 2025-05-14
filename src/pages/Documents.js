@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import '../css/DocumentsStyle.css';
-import image1 from '../../images/dataimg.png';
-import image2 from '../../images/netsec.png';
-import image3 from '../../images/adobe.png';
-import Popup from '../Popup';
-import AnimatedSection from '../AnimatedSection';
+import '../css/pagesCSS/DocumentsStyle.css';
+import image1 from '../images/dataimg.png';
+import image2 from '../images/netsec.png';
+import image3 from '../images/adobe.png';
+import Popup from '../components/Popup';
+import AnimatedSection from '../components/AnimatedSection';
 
 export default function Documents() {
   const { t } = useTranslation();

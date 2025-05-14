@@ -1,9 +1,9 @@
 import React from 'react';
-import '../../App.css';
-import '../css/InterviewStyle.css';
+import '../App.css';
+import '../css/sectionsCSS/InterviewStyle.css';
 import { useTranslation } from 'react-i18next';
-import HomeIndustries from '../HomeIndustries';
-import AnimatedSection from '../AnimatedSection';
+import HomeIndustries from '../components/HomeIndustries';
+import AnimatedSection from '../components/AnimatedSection';
 
 export default function Interview({ profileImage, scrollToAboutMe }) {
   const { t } = useTranslation();

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useForm, ValidationError } from '@formspree/react';
 import { useTranslation } from 'react-i18next';
-import '../../App.css';
-import '../css/ContactStyle.css';
+import '../App.css';
+import '../css/sectionsCSS/ContactStyle.css';
 
 function ContactForm() {
   const { t } = useTranslation();

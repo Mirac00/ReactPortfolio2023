@@ -2,11 +2,11 @@ import React from 'react';
 import { HashRouter as Router, Switch, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import './App.css';
-import Home from './components/pages/Home';
-import Services from './components/pages/Services';
-import Contact from './components/pages/Contact';
-import Documents from './components/pages/Documents';
-import './components/utilities/i18n';
+import Home from './pages/Home';
+import Services from './pages/Services';
+import Contact from './sections/Contact';
+import Documents from './pages/Documents';
+import './utilities/i18n';
 
 function App() {
   return (

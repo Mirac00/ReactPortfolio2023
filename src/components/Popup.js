@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { FaTimes } from 'react-icons/fa';
 import PhotoSlider from './slider'; // Importujemy istniejący komponent slidera
-import './css/Popup.css';
+import '../css/componentsCSS/Popup.css';
 
 const Popup = ({ isOpen, onClose, images, currentImgIndex }) => {
   if (!isOpen) return null;

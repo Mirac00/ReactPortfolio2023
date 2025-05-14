@@ -1,17 +1,17 @@
 // components/pages/AboutMe.js
 import React, { useState } from 'react';
-import '../../App.css';
-import '../css/AboutMeStyle.css';
+import '../App.css';
+import '../css/sectionsCSS/AboutMeStyle.css';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { useTranslation } from 'react-i18next';
-import Popup from '../Popup';
-import AnimatedSection from '../AnimatedSection';
+import Popup from '../components/Popup';
+import AnimatedSection from '../components/AnimatedSection';
 
 // Importuj wszystkie wersje językowe zdjęć
-import pl1 from '../../images/1PL.png';
-import pl2 from '../../images/2PL.png';
-import en1 from '../../images/1EN.png';
-import en2 from '../../images/2EN.png';
+import pl1 from '../images/1PL.png';
+import pl2 from '../images/2PL.png';
+import en1 from '../images/1EN.png';
+import en2 from '../images/2EN.png';
 
 export default function AboutMe() {
   const { t, i18n } = useTranslation();

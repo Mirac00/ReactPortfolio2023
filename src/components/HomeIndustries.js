@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import './css/HomeIndustries.css';
+import '../css/componentsCSS/HomeIndustries.css';
 import TerminalText from './TerminalText';
 
 const HomeIndustries = () => {

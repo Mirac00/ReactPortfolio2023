@@ -38,6 +38,7 @@
     transition: transform 0.3s ease;
     padding: 2rem;
     text-align: center;
+    margin-bottom: 2rem;
 }
 
 .documents__article:hover {

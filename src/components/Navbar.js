@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import './css/Navbar.css';
+import '../css/componentsCSS/Navbar.css';
 import Dropdown from './Dropdown';
 import { HashLink as Links } from 'react-router-hash-link';
 import { Link as ScrollLink } from 'react-scroll';

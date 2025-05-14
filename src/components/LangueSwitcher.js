@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import plFlag from '../images/plflag.png';
 import enFlag from '../images/enflag.jpg';
-import '../components/css/LanguageSwitcher.css';
+import '../css/componentsCSS/LanguageSwitcher.css';
 
 const LanguageSwitcher = () => {
   const { i18n } = useTranslation();

@@ -1,20 +1,20 @@
 import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import '../css/ServicesStyle.css';
-import GitHubButton from '../GitHubButton';
-import Slider from '../slider';
-import image1 from '../../images/imgwebpages.jpg';
-import image2 from '../../images/imgportfolio.png';
-import image3 from '../../images/imgmobileportfolio.png';
-import image4 from '../../images/imgCMS.jpg';
-import image5 from '../../images/imgcmssklep.jpg';
-import image6 from '../../images/imgcmsinterfejs.png';
-import image7 from '../../images/imgfrontbackdatabase.png';
-import image8 from '../../images/imgdopasowanie.png';
-import image9 from '../../images/imgcustom.jpg';
-import AnimatedSection from '../AnimatedSection';
+import '../css/pagesCSS/ServicesStyle.css';
+import GitHubButton from '../components/GitHubButton';
+import Slider from '../components/slider';
+import image1 from '../images/imgwebpages.jpg';
+import image2 from '../images/imgportfolio.png';
+import image3 from '../images/imgmobileportfolio.png';
+import image4 from '../images/imgCMS.jpg';
+import image5 from '../images/imgcmssklep.jpg';
+import image6 from '../images/imgcmsinterfejs.png';
+import image7 from '../images/imgfrontbackdatabase.png';
+import image8 from '../images/imgdopasowanie.png';
+import image9 from '../images/imgcustom.jpg';
+import AnimatedSection from '../components/AnimatedSection';
 import '../css/global.css';
-import '../../App.css';
+import '../App.css';
 
 const servicesImages = {
   websites: [image1, image2, image3],

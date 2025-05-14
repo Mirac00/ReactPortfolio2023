@@ -1,6 +1,6 @@
 import React from 'react';
-import { MenuItems } from './MenuItems';
-import './css/Dropdown.css';
+import { MenuItems } from '../utilities/MenuItems';
+import '../css/componentsCSS/Dropdown.css';
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';

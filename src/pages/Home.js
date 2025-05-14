@@ -1,21 +1,21 @@
 import React, { useEffect } from 'react';
-import '../../App.css';
-import '../css/HomeStyle.css';
+import '../App.css';
+import '../css/pagesCSS/HomeStyle.css';
 import '../css/global.css';
 import { Link } from 'react-router-dom';
-import AboutMe from './aboutme';
-import Interview from './interview';
+import AboutMe from '../sections/aboutme';
+import Interview from '../sections/interview';
 import MovingComponent from 'react-moving-text';
-import Slider from '../slider';
-import image4 from '../../images/img1.png';
-import image5 from '../../images/imgCMS.jpg';
-import image6 from '../../images/imgwebpages.jpg';
-import image7 from '../../images/dataimg.png';
-import image8 from '../../images/netsec.png';
-import profileImage from '../../images/profilowe.png'; 
+import Slider from '../components/slider';
+import image4 from '../images/img1.png';
+import image5 from '../images/imgCMS.jpg';
+import image6 from '../images/imgwebpages.jpg';
+import image7 from '../images/dataimg.png';
+import image8 from '../images/netsec.png';
+import profileImage from '../images/profilowe.png'; 
 import { useTranslation } from 'react-i18next';
-import GitHubButton from '../GitHubButton';
-import AnimatedSection from '../AnimatedSection';
+import GitHubButton from '../components/GitHubButton';
+import AnimatedSection from '../components/AnimatedSection';
 
 export default function Home() {
   const { t } = useTranslation();

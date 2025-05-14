@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import '../../src/components/css/GitHubButton.css';
+import '../css/componentsCSS/GitHubButton.css';
 import GitHubIcon from '../images/github-mark-white.png'; 
 
 const GitHubButton = ({ link }) => {
