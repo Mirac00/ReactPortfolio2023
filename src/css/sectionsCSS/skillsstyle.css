@@ -1,15 +1,7 @@
 /* Główne kontenery */
-.skills-container {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  width: 100%;
-}
-
-/* Kolumny - układ 2x3 */
-.skills-column {
+.skills-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
   width: 100%;
 }
@@ -20,10 +12,9 @@
   flex-direction: column;
   background-color: var(--background-primary);
   overflow: hidden;
-  
 }
 
-.skills-title{
+.skills-title {
   text-align: center;
   margin-bottom: 1em;
   font-size: 3rem;
@@ -51,9 +42,6 @@
   transition: transform 0.3s ease;
 }
 
-
-
-
 /* Podpis */
 .skill-name {
   padding: 1.2rem;
@@ -65,16 +53,13 @@
 
 /* Responsywność */
 @media (max-width: 992px) {
-  .skills-container {
-    flex-direction: column;
-  }
-  .skills-column {
+  .skills-grid {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
 @media (max-width: 768px) {
-  .skills-column {
+  .skills-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -84,10 +69,7 @@
 }
 
 @media (orientation: landscape) and (max-width: 992px) {
-  .skills-container {
-    flex-direction: row;
-  }
-  .skills-column {
-    grid-template-columns: repeat(2, 1fr);
+  .skills-grid {
+    grid-template-columns: repeat(4, 1fr);
   }
 }

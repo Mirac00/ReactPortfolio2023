@@ -18,16 +18,13 @@ import '../css/sectionsCSS/skillsstyle.css';
 export default function Skills() {
   const { t } = useTranslation();
 
-  const leftColumnSkills = [
+  const allSkills = [
     { img: htmlImage, name: 'HTML5' },
     { img: cssImage, name: 'CSS3' },
     { img: jsImage, name: 'JavaScript' },
     { img: tsImage, name: 'TypeScript' },
     { img: reactImage, name: 'React' },
-    { img: gitImage, name: 'Git' }
-  ];
-
-  const rightColumnSkills = [
+    { img: gitImage, name: 'Git' },
     { img: csharpImage, name: 'C#' },
     { img: netImage, name: '.NET' },
     { img: entityImage, name: 'Entity Framework' },
@@ -43,53 +40,27 @@ export default function Skills() {
           <h2 className="skills-title">{t('skills.title')}</h2>
         </AnimatedSection>
 
-<div className="skills-container">
-  {/* Lewa kolumna - technologie frontend */}
-  <div className="skills-column left-column">
-    {leftColumnSkills.map((skill, index) => (
-      <AnimatedSection 
-        key={`left-${index}`}
-        delay={0.1 + (index * 0.05)}
-        yOffset={30}
-        className="skill-item-wrapper"
-      >
-        {/* Kontener obrazka z efektami wizualnymi */}
-        <div className="skill-image-container">
-          <img 
-            src={skill.img} 
-            alt={skill.name} 
-            className="skill-image"
-          />
+        <div className="skills-grid">
+          {allSkills.map((skill, index) => (
+            <AnimatedSection 
+              key={`skill-${index}`}
+              delay={0.1 + (index * 0.05)}
+              yOffset={30}
+              className="skill-item-wrapper"
+            >
+              {/* Kontener obrazka z efektami wizualnymi */}
+              <div className="skill-image-container">
+                <img 
+                  src={skill.img} 
+                  alt={skill.name} 
+                  className="skill-image"
+                />
+              </div>
+              {/* Podpis technologii */}
+              <span className="skill-name">{skill.name}</span>
+            </AnimatedSection>
+          ))}
         </div>
-        {/* Podpis technologii */}
-        <span className="skill-name">{skill.name}</span>
-      </AnimatedSection>
-    ))}
-  </div>
-
-  {/* Prawa kolumna - technologie backend */}
-  <div className="skills-column right-column">
-    {rightColumnSkills.map((skill, index) => (
-      <AnimatedSection 
-        key={`right-${index}`}
-        delay={0.15 + (index * 0.05)}
-        yOffset={30}
-        className="skill-item-wrapper"
-      >
-        {/* Kontener obrazka z efektami wizualnymi */}
-        <div className="skill-image-container">
-          <img 
-            src={skill.img} 
-            alt={skill.name} 
-            className="skill-image"
-          />
-        </div>
-        {/* Podpis technologii */}
-        <span className="skill-name">{skill.name}</span>
-      </AnimatedSection>
-    ))}
-  </div>
-</div>
       </div>
     </div>
   );
