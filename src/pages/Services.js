@@ -15,11 +15,12 @@ import image9 from '../images/imgcustom.jpg';
 import AnimatedSection from '../components/AnimatedSection';
 import '../css/global.css';
 import '../App.css';
+import bannerImage from '../images/baner.png';
 
 const servicesImages = {
   websites: [image1, image2, image3],
   cms: [image4, image5, image6],
-  fullstack: [image7, image8, image9]
+  fullstack: [image8, image7, image9]
 };
 
 const scrollToSection = (sectionId, offset = -20) => {
@@ -56,7 +57,11 @@ export default function Services() {
   
   return (
     <div className='services'>
+        <div className='services__banner'>
+          <img src={bannerImage} alt="Services banner" className='services__banner-image' />
+        </div>
       <div className='container'>
+        
         <AnimatedSection>
           <h1 className='services__title'>{t('servicesPage.title')}</h1>
         </AnimatedSection>

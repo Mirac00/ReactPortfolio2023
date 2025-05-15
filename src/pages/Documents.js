@@ -26,6 +26,7 @@ export default function Documents() {
         <div className="container">
           <AnimatedSection>
             <h1 className="documents__title">{t('certificatesPage.title')}</h1>
+            <p>{t('certificatesPage.titleDesc')}</p>
           </AnimatedSection>
           
           <AnimatedSection delay={0.2}>

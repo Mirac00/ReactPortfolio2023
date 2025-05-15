@@ -32,10 +32,6 @@
   z-index: 1;
 }
 
-.custom-arrow:hover {
-  background-color: white;
-}
-
 .custom-arrow::before {
   content: '';
   display: block;
@@ -47,7 +43,7 @@
 }
 
 .next-arrow {
-  right: -10%;
+  right: -0%;
 }
 
 .next-arrow::before {
@@ -56,7 +52,7 @@
 }
 
 .prev-arrow {
-  left: -10%;
+  left: -0%;
 }
 
 .prev-arrow::before {
