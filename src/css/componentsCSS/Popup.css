@@ -63,14 +63,6 @@
   height: 50px;
 }
 
-.popup-slider-container .next-arrow {
-  right: -60px;
-}
-
-.popup-slider-container .prev-arrow {
-  left: -60px;
-}
-
 @media (max-width: 768px) {
   .popup-slider-container .custom-arrow {
     display: none !important;
