@@ -57,7 +57,7 @@
     .home__industries-container {
       flex-direction: column;
       align-items: center;
-      gap: 1.5rem;
+      gap: 1rem;
     }
   
     .home__industries-item.item-1 {
