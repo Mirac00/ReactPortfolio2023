@@ -33,7 +33,7 @@ body {
 /* Typografia */
 h1, h2, h3, h4 {
     color: #575757;
-    font-weight: 600;
+    font-weight: 500;
 }
 
 h1 {
@@ -152,6 +152,10 @@ a {
 }
 
 @media screen and (max-width: 576px) {
+    .container{
+        padding: 0%;
+    }
+
     .article-section__text,
     .article-section__media {
         width: 90%;

@@ -155,6 +155,7 @@
     background: transparent; 
     box-shadow: none; 
     border-radius: 0%;
+    margin: auto;
   }
 
   .interview-text-container h1 {
