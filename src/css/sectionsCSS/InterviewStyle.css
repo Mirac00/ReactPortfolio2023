@@ -37,13 +37,20 @@
 }
 
 .interview-text-container {
-  padding: 0em 3em 10em 6em;
   margin-right: auto;
   width: 50%;
   font-family: Arial, sans-serif;
   overflow: hidden;
   position: relative;
   z-index: 1;
+  background: rgba(29, 29, 29, 0.5);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px); /* dla WebKit */
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+  border-radius: 10%;
+  padding: 2rem;
+  margin-left: 4rem;
+  margin-top: 2rem;
 }
 
 .interview-text-container h1 {
