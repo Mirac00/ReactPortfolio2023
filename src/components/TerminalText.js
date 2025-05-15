@@ -48,7 +48,7 @@ const BorderLeft = styled.div`
   ${({ $animate }) =>
     $animate &&
     css`
-      animation: ${drawVertical} 0.5s forwards;
+      animation: ${drawVertical} 1s forwards;
     `}
 `;
 
@@ -62,7 +62,7 @@ const BorderBottom = styled.div`
   ${({ $animate }) =>
     $animate &&
     css`
-      animation: ${drawHorizontal} 0.5s forwards;
+      animation: ${drawHorizontal} 1s forwards;
     `}
 `;
 
@@ -76,7 +76,7 @@ const BorderTop = styled.div`
   ${({ $animate }) =>
     $animate &&
     css`
-      animation: ${drawHorizontal} 0.5s 0.5s forwards;
+      animation: ${drawHorizontal} 1s 1s forwards;
     `}
 `;
 
@@ -90,7 +90,7 @@ const BorderRight = styled.div`
   ${({ $animate }) =>
     $animate &&
     css`
-      animation: ${drawVertical} 0.5s 0.5s forwards;
+      animation: ${drawVertical} 1s 1s forwards;
     `}
 `;
 
@@ -169,16 +169,16 @@ const TerminalText = ({ part1 = "Hello, I'm", part2 = 'Sławek Zając', animate 
           setTimeout(() => {
             setShowCursor1(false);
             setShowCursor2(true);
-            
+
             const isMobile = window.innerWidth <= 434;
             const delay = isMobile ? 1500 : 0;
-            
+
             setTimeout(() => {
               animatePart2();
             }, delay);
           }, 500);
         }
-      }, 110);
+      }, 55); // 2x szybsza animacja tekstu
     };
 
     const animatePart2 = () => {
@@ -189,7 +189,7 @@ const TerminalText = ({ part1 = "Hello, I'm", part2 = 'Sławek Zając', animate 
           clearInterval(part2Interval);
           setShowBorders(true);
         }
-      }, 110);
+      }, 55); // 2x szybsza animacja tekstu
     };
 
     startAnimation();
@@ -204,14 +204,17 @@ const TerminalText = ({ part1 = "Hello, I'm", part2 = 'Sławek Zając', animate 
   return (
     <Wrapper>
       {/* Ukryty element do pomiaru */}
-      <div ref={hiddenRef} style={{
-        position: 'absolute',
-        visibility: 'hidden',
-        whiteSpace: 'nowrap',
-        fontFamily: "'Courier New', monospace",
-        fontSize: 'calc(12px + 1.5vw)',
-        paddingRight: '0.5em'
-      }}>
+      <div
+        ref={hiddenRef}
+        style={{
+          position: 'absolute',
+          visibility: 'hidden',
+          whiteSpace: 'nowrap',
+          fontFamily: "'Courier New', monospace",
+          fontSize: 'calc(12px + 1.5vw)',
+          paddingRight: '0.5em',
+        }}
+      >
         {part1} {part2}
       </div>
 

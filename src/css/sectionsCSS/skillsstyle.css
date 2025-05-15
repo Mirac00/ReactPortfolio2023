@@ -1,0 +1,90 @@
+/* Główne kontenery */
+.skills-container {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  width: 100%;
+}
+
+/* Kolumny - układ 2x3 */
+.skills-column {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  width: 100%;
+}
+
+/* Pojedynczy kafelek */
+.skill-item-wrapper {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background-primary);
+  overflow: hidden;
+  
+}
+
+.skills-title{
+  text-align: center;
+  margin-bottom: 1em;
+  font-size: 3rem;
+}
+
+/* Kontener obrazka */
+.skill-image-container {
+  width: 100%;
+  padding-top: 100%; /* Zachowaj proporcje kwadratu */
+  position: relative;
+  border-radius: 10%;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 4px 17px rgb(54 54 54 / 53%)
+}
+
+/* Sam obrazek */
+.skill-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+
+
+
+/* Podpis */
+.skill-name {
+  padding: 1.2rem;
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+/* Responsywność */
+@media (max-width: 992px) {
+  .skills-container {
+    flex-direction: column;
+  }
+  .skills-column {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .skills-column {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+@media (orientation: landscape) and (max-width: 992px) {
+  .skills-container {
+    flex-direction: row;
+  }
+  .skills-column {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

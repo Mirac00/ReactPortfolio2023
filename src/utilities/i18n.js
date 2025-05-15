@@ -65,6 +65,11 @@ const resources = {
         seeCertificates: "See certificates"
       },
 
+      // Skills section
+      skills: {
+        title: "Skills"
+      },
+
       // PAGE > SERVICES
       servicesPage: {
         title: "My Services",
@@ -207,6 +212,11 @@ const resources = {
         title: "Certyfikaty i Kwalifikacje",
         description: "Moje kompetencje potwierdzone certyfikatami w zakresie baz danych i bezpieczeństwa sieciowego. Ciągle rozwijam swoje umiejętności, aby zapewnić najwyższą jakość usług. W mojej pracy łączę wiedzę techniczną z praktycznym podejściem do rozwiązywania problemów biznesowych.",
         seeCertificates: "Zobacz certyfikaty"
+      },
+
+      // Sekcja umiejętności
+      skills: {
+        title: "Umiejętności"
       },
 
       // STRONA > USŁUGI

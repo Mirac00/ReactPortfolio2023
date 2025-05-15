@@ -4,6 +4,7 @@ import '../css/pagesCSS/HomeStyle.css';
 import '../css/global.css';
 import { Link } from 'react-router-dom';
 import AboutMe from '../sections/aboutme';
+import Skills from '../sections/skills';
 import Interview from '../sections/interview';
 import MovingComponent from 'react-moving-text';
 import Slider from '../components/slider';
@@ -49,9 +50,10 @@ export default function Home() {
       <Interview profileImage={profileImage} scrollToAboutMe={scrollToAboutMe} />
       
       <div className='home__projects'>
+        <Skills />
         <div className='container'>
           <AnimatedSection>
-            <h2 className='home__projects-title'>{t('home.myBestProjects')}</h2>
+            <h1 className='home__projects-title'>{t('home.myBestProjects')}</h1>
           </AnimatedSection>
           
           {/* Project 1 */}
@@ -59,7 +61,7 @@ export default function Home() {
             <AnimatedSection delay={0.2}>
               <div className='article-section__content'>
                 <div className='article-section__header'>
-                  <h1>{t('services.professionalWebsites')}</h1>
+                  <h2>{t('services.professionalWebsites')}</h2>
                   <p>{t('services.professionalWebsitesDesc')}</p>
                 </div>
                 <div className='article-section__media'>
