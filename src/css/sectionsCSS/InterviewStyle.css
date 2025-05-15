@@ -151,7 +151,10 @@
   
   .interview-text-container {
     padding: 5em 3em 0em 3em;
-    width: 100%;
+    width: 80%;
+    background: transparent; 
+    box-shadow: none; 
+    border-radius: 0%;
   }
 
   .interview-text-container h1 {
