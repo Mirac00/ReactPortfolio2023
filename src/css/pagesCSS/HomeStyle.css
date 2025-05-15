@@ -20,12 +20,12 @@
     color: #575757;
     width: 100%;
     text-align: center;
-    margin-bottom: 3rem;
+    margin-top: 2rem;
 }
 
 /* Specyficzne style dla artykułów w home */
 .home .article-section {
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
     text-align: center;
 }
 
@@ -38,7 +38,7 @@
 .home .article-section__header {
     width: 100%;
     max-width: 800px;
-    margin: 0 auto 2rem;
+    margin: auto;
 }
 
 .home .article-section__media {
@@ -58,7 +58,7 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    margin-top: 2rem;
+    margin-top: 3rem;
 }
 
 .home .github-button-container {

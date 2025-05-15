@@ -44,7 +44,7 @@
 
 /* Podpis */
 .skill-name {
-  padding: 1.2rem;
+  padding-top: 2%;
   text-align: center;
   font-size: 1.3rem;
   font-weight: 500;
@@ -60,7 +60,7 @@
 
 @media (max-width: 768px) {
   .skills-grid {
-    grid-template-columns: repeat(2, 1fr);
+    gap:1rem
   }
 
   .skill-name {
