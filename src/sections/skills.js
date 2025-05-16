@@ -44,7 +44,7 @@ export default function Skills() {
           {allSkills.map((skill, index) => (
             <AnimatedSection 
               key={`skill-${index}`}
-              delay={0.1 + (index * 0.05)}
+              delay={0.2 + (index * 0.3)}
               yOffset={30}
               className="skill-item-wrapper"
             >
