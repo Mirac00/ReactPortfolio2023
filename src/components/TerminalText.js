@@ -48,7 +48,7 @@ const BorderLeft = styled.div`
   ${({ $animate }) =>
     $animate &&
     css`
-      animation: ${drawVertical} 1s forwards;
+      animation: ${drawVertical} 0.5s forwards;
     `}
 `;
 
@@ -62,7 +62,7 @@ const BorderBottom = styled.div`
   ${({ $animate }) =>
     $animate &&
     css`
-      animation: ${drawHorizontal} 1s forwards;
+      animation: ${drawHorizontal} 0.5s forwards;
     `}
 `;
 
@@ -76,7 +76,7 @@ const BorderTop = styled.div`
   ${({ $animate }) =>
     $animate &&
     css`
-      animation: ${drawHorizontal} 1s 1s forwards;
+      animation: ${drawHorizontal} 0.5s 0.5s forwards;
     `}
 `;
 
@@ -90,7 +90,7 @@ const BorderRight = styled.div`
   ${({ $animate }) =>
     $animate &&
     css`
-      animation: ${drawVertical} 1s 1s forwards;
+      animation: ${drawVertical} 0.5s 0.5s forwards;
     `}
 `;
 
@@ -107,6 +107,7 @@ const TerminalContent = styled.div`
   flex-wrap: wrap;
   width: max-content;
   max-width: 100%;
+  min-height: 1.5em; /* Zapobiega skakaniu elementów */
 
   @media (max-width: 434px) {
     flex-direction: column;
@@ -118,6 +119,8 @@ const TerminalContent = styled.div`
 const TextPart = styled.span`
   white-space: nowrap;
   padding-right: 0.5em;
+  display: inline-block;
+  min-height: 1.5em; /* Zapobiega skakaniu elementów */
 `;
 
 const Cursor = styled.span`
@@ -125,7 +128,7 @@ const Cursor = styled.span`
   width: 0.4em;
   height: 1em;
   background: white;
-  animation: ${blink} 1s step-end infinite;
+  animation: ${blink} 1s step-end;
   vertical-align: middle;
   margin-left: 3px;
 `;
@@ -133,7 +136,7 @@ const Cursor = styled.span`
 const TerminalText = ({ part1 = "Hello, I'm", part2 = 'Sławek Zając', animate = true }) => {
   const [displayedPart1, setDisplayedPart1] = useState('');
   const [displayedPart2, setDisplayedPart2] = useState('');
-  const [showCursor1, setShowCursor1] = useState(true);
+  const [showCursor1, setShowCursor1] = useState(false);
   const [showCursor2, setShowCursor2] = useState(false);
   const [showBorders, setShowBorders] = useState(false);
   const [measuredWidth, setMeasuredWidth] = useState(0);
@@ -153,11 +156,20 @@ const TerminalText = ({ part1 = "Hello, I'm", part2 = 'Sławek Zając', animate 
     let part1Index = 0;
     let part2Index = 0;
     let initialDelay;
+    let cursorTimeout1;
+    let cursorTimeout2;
 
     const startAnimation = () => {
-      initialDelay = setTimeout(() => {
-        animatePart1();
-      }, 1500);
+      // Pokaz kursora na początku (miga raz)
+      setShowCursor1(true);
+      
+      // Ukryj kursor po mignięciu i rozpocznij animację tekstu
+      cursorTimeout1 = setTimeout(() => {
+        setShowCursor1(false);
+        initialDelay = setTimeout(() => {
+          animatePart1();
+        }, 500);
+      }, 1000);
     };
 
     const animatePart1 = () => {
@@ -167,18 +179,24 @@ const TerminalText = ({ part1 = "Hello, I'm", part2 = 'Sławek Zając', animate 
         if (part1Index >= part1.length) {
           clearInterval(part1Interval);
           setTimeout(() => {
-            setShowCursor1(false);
-            setShowCursor2(true);
-
             const isMobile = window.innerWidth <= 434;
-            const delay = isMobile ? 1500 : 0;
-
-            setTimeout(() => {
+            
+            if (isMobile) {
+              // Tylko na mobile pokazujemy kursor przed drugim tekstem
+              setShowCursor2(true);
+              cursorTimeout2 = setTimeout(() => {
+                setShowCursor2(false);
+                setTimeout(() => {
+                  animatePart2();
+                }, 500);
+              }, 1000);
+            } else {
+              // Na desktopie od razu animujemy drugi tekst
               animatePart2();
-            }, delay);
+            }
           }, 500);
         }
-      }, 55); // 2x szybsza animacja tekstu
+      }, 55);
     };
 
     const animatePart2 = () => {
@@ -189,13 +207,15 @@ const TerminalText = ({ part1 = "Hello, I'm", part2 = 'Sławek Zając', animate 
           clearInterval(part2Interval);
           setShowBorders(true);
         }
-      }, 55); // 2x szybsza animacja tekstu
+      }, 55);
     };
 
     startAnimation();
 
     return () => {
       clearTimeout(initialDelay);
+      clearTimeout(cursorTimeout1);
+      clearTimeout(cursorTimeout2);
       clearInterval(part1Interval);
       clearInterval(part2Interval);
     };
