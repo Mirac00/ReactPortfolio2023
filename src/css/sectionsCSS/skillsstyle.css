@@ -1,75 +1,227 @@
-/* Główne kontenery */
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
-  width: 100%;
+.skills-section {
+  background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
+  padding: 5rem 1rem;
+  min-height: 100vh;
 }
 
-/* Pojedynczy kafelek */
-.skill-item-wrapper {
-  display: flex;
-  flex-direction: column;
-  background-color: var(--background-primary);
-  overflow: hidden;
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.skills-header {
+  text-align: center;
+  margin-bottom: 4rem;
 }
 
 .skills-title {
-  text-align: center;
-  margin-bottom: 1em;
   font-size: 3rem;
+  font-weight: 700;
+  background: linear-gradient(45deg, #3b82f6, #8b5cf6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 1.5rem;
 }
 
-/* Kontener obrazka */
+.skills-description {
+  font-size: 1.25rem;
+  color: #64748b;
+  max-width: 800px;
+  margin: 0 auto 2rem;
+  line-height: 1.6;
+}
+
+.header-underline {
+  width: 6rem;
+  height: 4px;
+  background: linear-gradient(45deg, #3b82f6, #8b5cf6);
+  margin: 1rem auto;
+  border-radius: 2px;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1.5rem;
+}
+
+.skill-item {
+  background: white;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  transform: translateY(30px);
+  opacity: 0;
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8f0;
+}
+
+.skill-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.skill-item:hover {
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  transform: translateY(-5px);
+}
+
+.skill-gradient-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(45deg, rgba(59, 130, 246, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.skill-item:hover .skill-gradient-overlay {
+  opacity: 1;
+}
+
 .skill-image-container {
   width: 100%;
-  padding-top: 100%; /* Zachowaj proporcje kwadratu */
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
   position: relative;
-  border-radius: 10%;
+  border-radius: 12px;
   overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
   background: white;
-  box-shadow: 0 4px 17px rgb(54 54 54 / 53%)
+  transition: transform 0.3s;
 }
 
-/* Sam obrazek */
 .skill-image {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 8px;
+}
+
+.skill-item:hover .skill-image {
+  transform: scale(1.3);
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.2));
+}
+
+.skill-name {
+  text-align: center;
+  font-weight: 600;
+  color: #1e293b;
+  font-size: 1rem;
+  margin: 0;
+}
+
+.category-badge {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 12px;
+  right: 12px;
+  background: linear-gradient(45deg, #3b82f6, #8b5cf6);
+  color: white;
+  font-size: 0.75rem;
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s ease-out;
+  z-index: 20;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.skill-item:hover .category-badge {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.progress-ring {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  width: 24px;
+  height: 24px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.skill-item:hover .progress-ring {
+  opacity: 1;
+}
+
+.progress-circle {
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  transition: transform 0.3s ease;
+  transform: rotate(-90deg);
 }
 
-/* Podpis */
-.skill-name {
-  padding-top: 2%;
-  text-align: center;
-  font-size: 1.3rem;
-  font-weight: 500;
-  color: var(--text-primary);
+.progress-circle circle {
+  fill: none;
+  stroke: #3b82f6;
+  stroke-width: 2;
+  stroke-dasharray: 63;
+  stroke-dashoffset: 63;
+  animation: draw 1.5s ease-out forwards;
 }
 
-/* Responsywność */
-@media (max-width: 992px) {
-  .skills-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
+.particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: #3b82f6;
+  border-radius: 50%;
+  opacity: 0;
+  transition: all 0.5s;
+}
+
+.skill-item:hover .particle {
+  opacity: 0.4;
+}
+
+.particle-0 { top: 25%; left: 25%; }
+.particle-1 { top: 75%; right: 25%; }
+.particle-2 { bottom: 25%; left: 50%; }
+
+.skill-item:hover .particle-0 {
+  transform: translate(1rem, -0.5rem);
+}
+.skill-item:hover .particle-1 {
+  transform: translate(-0.5rem, -1rem);
+}
+.skill-item:hover .particle-2 {
+  transform: translate(0.5rem, 0.5rem);
+}
+
+@keyframes draw {
+  to { stroke-dashoffset: 0; }
 }
 
 @media (max-width: 768px) {
   .skills-grid {
-    gap:1rem
+    grid-template-columns: repeat(3, 1fr);
   }
-
-  .skill-name {
-    font-size: 1rem;
+  
+  .skills-title {
+    font-size: 2rem;
+  }
+  
+  .skill-image {
+    width: 50px;
+    height: 50px;
   }
 }
 
-@media (orientation: landscape) and (max-width: 992px) {
+@media (max-width: 480px) {
   .skills-grid {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 }

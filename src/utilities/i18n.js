@@ -67,7 +67,8 @@ const resources = {
 
       // Skills section
       skills: {
-        title: "Skills"
+        title: "Skills",
+        description:"I specialize in creating modern digital solutions, combining creativity with the latest technologies. Here are the tools and technologies I use in my daily work."
       },
 
       // PAGE > SERVICES
@@ -217,7 +218,8 @@ const resources = {
 
       // Sekcja umiejętności
       skills: {
-        title: "Umiejętności"
+        title: "Umiejętności",
+        description:"Specjalizuję się w tworzeniu nowoczesnych rozwiązań cyfrowych, łącząc kreatywność z najnowszymi technologiami. Oto narzędzia i technologie, które wykorzystuję w codziennej pracy."
       },
 
       // STRONA > USŁUGI

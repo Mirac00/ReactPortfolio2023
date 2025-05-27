@@ -1,21 +1,60 @@
-/* slider.css */
 .slider-box {
   width: 100%;
   margin: auto;
+  overflow: visible;
 }
 
-.slick-slide > div {
-  display: flex;
+.slide-container {
+  display: flex !important;
   justify-content: center;
   align-items: center;
+  height: 100%;
+}
+
+.image-wrapper {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
 }
 
 .slider-image {
   max-width: 100%;
-  max-height: 500px;
+  max-height: 80vh;
   object-fit: contain;
   display: block;
   margin: auto;
+  transform-origin: center center;
+  transition: transform 0.3s ease;
+  cursor: zoom-in;
+  touch-action: pan-y;
+}
+
+.slider-image.zoomed {
+  cursor: grab;
+  touch-action: none;
+}
+
+.slider-image.zoomed:active {
+  cursor: grabbing;
+}
+
+@media (hover: hover) {
+  .slider-image:hover {
+    cursor: zoom-in;
+  }
+  
+  .slider-image.zoomed:hover {
+    cursor: grab;
+  }
+}
+
+.slick-track {
+  overflow: visible !important;
+}
+
+.slick-slide {
+  transition: transform 0.5s ease !important;
 }
 
 .custom-arrow {
@@ -29,7 +68,7 @@
   justify-content: center;
   align-items: center;
   transition: all 0.3s ease;
-  z-index: 1;
+  background: transparent;
 }
 
 .custom-arrow::before {
@@ -43,28 +82,25 @@
 }
 
 .next-arrow {
-  right: -0%;
+  right: 0;
 }
 
 .next-arrow::before {
   transform: rotate(45deg);
-  margin-left: -5px;
 }
 
 .prev-arrow {
-  left: -0%;
+  left: 0;
 }
 
 .prev-arrow::before {
   transform: rotate(-135deg);
-  margin-right: -5px;
 }
 
 .custom-arrow:hover::before {
   border-color: #000;
 }
 
-/* Kropki */
 .slick-dots {
   position: absolute;
   bottom: -45px !important;
@@ -76,16 +112,12 @@
 
 .slick-dots li {
   margin: 0 6px;
-  width: auto;
-  height: auto;
 }
 
 .slick-dots li button {
   width: 14px;
   height: 14px;
   padding: 0;
-  position: relative;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .slick-dots li button:before {
@@ -95,40 +127,42 @@
   background: rgba(102, 102, 102, 0.4);
   border-radius: 50%;
   opacity: 1;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  transform: scale(1);
+  transition: all 0.3s ease;
 }
 
-.slick-dots li button:hover:before,
 .slick-dots li.slick-active button:before {
   background: #666;
-  opacity: 1;
   transform: scale(1.3);
 }
 
-.slick-dots li.slick-active button:before {
-  animation: dot-pulse 1.5s ease-in-out infinite;
-}
-
-@keyframes dot-pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.2); }
-  100% { transform: scale(1); }
-}
-
-@media screen and (max-width: 960px) {
+@media (max-width: 768px) {
   .custom-arrow {
     display: none !important;
   }
-
-  .slick-dots li button:before {
-    width: 12px;
-    height: 12px;
-  }
-}
-
-@media (max-width: 768px) {
+  
   .slick-dots {
     bottom: -35px !important;
   }
+  
+  .slider-image {
+    max-height: 60vh;
+    touch-action: pan-y;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
