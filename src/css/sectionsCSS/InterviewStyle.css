@@ -39,7 +39,7 @@
 
 .interview-text-container {
   margin-right: auto;
-  width: 50%;
+  width: fit-content;
   font-family: Arial, sans-serif;
   overflow: hidden;
   position: relative;

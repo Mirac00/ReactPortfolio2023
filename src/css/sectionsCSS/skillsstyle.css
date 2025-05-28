@@ -1,7 +1,7 @@
 .skills-section {
   background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
-  padding: 5rem 1rem;
-  min-height: 100vh;
+  padding: 2rem 1rem;
+  min-height: fit-content;
 }
 
 .container {

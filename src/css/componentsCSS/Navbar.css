@@ -8,15 +8,15 @@
   width: 100%;
   top: 0;
   z-index: 100;
+  background: #ffffff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .navbar-box {
-  background: #ffffff;
   display: flex;
   justify-content: unset;
   align-items: center;
-  width: 100%;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  width: 80%;
 }
 
 .logo-container {
