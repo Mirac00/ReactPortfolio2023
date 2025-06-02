@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/portfolio/static/css/main.9d2fb7b4.css",
+    "main.css": "/portfolio/static/css/main.41a8e35d.css",
     "main.js": "/portfolio/static/js/main.3b8ecce3.js",
     "static/media/c.png": "/portfolio/static/media/c.49259e48dbe333636d4e.png",
     "static/media/entity.png": "/portfolio/static/media/entity.a1f539f6c81e6be13569.png",
@@ -18,7 +18,7 @@
     "static/media/baner.png": "/portfolio/static/media/baner.c5fc3e6dd168b6a1e2a7.png",
     "static/media/BG-interview1.png": "/portfolio/static/media/BG-interview1.f3e61afa6bbb33cfeff0.png",
     "static/media/imgportfolio.png": "/portfolio/static/media/imgportfolio.7d9031c99432f8322643.png",
-    "static/media/BG-interview.png": "/portfolio/static/media/BG-interview.0b60252843c07e8f78f6.png",
+    "static/media/BG-interview.png": "/portfolio/static/media/BG-interview.f303db7af2e52a4f4578.png",
     "static/media/imgmobileportfolio.png": "/portfolio/static/media/imgmobileportfolio.cf628f3e457032b5e007.png",
     "static/media/img1.png": "/portfolio/static/media/img1.49ce5a2757ba5b45b5ac.png",
     "static/media/logo123.png": "/portfolio/static/media/logo123.71610f15d7092e527d92.png",
@@ -43,11 +43,11 @@
     "static/media/slick.ttf": "/portfolio/static/media/slick.c94f7671dcc99dce43e2.ttf",
     "static/media/slick.woff": "/portfolio/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/portfolio/index.html",
-    "main.9d2fb7b4.css.map": "/portfolio/static/css/main.9d2fb7b4.css.map",
+    "main.41a8e35d.css.map": "/portfolio/static/css/main.41a8e35d.css.map",
     "main.3b8ecce3.js.map": "/portfolio/static/js/main.3b8ecce3.js.map"
   },
   "entrypoints": [
-    "static/css/main.9d2fb7b4.css",
+    "static/css/main.41a8e35d.css",
     "static/js/main.3b8ecce3.js"
   ]
 }
