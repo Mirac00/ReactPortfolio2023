@@ -35,7 +35,6 @@
 
 .services .article-section__header {
     width: 100%;
-    max-width: 800px;
     margin: 0 auto 1rem;
     text-align: center;
 }
@@ -78,6 +77,7 @@
 }
 .services p {
     text-align: left;
+    max-width: max-content;
 }
 /* Desktop styles */
 @media screen and (min-width: 992px) {
